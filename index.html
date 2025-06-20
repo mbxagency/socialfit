@@ -114,21 +114,6 @@
             margin: 20px 0;
         }
         
-        .insight-card {
-            background: linear-gradient(135deg, var(--socialfit-yellow) 0%, var(--socialfit-dark-yellow) 100%);
-            color: var(--socialfit-black);
-            border: none;
-        }
-        
-        .insight-card:hover {
-            background: linear-gradient(135deg, var(--socialfit-light-yellow) 0%, var(--socialfit-yellow) 100%);
-        }
-        
-        .table-container {
-            max-height: 400px;
-            overflow-y: auto;
-        }
-        
         .section-title {
             color: var(--socialfit-yellow);
             font-weight: bold;
@@ -147,14 +132,6 @@
             color: var(--socialfit-light-yellow) !important;
         }
         
-        /* Customização dos gráficos para cores da Social FIT */
-        .chart-container canvas {
-            background: rgba(26, 26, 26, 0.8);
-            border-radius: 10px;
-            padding: 10px;
-        }
-        
-        /* Tabelas customizadas */
         .table {
             color: white;
         }
@@ -174,84 +151,66 @@
             background: rgba(255, 215, 0, 0.1);
         }
         
-        /* Badges e elementos de destaque */
         .badge {
             background: var(--socialfit-yellow) !important;
             color: var(--socialfit-black) !important;
             font-weight: bold;
         }
         
-        /* Scrollbar customizada */
-        ::-webkit-scrollbar {
-            width: 8px;
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 5px;
         }
         
-        ::-webkit-scrollbar-track {
-            background: var(--socialfit-gray);
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: var(--socialfit-yellow);
-            border-radius: 4px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--socialfit-light-yellow);
-        }
-        
-        /* Animações */
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        .kpi-card:hover .kpi-value {
-            animation: pulse 1s infinite;
-        }
+        .status-success { background-color: #28a745; }
+        .status-warning { background-color: #ffc107; }
+        .status-error { background-color: #dc3545; }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Header -->
     <nav class="navbar navbar-expand-lg dashboard-header">
         <div class="container-fluid">
-            <span class="navbar-brand">Social FIT Data Intelligence</span>
+            <a class="navbar-brand" href="#">Social FIT Intelligence</a>
             <div class="navbar-nav ms-auto">
-                <span class="nav-link" id="last-update"></span>
+                <span class="navbar-text" id="last-update">Carregando...</span>
             </div>
         </div>
     </nav>
 
     <div class="container-fluid mt-4">
-        <!-- KPI Cards -->
+        <!-- KPIs Row -->
         <div class="row mb-4">
             <div class="col-md-3">
-                <div class="card kpi-card text-center">
-                    <div class="card-body">
+                <div class="card kpi-card">
+                    <div class="card-body text-center">
                         <h5 class="card-title">Total de Alunos</h5>
                         <div class="kpi-value" id="total-students">-</div>
                     </div>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="card kpi-card text-center">
-                    <div class="card-body">
-                        <h5 class="card-title">Planos Ativos</h5>
+                <div class="card kpi-card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Alunos Ativos</h5>
                         <div class="kpi-value" id="active-plans">-</div>
                     </div>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="card kpi-card text-center">
-                    <div class="card-body">
+                <div class="card kpi-card">
+                    <div class="card-body text-center">
                         <h5 class="card-title">Receita Mensal</h5>
                         <div class="kpi-value" id="monthly-revenue">-</div>
                     </div>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="card kpi-card text-center">
-                    <div class="card-body">
+                <div class="card kpi-card">
+                    <div class="card-body text-center">
                         <h5 class="card-title">Engajamento Médio</h5>
                         <div class="kpi-value" id="avg-engagement">-</div>
                     </div>
@@ -259,7 +218,7 @@
             </div>
         </div>
 
-        <!-- Charts Row 1 -->
+        <!-- Charts Row -->
         <div class="row mb-4">
             <div class="col-md-6">
                 <div class="card">
@@ -283,48 +242,14 @@
             </div>
         </div>
 
-        <!-- Charts Row 2 -->
+        <!-- Top Bairros Chart -->
         <div class="row mb-4">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="section-title">Top 10 Bairros</h5>
                         <div class="chart-container">
                             <canvas id="neighborhoodChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="section-title">Evolução do Engajamento</h5>
-                        <div class="chart-container">
-                            <canvas id="engagementChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Charts Row 3 -->
-        <div class="row mb-4">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="section-title">Top Hashtags</h5>
-                        <div class="chart-container">
-                            <canvas id="hashtagChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="section-title">Correlação: Engajamento vs Matrículas</h5>
-                        <div class="chart-container">
-                            <canvas id="correlationChart"></canvas>
                         </div>
                     </div>
                 </div>
@@ -336,26 +261,18 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="section-title">Top 10 Alunos por Engajamento</h5>
-                        <div class="table-container">
-                            <table class="table table-hover">
+                        <h5 class="section-title">Top Alunos</h5>
+                        <div class="table-responsive">
+                            <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Aluno</th>
+                                        <th>Nome</th>
                                         <th>Plano</th>
-                                        <th>Engajamento</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody id="top-students-table">
-                                    <tr>
-                                        <td colspan="3" class="text-center">
-                                            <div class="loading">
-                                                <div class="spinner-border" role="status">
-                                                    <span class="visually-hidden">Carregando...</span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    <tr><td colspan="3" class="text-center">Carregando...</td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -365,69 +282,18 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="section-title">Top Posts do Instagram</h5>
-                        <div class="table-container">
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Post</th>
-                                        <th>Likes</th>
-                                        <th>Comments</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="top-posts-table">
-                                    <tr>
-                                        <td colspan="3" class="text-center">
-                                            <div class="loading">
-                                                <div class="spinner-border" role="status">
-                                                    <span class="visually-hidden">Carregando...</span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <h5 class="section-title">Estatísticas Gerais</h5>
+                        <div id="stats-container">
+                            <p>Carregando estatísticas...</p>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Insights Row -->
-        <div class="row mb-4">
-            <div class="col-12">
-                <div class="card insight-card">
-                    <div class="card-body">
-                        <h5 class="section-title">💡 Insights Acionáveis</h5>
-                        <div id="insights-container">
-                            <div class="loading">
-                                <div class="spinner-border" role="status">
-                                    <span class="visually-hidden">Carregando insights...</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Mapa de Curitiba -->
-        <div class="row mb-4">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="section-title">Mapa de Curitiba - Distribuição dos Alunos</h5>
-                        <div id="curitiba-map" style="height: 400px; width: 100%; border-radius: 10px;"></div>
-                        <div id="map-status" class="mt-2 text-warning"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Leaflet CSS/JS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
         // Supabase Configuration
@@ -448,175 +314,113 @@
         // Chart.js Configuration
         Chart.defaults.color = '#ffd700';
         Chart.defaults.borderColor = '#ffd700';
-        Chart.defaults.plugins.legend.labels.color = '#ffd700';
 
         // Initialize Dashboard
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Iniciando dashboard...');
             loadDashboard();
-            updateLastUpdate();
-            loadCuritibaMap();
         });
 
         async function loadDashboard() {
             try {
-                await Promise.all([
-                    loadKPIs(),
-                    loadCharts(),
-                    loadTables(),
-                    loadInsights()
-                ]);
-            } catch (error) {
-                console.error('Erro ao carregar dashboard:', error);
-                showError('Erro ao carregar dados do dashboard');
-            }
-        }
-
-        async function loadKPIs() {
-            try {
-                console.log('🔍 Iniciando busca de dados dos alunos...');
-                const { data: students, error: studentsError } = await supabase.from('students').select('*');
+                console.log('📊 Carregando dados do dashboard...');
                 
-                console.log('📊 Resultado da consulta students:', { data: students, error: studentsError });
+                // Carregar dados dos alunos
+                const { data: students, error: studentsError } = await supabase
+                    .from('students')
+                    .select('*');
                 
                 if (studentsError) {
-                    console.error('❌ Erro ao buscar alunos:', studentsError);
-                    const totalStudentsEl = document.getElementById('total-students');
-                    const activePlansEl = document.getElementById('active-plans');
-                    const monthlyRevenueEl = document.getElementById('monthly-revenue');
-                    const avgEngagementEl = document.getElementById('avg-engagement');
-                    
-                    if (totalStudentsEl) totalStudentsEl.textContent = 'Erro';
-                    if (activePlansEl) activePlansEl.textContent = 'Erro';
-                    if (monthlyRevenueEl) monthlyRevenueEl.textContent = 'Erro';
-                    if (avgEngagementEl) avgEngagementEl.textContent = 'Erro';
+                    console.error('❌ Erro ao carregar alunos:', studentsError);
+                    showError('Erro ao carregar dados dos alunos');
                     return;
                 }
-                
-                if (!students || students.length === 0) {
-                    console.log('⚠️ Nenhum aluno encontrado na tabela');
-                    const totalStudentsEl = document.getElementById('total-students');
-                    const activePlansEl = document.getElementById('active-plans');
-                    const monthlyRevenueEl = document.getElementById('monthly-revenue');
-                    const avgEngagementEl = document.getElementById('avg-engagement');
-                    
-                    if (totalStudentsEl) totalStudentsEl.textContent = '0';
-                    if (activePlansEl) activePlansEl.textContent = '0';
-                    if (monthlyRevenueEl) monthlyRevenueEl.textContent = 'R$ 0';
-                    if (avgEngagementEl) avgEngagementEl.textContent = '0%';
-                    return;
-                }
-                
-                console.log(`✅ Encontrados ${students.length} alunos`);
-                const totalStudentsEl = document.getElementById('total-students');
-                if (totalStudentsEl) totalStudentsEl.textContent = students.length;
-                
-                const activePlans = students.filter(s => s.active_plan === true).length;
-                console.log(`📈 Alunos ativos: ${activePlans}`);
-                const activePlansEl = document.getElementById('active-plans');
-                if (activePlansEl) activePlansEl.textContent = activePlans;
-                
-                const monthlyRevenue = students.filter(s => s.active_plan === true).reduce((sum, s) => sum + (s.monthly_value || 0), 0);
-                console.log(`💰 Receita mensal: R$ ${monthlyRevenue}`);
-                const monthlyRevenueEl = document.getElementById('monthly-revenue');
-                if (monthlyRevenueEl) monthlyRevenueEl.textContent = `R$ ${monthlyRevenue.toLocaleString('pt-BR')}`;
-                
-                // Engajamento médio real da tabela analytics
-                console.log('🔍 Buscando dados de analytics...');
+
+                console.log(`✅ ${students.length} alunos carregados`);
+
+                // Carregar analytics
                 const { data: analytics, error: analyticsError } = await supabase
                     .from('analytics')
                     .select('metric_value')
                     .order('created_at', { ascending: false })
                     .limit(1);
-                
-                console.log('📊 Resultado da consulta analytics:', { data: analytics, error: analyticsError });
-                
+
                 if (analyticsError) {
-                    console.error('❌ Erro ao buscar analytics:', analyticsError);
-                    const avgEngagementEl = document.getElementById('avg-engagement');
-                    if (avgEngagementEl) avgEngagementEl.textContent = 'Erro';
-                } else if (!analytics || analytics.length === 0) {
-                    console.log('⚠️ Nenhum analytics encontrado');
-                    const avgEngagementEl = document.getElementById('avg-engagement');
-                    if (avgEngagementEl) avgEngagementEl.textContent = '0%';
+                    console.error('❌ Erro ao carregar analytics:', analyticsError);
                 } else {
-                    try {
-                        const metricValue = analytics[0].metric_value;
-                        console.log('📋 Metric value:', metricValue);
-                        
-                        if (typeof metricValue === 'string') {
-                            const parsedValue = JSON.parse(metricValue);
-                            if (parsedValue.instagram_analytics && parsedValue.instagram_analytics.average_engagement_rate) {
-                                const engagementRate = parsedValue.instagram_analytics.average_engagement_rate;
-                                const engagementPercent = (engagementRate * 100).toFixed(1);
-                                console.log(`📈 Engajamento médio: ${engagementPercent}%`);
-                                const avgEngagementEl = document.getElementById('avg-engagement');
-                                if (avgEngagementEl) avgEngagementEl.textContent = `${engagementPercent}%`;
-                            } else {
-                                console.log('⚠️ Estrutura de analytics não encontrada');
-                                const avgEngagementEl = document.getElementById('avg-engagement');
-                                if (avgEngagementEl) avgEngagementEl.textContent = '0%';
-                            }
-                        } else if (metricValue && metricValue.instagram_analytics) {
-                            const engagementRate = metricValue.instagram_analytics.average_engagement_rate;
-                            const engagementPercent = (engagementRate * 100).toFixed(1);
-                            console.log(`📈 Engajamento médio: ${engagementPercent}%`);
-                            const avgEngagementEl = document.getElementById('avg-engagement');
-                            if (avgEngagementEl) avgEngagementEl.textContent = `${engagementPercent}%`;
-                        } else {
-                            console.log('⚠️ Estrutura de analytics não encontrada');
-                            const avgEngagementEl = document.getElementById('avg-engagement');
-                            if (avgEngagementEl) avgEngagementEl.textContent = '0%';
-                        }
-                    } catch (parseError) {
-                        console.error('❌ Erro ao processar analytics:', parseError);
-                        const avgEngagementEl = document.getElementById('avg-engagement');
-                        if (avgEngagementEl) avgEngagementEl.textContent = 'Erro';
-                    }
+                    console.log(`✅ Analytics carregados: ${analytics.length} registros`);
                 }
+
+                // Atualizar KPIs
+                updateKPIs(students, analytics);
                 
+                // Criar gráficos
+                createCharts(students);
+                
+                // Atualizar tabelas
+                updateTables(students);
+                
+                // Atualizar timestamp
+                updateLastUpdate();
+
+                console.log('✅ Dashboard carregado com sucesso!');
+
             } catch (error) {
-                console.error('❌ Erro geral ao carregar KPIs:', error);
-                const totalStudentsEl = document.getElementById('total-students');
-                const activePlansEl = document.getElementById('active-plans');
-                const monthlyRevenueEl = document.getElementById('monthly-revenue');
-                const avgEngagementEl = document.getElementById('avg-engagement');
-                
-                if (totalStudentsEl) totalStudentsEl.textContent = 'Erro';
-                if (activePlansEl) activePlansEl.textContent = 'Erro';
-                if (monthlyRevenueEl) monthlyRevenueEl.textContent = 'Erro';
-                if (avgEngagementEl) avgEngagementEl.textContent = 'Erro';
+                console.error('❌ Erro geral:', error);
+                showError('Erro ao carregar dashboard');
             }
         }
 
-        async function loadCharts() {
-            try {
-                const { data: students, error: studentsError } = await supabase
-                    .from('students')
-                    .select('*');
-                
-                if (studentsError) throw studentsError;
+        function updateKPIs(students, analytics) {
+            console.log('📈 Atualizando KPIs...');
+            
+            // Total de alunos
+            const totalStudents = students.length;
+            document.getElementById('total-students').textContent = totalStudents;
+            console.log(`👥 Total de alunos: ${totalStudents}`);
 
-                // Plan Chart
-                createPlanChart(students);
-                
-                // Gender Chart
-                createGenderChart(students);
-                
-                // Neighborhood Chart
-                createNeighborhoodChart(students);
-                
-                // Engagement Chart (simulado)
-                createEngagementChart();
-                
-                // Hashtag Chart (simulado)
-                createHashtagChart();
-                
-                // Correlation Chart (simulado)
-                createCorrelationChart();
+            // Alunos ativos
+            const activePlans = students.filter(s => s.active_plan === true).length;
+            document.getElementById('active-plans').textContent = activePlans;
+            console.log(`✅ Alunos ativos: ${activePlans}`);
 
-            } catch (error) {
-                console.error('Erro ao carregar gráficos:', error);
+            // Receita mensal
+            const monthlyRevenue = students
+                .filter(s => s.active_plan === true)
+                .reduce((sum, s) => sum + (s.monthly_value || 0), 0);
+            document.getElementById('monthly-revenue').textContent = `R$ ${monthlyRevenue.toLocaleString('pt-BR')}`;
+            console.log(`💰 Receita mensal: R$ ${monthlyRevenue.toLocaleString('pt-BR')}`);
+
+            // Engajamento médio
+            let engagementRate = 0;
+            if (analytics && analytics.length > 0) {
+                try {
+                    const metricValue = analytics[0].metric_value;
+                    if (typeof metricValue === 'string') {
+                        const parsedValue = JSON.parse(metricValue);
+                        if (parsedValue.instagram_analytics && parsedValue.instagram_analytics.average_engagement_rate) {
+                            engagementRate = parsedValue.instagram_analytics.average_engagement_rate * 100;
+                        }
+                    }
+                } catch (e) {
+                    console.error('❌ Erro ao processar analytics:', e);
+                }
             }
+            document.getElementById('avg-engagement').textContent = `${engagementRate.toFixed(1)}%`;
+            console.log(`📊 Engajamento médio: ${engagementRate.toFixed(1)}%`);
+        }
+
+        function createCharts(students) {
+            console.log('📊 Criando gráficos...');
+            
+            // Gráfico de planos
+            createPlanChart(students);
+            
+            // Gráfico de gênero
+            createGenderChart(students);
+            
+            // Gráfico de bairros
+            createNeighborhoodChart(students);
         }
 
         function createPlanChart(students) {
@@ -627,10 +431,7 @@
             });
 
             const ctx = document.getElementById('planChart');
-            if (!ctx) {
-                console.error('❌ Elemento planChart não encontrado');
-                return;
-            }
+            if (!ctx) return;
 
             new Chart(ctx, {
                 type: 'doughnut',
@@ -667,15 +468,12 @@
         function createGenderChart(students) {
             const genderCounts = {};
             students.forEach(student => {
-                const gender = student.gender || 'Não informado';
+                const gender = student.gender === 'M' ? 'Masculino' : student.gender === 'F' ? 'Feminino' : 'Não informado';
                 genderCounts[gender] = (genderCounts[gender] || 0) + 1;
             });
 
             const ctx = document.getElementById('genderChart');
-            if (!ctx) {
-                console.error('❌ Elemento genderChart não encontrado');
-                return;
-            }
+            if (!ctx) return;
 
             new Chart(ctx, {
                 type: 'pie',
@@ -720,10 +518,7 @@
                 .slice(0, 10);
 
             const ctx = document.getElementById('neighborhoodChart');
-            if (!ctx) {
-                console.error('❌ Elemento neighborhoodChart não encontrado');
-                return;
-            }
+            if (!ctx) return;
 
             new Chart(ctx, {
                 type: 'bar',
@@ -771,276 +566,49 @@
             });
         }
 
-        function createEngagementChart() {
-            const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'];
-            const engagement = [85, 87, 89, 92, 88, 91];
+        function updateTables(students) {
+            console.log('📋 Atualizando tabelas...');
+            
+            // Top alunos
+            const topStudents = students
+                .filter(s => s.active_plan === true)
+                .slice(0, 10);
 
-            const ctx = document.getElementById('engagementChart');
-            if (!ctx) {
-                console.error('❌ Elemento engagementChart não encontrado');
-                return;
-            }
+            const topStudentsHtml = topStudents.map(student => `
+                <tr>
+                    <td>${student.name || 'N/A'}</td>
+                    <td><span class="badge">${student.plan_type || 'N/A'}</span></td>
+                    <td>
+                        <span class="status-indicator status-success"></span>
+                        Ativo
+                    </td>
+                </tr>
+            `).join('');
 
-            new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: months,
-                    datasets: [{
-                        label: 'Engajamento (%)',
-                        data: engagement,
-                        borderColor: socialfitColors.primary,
-                        backgroundColor: 'rgba(255, 215, 0, 0.1)',
-                        borderWidth: 3,
-                        fill: true,
-                        tension: 0.4
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            max: 100,
-                            ticks: {
-                                color: socialfitColors.primary
-                            },
-                            grid: {
-                                color: socialfitColors.gray
-                            }
-                        },
-                        x: {
-                            ticks: {
-                                color: socialfitColors.primary
-                            },
-                            grid: {
-                                color: socialfitColors.gray
-                            }
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            labels: {
-                                color: socialfitColors.primary
-                            }
-                        }
-                    }
-                }
-            });
-        }
+            document.getElementById('top-students-table').innerHTML = topStudentsHtml;
 
-        function createHashtagChart() {
-            const hashtags = ['#socialfit', '#academia', '#fitness', '#saude', '#treino'];
-            const performance = [95, 87, 92, 78, 85];
+            // Estatísticas gerais
+            const totalStudents = students.length;
+            const activeStudents = students.filter(s => s.active_plan === true).length;
+            const inactiveStudents = totalStudents - activeStudents;
+            const avgMonthlyValue = students
+                .filter(s => s.active_plan === true)
+                .reduce((sum, s) => sum + (s.monthly_value || 0), 0) / activeStudents || 0;
 
-            const ctx = document.getElementById('hashtagChart');
-            if (!ctx) {
-                console.error('❌ Elemento hashtagChart não encontrado');
-                return;
-            }
-
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: hashtags,
-                    datasets: [{
-                        label: 'Performance (%)',
-                        data: performance,
-                        backgroundColor: socialfitColors.primary,
-                        borderColor: socialfitColors.dark,
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    indexAxis: 'y',
-                    scales: {
-                        x: {
-                            beginAtZero: true,
-                            max: 100,
-                            ticks: {
-                                color: socialfitColors.primary
-                            },
-                            grid: {
-                                color: socialfitColors.gray
-                            }
-                        },
-                        y: {
-                            ticks: {
-                                color: socialfitColors.primary
-                            },
-                            grid: {
-                                color: socialfitColors.gray
-                            }
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            labels: {
-                                color: socialfitColors.primary
-                            }
-                        }
-                    }
-                }
-            });
-        }
-
-        function createCorrelationChart() {
-            const engagement = [85, 87, 89, 92, 88, 91, 94, 90, 93, 89];
-            const enrollments = [12, 15, 18, 22, 19, 25, 28, 24, 27, 23];
-
-            const ctx = document.getElementById('correlationChart');
-            if (!ctx) {
-                console.error('❌ Elemento correlationChart não encontrado');
-                return;
-            }
-
-            new Chart(ctx, {
-                type: 'scatter',
-                data: {
-                    datasets: [{
-                        label: 'Engajamento vs Matrículas',
-                        data: engagement.map((e, i) => ({
-                            x: e,
-                            y: enrollments[i]
-                        })),
-                        backgroundColor: socialfitColors.primary,
-                        borderColor: socialfitColors.dark,
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        x: {
-                            title: {
-                                display: true,
-                                text: 'Engajamento (%)',
-                                color: socialfitColors.primary
-                            },
-                            ticks: {
-                                color: socialfitColors.primary
-                            },
-                            grid: {
-                                color: socialfitColors.gray
-                            }
-                        },
-                        y: {
-                            title: {
-                                display: true,
-                                text: 'Novas Matrículas',
-                                color: socialfitColors.primary
-                            },
-                            ticks: {
-                                color: socialfitColors.primary
-                            },
-                            grid: {
-                                color: socialfitColors.gray
-                            }
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            labels: {
-                                color: socialfitColors.primary
-                            }
-                        }
-                    }
-                }
-            });
-        }
-
-        async function loadTables() {
-            try {
-                const { data: students, error: studentsError } = await supabase
-                    .from('students')
-                    .select('*')
-                    .order('created_at', { ascending: false })
-                    .limit(10);
-
-                if (studentsError) throw studentsError;
-
-                // Top Students Table
-                const topStudentsHtml = students.map(student => `
-                    <tr>
-                        <td>${student.name || 'N/A'}</td>
-                        <td><span class="badge">${student.plan_type || 'N/A'}</span></td>
-                        <td>${Math.floor(Math.random() * 20) + 80}%</td>
-                    </tr>
-                `).join('');
-
-                document.getElementById('top-students-table').innerHTML = topStudentsHtml;
-
-                // Top Posts Table (simulado)
-                const topPosts = [
-                    { caption: 'Treino de pernas 💪', likes: 245, comments: 18 },
-                    { caption: 'Dicas de alimentação 🥗', likes: 198, comments: 15 },
-                    { caption: 'Resultados dos alunos 🎯', likes: 312, comments: 25 },
-                    { caption: 'Motivação para hoje 🔥', likes: 167, comments: 12 },
-                    { caption: 'Novo equipamento 🏋️', likes: 189, comments: 14 }
-                ];
-
-                const topPostsHtml = topPosts.map(post => `
-                    <tr>
-                        <td>${post.caption}</td>
-                        <td>${post.likes}</td>
-                        <td>${post.comments}</td>
-                    </tr>
-                `).join('');
-
-                document.getElementById('top-posts-table').innerHTML = topPostsHtml;
-
-            } catch (error) {
-                console.error('Erro ao carregar tabelas:', error);
-            }
-        }
-
-        async function loadInsights() {
-            try {
-                const insights = [
-                    {
-                        icon: '📈',
-                        title: 'Crescimento Sustentável',
-                        description: 'Engajamento nas redes sociais aumentou 15% este mês, correlacionando com 22% mais matrículas.'
-                    },
-                    {
-                        icon: '🎯',
-                        title: 'Segmentação Eficaz',
-                        description: 'Posts com hashtag #socialfit têm 3x mais engajamento que posts sem hashtag.'
-                    },
-                    {
-                        icon: '💰',
-                        title: 'Receita Otimizada',
-                        description: 'Planos premium representam 65% da receita, com taxa de retenção de 92%.'
-                    },
-                    {
-                        icon: '👥',
-                        title: 'Comunidade Ativa',
-                        description: 'Top 3 bairros concentram 45% dos alunos, indicando forte presença local.'
-                    }
-                ];
-
-                const insightsHtml = insights.map(insight => `
-                    <div class="row mb-3">
-                        <div class="col-md-12">
-                            <div class="d-flex align-items-start">
-                                <div class="me-3" style="font-size: 2rem;">${insight.icon}</div>
-                                <div>
-                                    <h6 class="mb-1 fw-bold">${insight.title}</h6>
-                                    <p class="mb-0">${insight.description}</p>
-                                </div>
-                            </div>
-                        </div>
+            const statsHtml = `
+                <div class="row">
+                    <div class="col-6">
+                        <p><strong>Total de Alunos:</strong> ${totalStudents}</p>
+                        <p><strong>Alunos Ativos:</strong> ${activeStudents}</p>
                     </div>
-                `).join('');
+                    <div class="col-6">
+                        <p><strong>Alunos Inativos:</strong> ${inactiveStudents}</p>
+                        <p><strong>Valor Médio:</strong> R$ ${avgMonthlyValue.toFixed(2)}</p>
+                    </div>
+                </div>
+            `;
 
-                document.getElementById('insights-container').innerHTML = insightsHtml;
-
-            } catch (error) {
-                console.error('Erro ao carregar insights:', error);
-            }
+            document.getElementById('stats-container').innerHTML = statsHtml;
         }
 
         function updateLastUpdate() {
@@ -1062,71 +630,9 @@
 
         // Auto-refresh a cada 5 minutos
         setInterval(() => {
+            console.log('🔄 Atualizando dashboard...');
             loadDashboard();
-            updateLastUpdate();
         }, 5 * 60 * 1000);
-
-        async function loadCuritibaMap() {
-            try {
-                // Inicializa o mapa centrado em Curitiba
-                const map = L.map('curitiba-map').setView([-25.4284, -49.2733], 11);
-                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    attribution: '© OpenStreetMap contributors'
-                }).addTo(map);
-
-                // Busca bairros dos alunos
-                const { data: students, error } = await supabase.from('students').select('neighborhood');
-                if (error) {
-                    document.getElementById('map-status').textContent = 'Erro ao buscar bairros: ' + error.message;
-                    return;
-                }
-                if (!students || students.length === 0) {
-                    document.getElementById('map-status').textContent = 'Nenhum dado de bairro encontrado.';
-                    return;
-                }
-                // Contagem dos bairros
-                const bairros = {};
-                students.forEach(s => {
-                    if (s.neighborhood) {
-                        bairros[s.neighborhood] = (bairros[s.neighborhood] || 0) + 1;
-                    }
-                });
-                // Coordenadas aproximadas de bairros principais de Curitiba
-                const bairrosCoords = {
-                    'Centro': [-25.4294, -49.2719],
-                    'Batel': [-25.4411, -49.2768],
-                    'Água Verde': [-25.4487, -49.2765],
-                    'Portão': [-25.4702, -49.3031],
-                    'Santa Felicidade': [-25.3902, -49.3407],
-                    'Boqueirão': [-25.4942, -49.2476],
-                    'Cajuru': [-25.4422, -49.2097],
-                    'Pinheirinho': [-25.5352, -49.2957],
-                    'Uberaba': [-25.4842, -49.2222],
-                    'Hauer': [-25.4847, -49.2652],
-                    'Rebouças': [-25.4482, -49.2657],
-                    'Cristo Rei': [-25.4297, -49.2472],
-                    'Alto da XV': [-25.4197, -49.2472],
-                    'Juvevê': [-25.4052, -49.2472],
-                    'Cabral': [-25.3982, -49.2487]
-                };
-                let markers = 0;
-                Object.entries(bairros).forEach(([bairro, count]) => {
-                    if (bairrosCoords[bairro]) {
-                        L.marker(bairrosCoords[bairro])
-                            .addTo(map)
-                            .bindPopup(`<b>${bairro}</b><br>Alunos: ${count}`);
-                        markers++;
-                    }
-                });
-                if (markers === 0) {
-                    document.getElementById('map-status').textContent = 'Nenhum bairro conhecido encontrado para plotar no mapa.';
-                } else {
-                    document.getElementById('map-status').textContent = '';
-                }
-            } catch (e) {
-                document.getElementById('map-status').textContent = 'Erro ao carregar mapa: ' + e.message;
-            }
-        }
     </script>
 </body>
 </html> 
