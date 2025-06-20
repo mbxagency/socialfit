@@ -407,7 +407,24 @@
                 </div>
             </div>
         </div>
+
+        <!-- Mapa de Curitiba -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="section-title">Mapa de Curitiba - Distribuição dos Alunos</h5>
+                        <div id="curitiba-map" style="height: 400px; width: 100%; border-radius: 10px;"></div>
+                        <div id="map-status" class="mt-2 text-warning"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- Leaflet CSS/JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <script>
         // Supabase Configuration
@@ -434,6 +451,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             loadDashboard();
             updateLastUpdate();
+            loadCuritibaMap();
         });
 
         async function loadDashboard() {
@@ -452,33 +470,39 @@
 
         async function loadKPIs() {
             try {
-                // Total de alunos
-                const { data: students, error: studentsError } = await supabase
-                    .from('students')
-                    .select('*');
-                
-                if (studentsError) throw studentsError;
-                
+                const { data: students, error: studentsError } = await supabase.from('students').select('*');
+                if (studentsError) {
+                    console.error('Erro ao buscar alunos:', studentsError);
+                    document.getElementById('total-students').textContent = 'Erro';
+                    document.getElementById('active-plans').textContent = 'Erro';
+                    document.getElementById('monthly-revenue').textContent = 'Erro';
+                    document.getElementById('avg-engagement').textContent = 'Erro';
+                    return;
+                }
+                if (!students || students.length === 0) {
+                    document.getElementById('total-students').textContent = '0';
+                    document.getElementById('active-plans').textContent = '0';
+                    document.getElementById('monthly-revenue').textContent = '0';
+                    document.getElementById('avg-engagement').textContent = '0';
+                    document.getElementById('kpi-status').textContent = 'Nenhum dado encontrado na tabela de alunos.';
+                    return;
+                }
+                document.getElementById('kpi-status').textContent = '';
                 document.getElementById('total-students').textContent = students.length;
-
-                // Planos ativos
                 const activePlans = students.filter(s => s.status === 'Ativo').length;
                 document.getElementById('active-plans').textContent = activePlans;
-
-                // Receita mensal
-                const monthlyRevenue = students
-                    .filter(s => s.status === 'Ativo')
-                    .reduce((sum, s) => sum + (s.monthly_fee || 0), 0);
-                
-                document.getElementById('monthly-revenue').textContent = 
-                    `R$ ${monthlyRevenue.toLocaleString('pt-BR')}`;
-
-                // Engajamento médio (simulado)
-                const avgEngagement = Math.floor(Math.random() * 20) + 80; // 80-100%
-                document.getElementById('avg-engagement').textContent = `${avgEngagement}%`;
-
+                const monthlyRevenue = students.filter(s => s.status === 'Ativo').reduce((sum, s) => sum + (s.monthly_fee || 0), 0);
+                document.getElementById('monthly-revenue').textContent = `R$ ${monthlyRevenue.toLocaleString('pt-BR')}`;
+                // Engajamento médio real
+                const { data: analytics, error: analyticsError } = await supabase.from('analytics').select('engagement_rate').order('created_at', { ascending: false }).limit(1);
+                if (analyticsError || !analytics || analytics.length === 0) {
+                    document.getElementById('avg-engagement').textContent = '-';
+                } else {
+                    document.getElementById('avg-engagement').textContent = `${analytics[0].engagement_rate?.toFixed(1) || '-'}%`;
+                }
             } catch (error) {
                 console.error('Erro ao carregar KPIs:', error);
+                document.getElementById('kpi-status').textContent = 'Erro ao carregar KPIs.';
             }
         }
 
@@ -933,6 +957,68 @@
             loadDashboard();
             updateLastUpdate();
         }, 5 * 60 * 1000);
+
+        async function loadCuritibaMap() {
+            try {
+                // Inicializa o mapa centrado em Curitiba
+                const map = L.map('curitiba-map').setView([-25.4284, -49.2733], 11);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap contributors'
+                }).addTo(map);
+
+                // Busca bairros dos alunos
+                const { data: students, error } = await supabase.from('students').select('neighborhood');
+                if (error) {
+                    document.getElementById('map-status').textContent = 'Erro ao buscar bairros: ' + error.message;
+                    return;
+                }
+                if (!students || students.length === 0) {
+                    document.getElementById('map-status').textContent = 'Nenhum dado de bairro encontrado.';
+                    return;
+                }
+                // Contagem dos bairros
+                const bairros = {};
+                students.forEach(s => {
+                    if (s.neighborhood) {
+                        bairros[s.neighborhood] = (bairros[s.neighborhood] || 0) + 1;
+                    }
+                });
+                // Coordenadas aproximadas de bairros principais de Curitiba
+                const bairrosCoords = {
+                    'Centro': [-25.4294, -49.2719],
+                    'Batel': [-25.4411, -49.2768],
+                    'Água Verde': [-25.4487, -49.2765],
+                    'Portão': [-25.4702, -49.3031],
+                    'Santa Felicidade': [-25.3902, -49.3407],
+                    'Boqueirão': [-25.4942, -49.2476],
+                    'Cajuru': [-25.4422, -49.2097],
+                    'Pinheirinho': [-25.5352, -49.2957],
+                    'Uberaba': [-25.4842, -49.2222],
+                    'Hauer': [-25.4847, -49.2652],
+                    'Rebouças': [-25.4482, -49.2657],
+                    'Cristo Rei': [-25.4297, -49.2472],
+                    'Alto da XV': [-25.4197, -49.2472],
+                    'Juvevê': [-25.4052, -49.2472],
+                    'Cabral': [-25.3982, -49.2487]
+                };
+                let markers = 0;
+                Object.entries(bairros).forEach(([bairro, count]) => {
+                    if (bairrosCoords[bairro]) {
+                        L.marker(bairrosCoords[bairro])
+                            .addTo(map)
+                            .bindPopup(`<b>${bairro}</b><br>Alunos: ${count}`);
+                        markers++;
+                    }
+                });
+                if (markers === 0) {
+                    document.getElementById('map-status').textContent = 'Nenhum bairro conhecido encontrado para plotar no mapa.';
+                } else {
+                    document.getElementById('map-status').textContent = '';
+                }
+            } catch (e) {
+                document.getElementById('map-status').textContent = 'Erro ao carregar mapa: ' + e.message;
+            }
+        }
     </script>
 </body>
 </html> 
