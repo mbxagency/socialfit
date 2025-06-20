@@ -7,16 +7,6 @@
 
 > **Plataforma de Inteligência de Dados** que integra dados de ERP de academia com analytics de redes sociais para gerar insights de negócio acionáveis.
 
-## 🎯 Visão Geral
-
-O **Social FIT** é uma plataforma completa de ETL e Business Intelligence que:
-
-- 📊 **Processa dados** de estudantes e planos de academia
-- 📱 **Analisa métricas** do Instagram e redes sociais  
-- 🔗 **Correlaciona** engajamento social com matrículas
-- 📈 **Gera insights** acionáveis para o negócio
-- 🌐 **Dashboard interativo** acessível publicamente
-
 ## 🌐 Dashboard Público
 
 ### **🎯 Acesso Principal**
@@ -27,7 +17,7 @@ O **Social FIT** é uma plataforma completa de ETL e Business Intelligence que:
 - ✅ **Tempo real** - Dados do Supabase
 - ✅ **Responsivo** - Mobile, tablet, desktop
 - ✅ **Interativo** - Gráficos e tabelas dinâmicas
-- ✅ **Profissional** - Design moderno
+- ✅ **Profissional** - Design Social FIT (preto/amarelo)
 
 ### **📈 KPIs em Tempo Real**
 - Total de alunos
@@ -77,9 +67,8 @@ open https://murilobiss-dataeng.github.io/social_fit/
 ```
 social_fit/
 ├── 📊 index.html                 # Dashboard principal (GitHub Pages)
-├── 📊 dashboard/                 # Dashboard HTML interativo
-│   ├── dashboard.html           # Dashboard alternativo
-│   ├── index.html              # Redirecionamento
+├── 🏋️ socialfit_favicon.ico      # Favicon da academia
+├── 📊 dashboard/                 # Configurações do dashboard
 │   ├── config.py               # Configuração centralizada
 │   ├── setup_dashboard.py      # Script de setup
 │   └── README_DASHBOARD.md     # Documentação do dashboard
@@ -108,7 +97,7 @@ social_fit/
 ./scripts/deploy_dashboard.sh
 
 # Ou manualmente
-git add index.html dashboard/
+git add index.html
 git commit -m "Update dashboard"
 git push origin main
 ```
@@ -121,10 +110,8 @@ git push origin main
 5. Escolha **/ (root)** como pasta
 6. Clique **Save**
 
-### **URLs Disponíveis**
+### **URL do Dashboard**
 - **Principal**: https://murilobiss-dataeng.github.io/social_fit/
-- **Dashboard**: https://murilobiss-dataeng.github.io/social_fit/dashboard/dashboard.html
-- **Index**: https://murilobiss-dataeng.github.io/social_fit/index.html
 
 ## 🔧 Tecnologias
 

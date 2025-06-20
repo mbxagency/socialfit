@@ -37,21 +37,18 @@ https://murilobiss-dataeng.github.io/social_fit/
 ### **2. Configurar Actions (Opcional)**
 
 O workflow `.github/workflows/deploy.yml` já está configurado para:
-- Deploy automático quando `index.html` ou `dashboard/` é alterado
+- Deploy automático quando `index.html` é alterado
 - Build otimizado
 - Cache de dependências
 
 ## 📱 Acesso
 
-### **URLs Disponíveis**
-- **Principal**: `https://murilobiss-dataeng.github.io/social_fit/`
-- **Dashboard**: `https://murilobiss-dataeng.github.io/social_fit/dashboard/dashboard.html`
-- **Index**: `https://murilobiss-dataeng.github.io/social_fit/index.html`
+### **URL Principal**
+- **Dashboard**: `https://murilobiss-dataeng.github.io/social_fit/`
 
-### **Estrutura**
-- `index.html` (raiz) → Dashboard principal
-- `dashboard/dashboard.html` → Dashboard alternativo
-- `dashboard/index.html` → Redirecionamento
+### **Estrutura Simplificada**
+- `index.html` (raiz) → Dashboard principal com cores Social FIT
+- `socialfit_favicon.ico` → Favicon da academia
 
 ## 🔐 Segurança
 
@@ -72,7 +69,7 @@ O workflow `.github/workflows/deploy.yml` já está configurado para:
 - ✅ **Tempo real** - Dados do Supabase
 - ✅ **Responsivo** - Mobile, tablet, desktop
 - ✅ **Interativo** - Gráficos e tabelas dinâmicas
-- ✅ **Profissional** - Design moderno
+- ✅ **Profissional** - Design Social FIT (preto/amarelo)
 
 ### **KPIs em Tempo Real**
 - Total de alunos
@@ -86,13 +83,14 @@ O workflow `.github/workflows/deploy.yml` já está configurado para:
 - Top 10 bairros
 - Evolução do engajamento
 - Top hashtags
+- Correlação engajamento vs matrículas
 
 ## 🛠️ Manutenção
 
 ### **Atualizações**
 ```bash
 # 1. Faça alterações no dashboard
-git add index.html dashboard/dashboard.html
+git add index.html
 
 # 2. Commit e push
 git commit -m "Update dashboard"
@@ -129,10 +127,10 @@ git push origin main
 ## 📈 Próximos Passos
 
 1. ✅ **Deploy configurado**
-2. 🔄 **Monitoramento** - Métricas de acesso
-3. 🔄 **Melhorias** - Novas funcionalidades
-4. 🔄 **SEO** - Otimização para busca
-5. 🔄 **Analytics** - Google Analytics
+2. ✅ **Cores Social FIT** - Preto e amarelo
+3. ✅ **Favicon** - Logo da academia
+4. 🔄 **Monitoramento** - Métricas de acesso
+5. 🔄 **Melhorias** - Novas funcionalidades
 
 ---
 
