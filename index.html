@@ -470,7 +470,7 @@
 
         async function loadKPIs() {
             try {
-                const { data: students, error: studentsError } = await supabase.from('students').select('*');
+                const { data: students, error: studentsError } = await supabase.from('public.students').select('*');
                 if (studentsError) {
                     console.error('Erro ao buscar alunos:', studentsError);
                     document.getElementById('total-students').textContent = 'Erro';
@@ -494,7 +494,7 @@
                 const monthlyRevenue = students.filter(s => s.status === 'Ativo').reduce((sum, s) => sum + (s.monthly_fee || 0), 0);
                 document.getElementById('monthly-revenue').textContent = `R$ ${monthlyRevenue.toLocaleString('pt-BR')}`;
                 // Engajamento médio real
-                const { data: analytics, error: analyticsError } = await supabase.from('analytics').select('engagement_rate').order('created_at', { ascending: false }).limit(1);
+                const { data: analytics, error: analyticsError } = await supabase.from('public.analytics').select('engagement_rate').order('created_at', { ascending: false }).limit(1);
                 if (analyticsError || !analytics || analytics.length === 0) {
                     document.getElementById('avg-engagement').textContent = '-';
                 } else {
@@ -509,7 +509,7 @@
         async function loadCharts() {
             try {
                 const { data: students, error: studentsError } = await supabase
-                    .from('students')
+                    .from('public.students')
                     .select('*');
                 
                 if (studentsError) throw studentsError;
@@ -847,7 +847,7 @@
         async function loadTables() {
             try {
                 const { data: students, error: studentsError } = await supabase
-                    .from('students')
+                    .from('public.students')
                     .select('*')
                     .order('created_at', { ascending: false })
                     .limit(10);
@@ -967,7 +967,7 @@
                 }).addTo(map);
 
                 // Busca bairros dos alunos
-                const { data: students, error } = await supabase.from('students').select('neighborhood');
+                const { data: students, error } = await supabase.from('public.students').select('neighborhood');
                 if (error) {
                     document.getElementById('map-status').textContent = 'Erro ao buscar bairros: ' + error.message;
                     return;
