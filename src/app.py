@@ -17,8 +17,8 @@ from loguru import logger
 # Add src to Python path
 sys.path.insert(0, str(Path(__file__).parent))
 
-from etl import SocialFITETL
-from config import settings
+from src.etl import SocialFITETL
+from src.config import settings
 
 def setup_logging():
     """Setup logging configuration."""

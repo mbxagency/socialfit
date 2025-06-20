@@ -5,8 +5,8 @@ from loguru import logger
 from typing import List, Dict, Any
 import json
 
-from ..config import settings, credential_manager
-from ..models import Student, InstagramPost
+from ..config.config import settings, credential_manager
+from ..models.models import Student, InstagramPost
 
 class DatabaseManager:
     """Manages database connections and operations for Social FIT ETL."""
@@ -34,12 +34,11 @@ class DatabaseManager:
         logger.info("Database manager initialized successfully")
         
     def test_connection(self) -> bool:
-        """Test database connection."""
+        """Test database connectivity."""
         try:
-            # Test Supabase connection
-            schema_name = settings.DATABASE_SCHEMA
-            result = self.supabase.table(f"{schema_name}.students").select('*').limit(1).execute()
-            logger.info("✅ Supabase connection successful")
+            # Test Supabase connection by trying to access a simple table
+            result = self.supabase.table('students').select('id').limit(1).execute()
+            logger.info("✅ Database connection successful")
             return True
         except Exception as e:
             logger.error(f"❌ Database connection failed: {e}")
@@ -126,11 +125,50 @@ class DatabaseManager:
                 logger.warning(f"⚠️  Table '{table}' may not exist: {e}")
                 logger.info(f"Please create table '{table}' in your Supabase dashboard (schema: social_fit)")
     
-    def insert_students(self, students: List[Student]) -> bool:
-        """Insert students data into database."""
+    def check_student_exists(self, student: Student) -> bool:
+        """Check if a student already exists in the database."""
         try:
-            students_data = []
+            result = self.supabase.table('students').select('id').eq('name', student.name).eq('birth_date', student.birth_date.date().isoformat()).execute()
+            return len(result.data) > 0
+        except Exception as e:
+            logger.error(f"❌ Error checking student existence: {e}")
+            return False
+    
+    def check_instagram_post_exists(self, post: InstagramPost) -> bool:
+        """Check if an Instagram post already exists in the database."""
+        try:
+            result = self.supabase.table('instagram_posts').select('id').eq('post_date', post.date.date().isoformat()).eq('main_hashtag', post.main_hashtag).execute()
+            return len(result.data) > 0
+        except Exception as e:
+            logger.error(f"❌ Error checking Instagram post existence: {e}")
+            return False
+    
+    def check_analytics_exists(self, metric_name: str, date: str) -> bool:
+        """Check if analytics for a specific metric and date already exists."""
+        try:
+            result = self.supabase.table('analytics').select('id').eq('metric_name', metric_name).eq('date', date).execute()
+            return len(result.data) > 0
+        except Exception as e:
+            logger.error(f"❌ Error checking analytics existence: {e}")
+            return False
+    
+    def insert_students(self, students: List[Student]) -> bool:
+        """Insert students data into database with deduplication."""
+        try:
+            # Filter out existing students
+            new_students = []
             for student in students:
+                if not self.check_student_exists(student):
+                    new_students.append(student)
+                else:
+                    logger.debug(f"⏭️  Skipping existing student: {student.name}")
+            
+            if not new_students:
+                logger.info("ℹ️  No new students to insert (all already exist)")
+                return True
+            
+            students_data = []
+            for student in new_students:
                 students_data.append({
                     'name': str(student.name),
                     'gender': str(student.gender.value),
@@ -150,9 +188,9 @@ class DatabaseManager:
             for i in range(0, len(students_data), batch_size):
                 batch = students_data[i:i + batch_size]
                 result = self.supabase.table('students').insert(batch).execute()
-                logger.info(f"Inserted batch {i//batch_size + 1} of students")
+                logger.info(f"Inserted batch {i//batch_size + 1} of new students")
             
-            logger.info(f"✅ Inserted {len(students)} students successfully")
+            logger.info(f"✅ Inserted {len(new_students)} new students (skipped {len(students) - len(new_students)} existing)")
             return True
             
         except Exception as e:
@@ -160,10 +198,22 @@ class DatabaseManager:
             return False
     
     def insert_instagram_posts(self, posts: List[InstagramPost]) -> bool:
-        """Insert Instagram posts data into database."""
+        """Insert Instagram posts data into database with deduplication."""
         try:
-            posts_data = []
+            # Filter out existing posts
+            new_posts = []
             for post in posts:
+                if not self.check_instagram_post_exists(post):
+                    new_posts.append(post)
+                else:
+                    logger.debug(f"⏭️  Skipping existing post: {post.date.date()} - {post.main_hashtag}")
+            
+            if not new_posts:
+                logger.info("ℹ️  No new Instagram posts to insert (all already exist)")
+                return True
+            
+            posts_data = []
+            for post in new_posts:
                 engagement_rate = (post.likes + post.comments + post.saves) / post.reach if post.reach > 0 else 0
                 posts_data.append({
                     'post_date': post.date.date().isoformat(),
@@ -182,9 +232,9 @@ class DatabaseManager:
             for i in range(0, len(posts_data), batch_size):
                 batch = posts_data[i:i + batch_size]
                 result = self.supabase.table('instagram_posts').insert(batch).execute()
-                logger.info(f"Inserted batch {i//batch_size + 1} of Instagram posts")
+                logger.info(f"Inserted batch {i//batch_size + 1} of new Instagram posts")
             
-            logger.info(f"✅ Inserted {len(posts)} Instagram posts successfully")
+            logger.info(f"✅ Inserted {len(new_posts)} new Instagram posts (skipped {len(posts) - len(new_posts)} existing)")
             return True
             
         except Exception as e:
@@ -192,16 +242,28 @@ class DatabaseManager:
             return False
     
     def insert_analytics(self, analytics_data: Dict[str, Any]) -> bool:
-        """Insert analytics data into database."""
+        """Insert analytics data into database with deduplication."""
         try:
+            # Convert date to string if it's a date object
+            date_value = analytics_data.get('date')
+            if hasattr(date_value, 'isoformat'):
+                date_value = date_value.isoformat()
+            
+            metric_name = analytics_data.get('metric_name')
+            
+            # Check if analytics for this metric and date already exists
+            if self.check_analytics_exists(metric_name, date_value):
+                logger.info(f"ℹ️  Analytics for {metric_name} on {date_value} already exists, skipping")
+                return True
+            
             analytics_record = {
-                'date': analytics_data.get('date'),
-                'metric_name': analytics_data.get('metric_name'),
-                'metric_value': json.dumps(analytics_data.get('metric_value'))
+                'date': date_value,
+                'metric_name': metric_name,
+                'metric_value': json.dumps(analytics_data.get('metric_value'), default=str)
             }
             
             result = self.supabase.table('analytics').insert(analytics_record).execute()
-            logger.info(f"✅ Inserted analytics data: {analytics_data.get('metric_name')}")
+            logger.info(f"✅ Inserted analytics data: {metric_name}")
             return True
             
         except Exception as e:

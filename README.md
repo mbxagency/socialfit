@@ -1,401 +1,208 @@
-# Social FIT Data Intelligence Platform
+# 🏋️ Social FIT Data Intelligence Platform
 
-[![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen.svg)]()
-[![Tests](https://img.shields.io/badge/Tests-Passing-brightgreen.svg)]()
-[![Code Quality](https://img.shields.io/badge/Code%20Quality-A%2B-brightgreen.svg)]()
 
-A comprehensive ETL pipeline and analytics platform that integrates gym ERP data with social media analytics (Instagram) to generate actionable business insights for Social FIT.
+> **Plataforma de Inteligência de Dados** que integra dados de ERP de academia com analytics de redes sociais para gerar insights de negócio acionáveis.
 
-## 🎯 Overview
+## 🎯 Visão Geral
 
-Social FIT Data Intelligence Platform is a sophisticated data integration solution that combines:
-- **Student Management Data** (enrollments, plans, demographics)
-- **Instagram Analytics** (engagement, reach, follower growth)
-- **Cross-Platform Insights** (correlation analysis, revenue impact)
+O **Social FIT** é uma plataforma completa de ETL e Business Intelligence que:
 
-The platform provides real-time analytics and actionable insights to optimize marketing strategies and business performance.
+- 📊 **Processa dados** de estudantes e planos de academia
+- 📱 **Analisa métricas** do Instagram e redes sociais  
+- 🔗 **Correlaciona** engajamento social com matrículas
+- 📈 **Gera insights** acionáveis para o negócio
+- 🌐 **Dashboard interativo** acessível publicamente
 
-## 🏗️ Architecture
+## 🚀 Quick Start
+
+### 1. Setup do Projeto
+```bash
+# Clone o repositório
+git clone https://github.com/seu-usuario/social_fit.git
+cd social_fit
+
+# Instale dependências
+pip install -r requirements.txt
+
+# Configure credenciais
+cp env_example.txt .env
+# Edite .env com suas credenciais do Supabase
+```
+
+### 2. Execute o Pipeline ETL
+```bash
+# Execute o pipeline completo
+python main.py
+
+# Ou execute componentes individuais
+python -m src.etl.etl_pipeline
+```
+
+### 3. Acesse o Dashboard
+```bash
+# Configure o dashboard
+python dashboard/setup_dashboard.py
+
+# Abra o dashboard
+open dashboard/dashboard.html
+```
+
+## 📁 Estrutura do Projeto
 
 ```
 social_fit/
-├── src/                    # Main source code
-│   ├── etl/               # ETL pipeline components
-│   │   ├── __init__.py
-│   │   └── etl_pipeline.py
-│   ├── analytics/         # Analytics and insights engine
-│   │   ├── __init__.py
-│   │   └── analytics.py
-│   ├── database/          # Database management
-│   │   ├── __init__.py
-│   │   └── database.py
-│   ├── models/            # Data models and schemas
-│   │   ├── __init__.py
-│   │   └── models.py
-│   ├── config/            # Configuration management
-│   │   ├── __init__.py
-│   │   └── config.py
-│   ├── dashboard.py       # Web dashboard
-│   └── app.py            # Main application entry point
-├── tests/                 # Test suite
-│   ├── unit/             # Unit tests
-│   │   ├── test_models.py
-│   │   └── test_etl.py
-│   ├── integration/      # Integration tests
-│   │   ├── test_pipeline.py
-│   │   ├── test_database.py
-│   │   └── test_supabase_connection.py
-│   └── conftest.py       # Test configuration
-├── scripts/              # Utility scripts
-│   ├── create_tables_public_final.sql
-│   └── debug_tables.py
-├── docs/                 # Documentation
-│   ├── API.md
-│   ├── DEVELOPMENT.md
-│   └── DEPLOYMENT.md
-├── .github/workflows/    # CI/CD pipeline
-│   └── ci.yml
-├── data/                 # Data files
-├── logs/                 # Application logs
-├── main.py              # CLI entry point
-├── Makefile             # Development automation
-├── pyproject.toml       # Modern Python configuration
-├── requirements.txt     # Python dependencies
-└── README.md           # This file
+├── 📊 dashboard/                 # Dashboard HTML interativo
+│   ├── dashboard.html           # Dashboard principal
+│   ├── setup_dashboard.py       # Script de configuração
+│   └── README_DASHBOARD.md      # Documentação do dashboard
+├── 🗄️ metabase/                  # Metabase (alternativa)
+│   ├── metabase.jar            # Executável do Metabase
+│   ├── docker-compose.yml      # Configuração Docker
+│   ├── setup_metabase.sh       # Script de setup
+│   └── README_METABASE.md      # Documentação Metabase
+├── 🔧 src/                      # Código fonte principal
+│   ├── etl/                    # Pipeline ETL
+│   ├── analytics/              # Engine de analytics
+│   ├── database/               # Gerenciamento de banco
+│   ├── models/                 # Modelos de dados
+│   └── config/                 # Configurações
+├── 🧪 tests/                   # Testes automatizados
+├── 📚 docs/                    # Documentação técnica
+├── 🛠️ scripts/                 # Scripts utilitários
+└── 📋 data/                    # Dados de exemplo
 ```
 
-## 🚀 Features
+## 🌐 Dashboard Público
 
-### Core Functionality
-- **Automated ETL Pipeline** - Extract, transform, and load data from multiple sources
-- **Real-time Analytics** - Generate insights on student engagement and social media performance
-- **Cross-Platform Correlation** - Analyze relationships between gym data and social media metrics
-- **Actionable Insights** - Provide recommendations for business optimization
+### **Acesso Principal**
+- **URL**: `https://seu-usuario.github.io/social_fit/dashboard/dashboard.html`
+- **Tipo**: HTML interativo com Chart.js
+- **Acesso**: Público, sem login necessário
+- **Atualização**: Tempo real via Supabase
 
-### Data Processing
-- **Automatic Column Mapping** - Intelligent detection and mapping of CSV columns
-- **Data Validation** - Robust validation using Pydantic models
-- **Batch Processing** - Efficient handling of large datasets
-- **Error Handling** - Comprehensive error management and logging
+### **Funcionalidades**
+- 📊 **KPIs em tempo real** (alunos, receita, engajamento)
+- 📈 **Gráficos interativos** (pizza, barras, linha, scatter)
+- 📋 **Tabelas dinâmicas** (top alunos, posts)
+- 🎯 **Insights acionáveis** (gerados pelo pipeline)
+- 📱 **Responsivo** (desktop, tablet, mobile)
 
-### Analytics Capabilities
-- **Student Analytics** - Demographics, plan distribution, revenue analysis
-- **Instagram Analytics** - Engagement rates, content performance, follower growth
-- **Cross-Platform Insights** - Correlation analysis, optimal posting times, revenue impact
+## 🔧 Tecnologias
 
-### Development Features
-- **Modular Architecture** - Clean separation of concerns
-- **Comprehensive Testing** - Unit and integration tests
-- **Code Quality Tools** - Black, flake8, mypy, bandit
-- **CI/CD Pipeline** - Automated testing and deployment
-- **Documentation** - Complete API and development guides
+### **Backend**
+- **Python 3.9+** - Linguagem principal
+- **Pydantic** - Validação de dados
+- **Pandas** - Processamento de dados
+- **Supabase** - Banco de dados PostgreSQL
+- **Loguru** - Logging estruturado
 
-## 📋 Prerequisites
+### **Frontend**
+- **HTML5** - Estrutura do dashboard
+- **Bootstrap 5** - Framework CSS
+- **Chart.js** - Gráficos interativos
+- **Supabase JS** - Cliente JavaScript
 
-- Python 3.9 or higher
-- Supabase account and project
-- Access to Social FIT data sources
+### **DevOps**
+- **GitHub Actions** - CI/CD
+- **GitHub Pages** - Hospedagem do dashboard
+- **Docker** - Containerização (Metabase)
 
-## 🛠️ Quick Start
+## 📊 Dados Processados
 
-### 1. Clone and Setup
+### **Estudantes**
+- Informações pessoais e demográficas
+- Planos e valores de mensalidade
+- Status de atividade e Gympass
+- Distribuição por bairros
+
+### **Instagram**
+- Métricas de engajamento (likes, comments, saves)
+- Alcance e visitas ao perfil
+- Performance de hashtags
+- Novos seguidores
+
+### **Analytics**
+- Correlação entre redes sociais e matrículas
+- Insights acionáveis para o negócio
+- Métricas de performance
+- Tendências temporais
+
+## 🚀 Deploy
+
+### **Dashboard HTML (Recomendado)**
+```bash
+# 1. Configure credenciais
+python dashboard/setup_dashboard.py
+
+# 2. Commit e push
+git add dashboard/dashboard.html
+git commit -m "Update dashboard"
+git push origin main
+
+# 3. Configure GitHub Pages
+# Settings > Pages > Deploy from branch > main
+```
+
+### **Metabase (Alternativa)**
+```bash
+# Execute setup do Metabase
+cd metabase
+./setup_metabase_jar.sh
+
+# Acesse: http://localhost:3000
+```
+
+## 🧪 Testes
 
 ```bash
-# Clone the repository
-git clone https://github.com/your-username/social_fit.git
-cd social_fit
-
-# Quick setup (recommended for new developers)
-make quickstart
-```
-
-### 2. Manual Setup (Alternative)
-
-```bash
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
-pip install -e .[dev]
-
-# Configure environment
-cp env_example.txt .env
-# Edit .env with your Supabase credentials
-```
-
-### 3. Configure Environment
-
-Create a `.env` file with your credentials:
-
-```env
-# Supabase Configuration
-SUPABASE_URL=https://your-project.supabase.co
-SUPABASE_ANON_KEY=your-anon-key
-SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
-
-# Application Configuration
-DEBUG=True
-LOG_LEVEL=INFO
-BATCH_SIZE=100
-```
-
-### 4. Setup Database
-
-```bash
-# Run SQL script in Supabase SQL editor
-# Copy content from scripts/create_tables_public_final.sql
-```
-
-### 5. Run the Pipeline
-
-```bash
-# Run complete ETL pipeline
-make run
-
-# Or use Python directly
-python main.py
-```
-
-## 🚀 Usage
-
-### Development Commands
-
-```bash
-# Quick start for new developers
-make quickstart
-
-# Run ETL pipeline
-make run
-
-# Run tests
+# Execute todos os testes
 make test
 
-# Run specific test categories
-make test-unit
-make test-integration
-
-# Code quality
-make lint
-make format
-
-# Clean build artifacts
-make clean
-
-# Start dashboard
-make dashboard
-
-# View logs
-make logs
-```
-
-### Python Commands
-
-```bash
-# Run ETL pipeline
-python main.py
-
-# Run with options
-python main.py run          # Full pipeline
-python main.py incremental  # Incremental update
-python main.py test         # Test mode
-
-# Run tests
-pytest tests/
+# Testes unitários
 pytest tests/unit/
+
+# Testes de integração
 pytest tests/integration/
 
-# Run with coverage
-pytest --cov=src --cov-report=html
+# Testes específicos
+pytest tests/ -k "test_etl"
 ```
 
-### Docker Commands
+## 📚 Documentação
 
-```bash
-# Build and run with Docker
-make docker-build
-make docker-run
+- **[API Documentation](docs/API.md)** - Endpoints e integrações
+- **[Development Guide](docs/DEVELOPMENT.md)** - Guia de desenvolvimento
+- **[Dashboard Guide](dashboard/README_DASHBOARD.md)** - Configuração do dashboard
+- **[Metabase Guide](metabase/README_METABASE.md)** - Setup do Metabase
 
-# Stop Docker container
-make docker-stop
-```
+## 🔐 Segurança
 
-## 📊 Data Models
+- **Credenciais** gerenciadas via variáveis de ambiente
+- **Row Level Security** configurado no Supabase
+- **Chave anônima** usada no dashboard público
+- **HTTPS** obrigatório em produção
 
-### Student Model
-```python
-class Student(BaseModel):
-    id: int
-    name: str
-    gender: Gender
-    birth_date: datetime
-    address: str
-    neighborhood: str
-    plan_type: PlanType
-    gympass: bool
-    monthly_value: float
-    total_value: float
-    plan_start_date: datetime
-    active_plan: bool
-```
+## 🤝 Contribuição
 
-### Instagram Post Model
-```python
-class InstagramPost(BaseModel):
-    date: datetime
-    likes: int
-    comments: int
-    saves: int
-    reach: int
-    profile_visits: int
-    new_followers: int
-    main_hashtag: str
-```
+1. **Fork** o projeto
+2. **Crie** uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. **Commit** suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. **Push** para a branch (`git push origin feature/AmazingFeature`)
+5. **Abra** um Pull Request
 
-## 🔧 Development
+## 📄 Licença
 
-### Project Structure
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
 
-- **`src/etl/`** - ETL pipeline implementation
-- **`src/analytics/`** - Analytics engine and insights generation
-- **`src/database/`** - Database operations and management
-- **`src/models/`** - Data models and validation schemas
-- **`src/config/`** - Configuration management
-- **`tests/`** - Test suite with unit and integration tests
-- **`scripts/`** - Utility scripts for setup and maintenance
+## 📞 Suporte
 
-### Adding New Features
-
-1. Create feature branch: `git checkout -b feature/new-feature`
-2. Implement changes in appropriate module
-3. Add tests in `tests/` directory
-4. Update documentation
-5. Submit pull request
-
-### Code Style
-
-- Follow PEP 8 guidelines
-- Use type hints
-- Add docstrings to all functions and classes
-- Write comprehensive tests
-
-## 🧪 Testing
-
-### Test Structure
-
-```
-tests/
-├── unit/                 # Unit tests
-│   ├── test_etl.py      # ETL pipeline tests
-│   ├── test_analytics.py # Analytics tests
-│   └── test_models.py   # Model validation tests
-└── integration/         # Integration tests
-    ├── test_database.py # Database integration tests
-    └── test_pipeline.py # End-to-end pipeline tests
-```
-
-### Running Tests
-
-```bash
-# Run all tests
-make test
-
-# Run specific test categories
-make test-unit
-make test-integration
-
-# Run with coverage
-pytest --cov=src --cov-report=html
-
-# Run specific test file
-pytest tests/unit/test_etl.py
-
-# Run with verbose output
-pytest -v
-```
-
-## 📈 Analytics & Insights
-
-The platform generates comprehensive analytics including:
-
-### Student Analytics
-- Total and active student counts
-- Plan distribution analysis
-- Revenue metrics
-- Demographic insights
-
-### Instagram Analytics
-- Engagement rate calculations
-- Content performance metrics
-- Follower growth analysis
-- Hashtag effectiveness
-
-### Cross-Platform Insights
-- Correlation between social media and enrollments
-- Optimal posting times
-- Revenue impact analysis
-- Geographic insights
-
-## 🔒 Security
-
-- Environment variable management for sensitive data
-- Supabase Row Level Security (RLS)
-- Input validation and sanitization
-- Secure credential handling
-- Security scanning with bandit
-
-## 📝 Logging
-
-The application uses structured logging with Loguru:
-
-- **Console Output** - Colored, formatted logs
-- **File Logging** - Rotated log files in `logs/` directory
-- **Error Tracking** - Comprehensive error logging and monitoring
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests for new functionality
-5. Ensure all tests pass
-6. Submit a pull request
-
-### Development Guidelines
-
-- Follow the existing code style
-- Add comprehensive tests
-- Update documentation
-- Use meaningful commit messages
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🆘 Support
-
-For support and questions:
-
-- Create an issue in the GitHub repository
-- Contact the development team
-- Check the documentation in `docs/`
-
-## 🔄 Version History
-
-- **v1.0.0** - Initial release with ETL pipeline and analytics
-- **v1.1.0** - Added dashboard and enhanced analytics
-- **v1.2.0** - Improved error handling and performance
-- **v1.3.0** - Professional project structure and CI/CD
-
-## 🙏 Acknowledgments
-
-- Social FIT team for business requirements
-- Supabase for the backend infrastructure
-- Open source community for libraries and tools
+- **Issues**: [GitHub Issues](https://github.com/seu-usuario/social_fit/issues)
+- **Documentação**: [docs/](docs/)
+- **Dashboard**: [dashboard/](dashboard/)
 
 ---
 
-**Built with ❤️ for Social FIT**
+**🎉 Social FIT - Transformando dados em insights acionáveis para academias!**

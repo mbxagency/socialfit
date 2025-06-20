@@ -5,10 +5,10 @@ from typing import List, Dict, Any
 from loguru import logger
 import os
 
-from ..config import settings
-from ..models import Student, InstagramPost
-from ..database import DatabaseManager
-from ..analytics import AnalyticsEngine
+from src.config import settings
+from src.models import Student, InstagramPost
+from src.database import DatabaseManager
+from src.analytics import AnalyticsEngine
 
 class SocialFITETL:
     """Main ETL pipeline for Social FIT data integration."""

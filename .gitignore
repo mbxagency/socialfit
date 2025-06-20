@@ -409,4 +409,10 @@ coverage.xml
 .nox/
 
 # Development tools
-.pre-commit-config.yaml 
+.pre-commit-config.yaml
+
+# Metabase (not used in production)
+metabase/
+metabase.jar
+metabase.db.*
+metabase-data/ 
