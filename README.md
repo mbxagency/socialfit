@@ -3,7 +3,7 @@
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen.svg)]()
-[![Deploy](https://img.shields.io/badge/Deploy-GitHub%20Pages-blue.svg)](https://murilobiss-dataeng.github.io/social_fit/dashboard/)
+[![Deploy](https://img.shields.io/badge/Deploy-GitHub%20Pages-blue.svg)](https://murilobiss-dataeng.github.io/social_fit/)
 
 > **Plataforma de Inteligência de Dados** que integra dados de ERP de academia com analytics de redes sociais para gerar insights de negócio acionáveis.
 
@@ -20,7 +20,7 @@ O **Social FIT** é uma plataforma completa de ETL e Business Intelligence que:
 ## 🌐 Dashboard Público
 
 ### **🎯 Acesso Principal**
-**URL**: https://murilobiss-dataeng.github.io/social_fit/dashboard/
+**URL**: https://murilobiss-dataeng.github.io/social_fit/
 
 ### **📊 Funcionalidades**
 - ✅ **Acesso gratuito** - Sem login necessário
@@ -66,18 +66,19 @@ python -m src.etl.etl_pipeline
 python dashboard/setup_dashboard.py
 
 # Abra o dashboard localmente
-open dashboard/dashboard.html
+open index.html
 
 # Ou acesse online
-open https://murilobiss-dataeng.github.io/social_fit/dashboard/
+open https://murilobiss-dataeng.github.io/social_fit/
 ```
 
 ## 📁 Estrutura do Projeto
 
 ```
 social_fit/
+├── 📊 index.html                 # Dashboard principal (GitHub Pages)
 ├── 📊 dashboard/                 # Dashboard HTML interativo
-│   ├── dashboard.html           # Dashboard principal
+│   ├── dashboard.html           # Dashboard alternativo
 │   ├── index.html              # Redirecionamento
 │   ├── config.py               # Configuração centralizada
 │   ├── setup_dashboard.py      # Script de setup
@@ -107,7 +108,7 @@ social_fit/
 ./scripts/deploy_dashboard.sh
 
 # Ou manualmente
-git add dashboard/
+git add index.html dashboard/
 git commit -m "Update dashboard"
 git push origin main
 ```
@@ -121,9 +122,9 @@ git push origin main
 6. Clique **Save**
 
 ### **URLs Disponíveis**
-- **Principal**: https://murilobiss-dataeng.github.io/social_fit/dashboard/
+- **Principal**: https://murilobiss-dataeng.github.io/social_fit/
 - **Dashboard**: https://murilobiss-dataeng.github.io/social_fit/dashboard/dashboard.html
-- **Index**: https://murilobiss-dataeng.github.io/social_fit/dashboard/index.html
+- **Index**: https://murilobiss-dataeng.github.io/social_fit/index.html
 
 ## 🔧 Tecnologias
 
@@ -218,4 +219,4 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 
 **🎉 Social FIT - Transformando dados em insights acionáveis para academias!**
 
-**🌐 Dashboard Público**: https://murilobiss-dataeng.github.io/social_fit/dashboard/
+**🌐 Dashboard Público**: https://murilobiss-dataeng.github.io/social_fit/

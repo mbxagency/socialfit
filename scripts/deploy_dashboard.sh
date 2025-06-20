@@ -33,8 +33,8 @@ log_error() {
 }
 
 # Verificar se estamos no diretório correto
-if [ ! -f "dashboard/dashboard.html" ]; then
-    log_error "Dashboard não encontrado! Execute este script na raiz do projeto."
+if [ ! -f "index.html" ]; then
+    log_error "index.html não encontrado! Execute este script na raiz do projeto."
     exit 1
 fi
 
@@ -58,7 +58,7 @@ if [ -n "$(git status --porcelain)" ]; then
 fi
 
 # Verificar se as credenciais do Supabase estão configuradas
-if ! grep -q "SUPABASE_URL.*https://" dashboard/dashboard.html; then
+if ! grep -q "SUPABASE_URL.*https://" index.html; then
     log_warning "Credenciais do Supabase não configuradas!"
     log_info "Execute: python dashboard/setup_dashboard.py"
     exit 1
@@ -91,9 +91,9 @@ echo
 log_success "Deploy iniciado com sucesso!"
 echo
 echo "🌐 URLs do Dashboard:"
-echo "   Principal: https://murilobiss-dataeng.github.io/social_fit/dashboard/"
+echo "   Principal: https://murilobiss-dataeng.github.io/social_fit/"
 echo "   Dashboard: https://murilobiss-dataeng.github.io/social_fit/dashboard/dashboard.html"
-echo "   Index:     https://murilobiss-dataeng.github.io/social_fit/dashboard/index.html"
+echo "   Index:     https://murilobiss-dataeng.github.io/social_fit/index.html"
 echo
 echo "⏱️  Tempo estimado para deploy: 2-5 minutos"
 echo
@@ -111,7 +111,7 @@ echo
 
 # Verificar se o GitHub Pages está ativo
 log_info "Verificando status do GitHub Pages..."
-if curl -s -o /dev/null -w "%{http_code}" "https://murilobiss-dataeng.github.io/social_fit/dashboard/" | grep -q "200\|404"; then
+if curl -s -o /dev/null -w "%{http_code}" "https://murilobiss-dataeng.github.io/social_fit/" | grep -q "200\|404"; then
     log_success "GitHub Pages está respondendo!"
 else
     log_warning "GitHub Pages pode não estar ativo ainda."

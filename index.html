@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social FIT Data Intelligence Dashboard</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Supabase JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .dashboard-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .kpi-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+        }
+        
+        .kpi-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+        
+        .spinner-border {
+            width: 3rem;
+            height: 3rem;
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin: 20px 0;
+        }
+        
+        .insight-card {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+        }
+        
+        .table-container {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .section-title {
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            padding-left: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg dashboard-header">
+        <div class="container-fluid">
+            <span class="navbar-brand">🏋️ Social FIT Data Intelligence</span>
+            <div class="navbar-nav ms-auto">
+                <span class="nav-link" id="last-update"></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid mt-4">
+        <!-- KPI Cards -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card kpi-card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Total de Alunos</h5>
+                        <div class="kpi-value" id="total-students">-</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card kpi-card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Planos Ativos</h5>
+                        <div class="kpi-value" id="active-plans">-</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card kpi-card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Receita Mensal</h5>
+                        <div class="kpi-value" id="monthly-revenue">-</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card kpi-card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Engajamento Médio</h5>
+                        <div class="kpi-value" id="avg-engagement">-</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Row 1 -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="section-title">Distribuição por Plano</h5>
+                        <div class="chart-container">
+                            <canvas id="planChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="section-title">Distribuição por Gênero</h5>
+                        <div class="chart-container">
+                            <canvas id="genderChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Row 2 -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="section-title">Top 10 Bairros</h5>
+                        <div class="chart-container">
+                            <canvas id="neighborhoodChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="section-title">Evolução do Engajamento</h5>
+                        <div class="chart-container">
+                            <canvas id="engagementChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Row 3 -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="section-title">Top Hashtags</h5>
+                        <div class="chart-container">
+                            <canvas id="hashtagChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="section-title">Engajamento vs Alcance</h5>
+                        <div class="chart-container">
+                            <canvas id="scatterChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tables Row -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="section-title">Top Alunos (Receita)</h5>
+                        <div class="table-container">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Plano</th>
+                                        <th>Bairro</th>
+                                        <th>Valor Mensal</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="students-table">
+                                    <tr><td colspan="4" class="text-center">Carregando...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="section-title">Top Posts Instagram</h5>
+                        <div class="table-container">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Data</th>
+                                        <th>Hashtag</th>
+                                        <th>Likes</th>
+                                        <th>Engajamento</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="instagram-table">
+                                    <tr><td colspan="4" class="text-center">Carregando...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Insights Row -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card insight-card">
+                    <div class="card-body">
+                        <h5 class="section-title text-white">🎯 Insights Acionáveis</h5>
+                        <div id="insights-container">
+                            <div class="loading">
+                                <div class="spinner-border text-light" role="status">
+                                    <span class="visually-hidden">Carregando...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Supabase Configuration
+        const SUPABASE_URL = 'https://rwdydxswgmzdivriyarq.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ3ZHlkeHN3Z216ZGl2cml5YXJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA0Mzk0ODUsImV4cCI6MjA2NjAxNTQ4NX0.KDtZ0yacbHn0_kaUYYRzKctAZxtu_u1iGry9n6UwBRg';
+        
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        // Chart configurations
+        const chartColors = [
+            '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF',
+            '#FF9F40', '#FF6384', '#C9CBCF', '#4BC0C0', '#FF6384'
+        ];
+
+        // Initialize dashboard
+        async function initDashboard() {
+            try {
+                await loadKPIs();
+                await loadCharts();
+                await loadTables();
+                await loadInsights();
+                updateLastUpdate();
+            } catch (error) {
+                console.error('Error loading dashboard:', error);
+                showError('Erro ao carregar dados do dashboard');
+            }
+        }
+
+        // Load KPIs
+        async function loadKPIs() {
+            // Total Students
+            const { data: students } = await supabase
+                .from('students')
+                .select('*');
+            
+            document.getElementById('total-students').textContent = students?.length || 0;
+
+            // Active Plans
+            const activePlans = students?.filter(s => s.active_plan)?.length || 0;
+            document.getElementById('active-plans').textContent = activePlans;
+
+            // Monthly Revenue
+            const monthlyRevenue = students
+                ?.filter(s => s.active_plan)
+                ?.reduce((sum, s) => sum + parseFloat(s.monthly_value), 0) || 0;
+            document.getElementById('monthly-revenue').textContent = 
+                `R$ ${monthlyRevenue.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
+
+            // Average Engagement
+            const { data: instagramPosts } = await supabase
+                .from('instagram_posts')
+                .select('engagement_rate');
+            
+            const avgEngagement = instagramPosts
+                ?.reduce((sum, p) => sum + parseFloat(p.engagement_rate), 0) / instagramPosts?.length || 0;
+            document.getElementById('avg-engagement').textContent = 
+                `${(avgEngagement * 100).toFixed(2)}%`;
+        }
+
+        // Load Charts
+        async function loadCharts() {
+            await loadPlanChart();
+            await loadGenderChart();
+            await loadNeighborhoodChart();
+            await loadEngagementChart();
+            await loadHashtagChart();
+            await loadScatterChart();
+        }
+
+        // Plan Distribution Chart
+        async function loadPlanChart() {
+            const { data: students } = await supabase
+                .from('students')
+                .select('plan_type');
+
+            const planCounts = {};
+            students?.forEach(s => {
+                planCounts[s.plan_type] = (planCounts[s.plan_type] || 0) + 1;
+            });
+
+            new Chart(document.getElementById('planChart'), {
+                type: 'pie',
+                data: {
+                    labels: Object.keys(planCounts),
+                    datasets: [{
+                        data: Object.values(planCounts),
+                        backgroundColor: chartColors.slice(0, Object.keys(planCounts).length)
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+        }
+
+        // Gender Distribution Chart
+        async function loadGenderChart() {
+            const { data: students } = await supabase
+                .from('students')
+                .select('gender');
+
+            const genderCounts = {};
+            students?.forEach(s => {
+                genderCounts[s.gender] = (genderCounts[s.gender] || 0) + 1;
+            });
+
+            new Chart(document.getElementById('genderChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(genderCounts).map(g => g === 'M' ? 'Masculino' : 'Feminino'),
+                    datasets: [{
+                        data: Object.values(genderCounts),
+                        backgroundColor: ['#36A2EB', '#FF6384']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+        }
+
+        // Neighborhood Chart
+        async function loadNeighborhoodChart() {
+            const { data: students } = await supabase
+                .from('students')
+                .select('neighborhood');
+
+            const neighborhoodCounts = {};
+            students?.forEach(s => {
+                neighborhoodCounts[s.neighborhood] = (neighborhoodCounts[s.neighborhood] || 0) + 1;
+            });
+
+            const sortedNeighborhoods = Object.entries(neighborhoodCounts)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 10);
+
+            new Chart(document.getElementById('neighborhoodChart'), {
+                type: 'bar',
+                data: {
+                    labels: sortedNeighborhoods.map(n => n[0]),
+                    datasets: [{
+                        label: 'Número de Alunos',
+                        data: sortedNeighborhoods.map(n => n[1]),
+                        backgroundColor: '#4BC0C0'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        // Engagement Chart
+        async function loadEngagementChart() {
+            const { data: posts } = await supabase
+                .from('instagram_posts')
+                .select('post_date, engagement_rate')
+                .order('post_date');
+
+            const dates = posts?.map(p => new Date(p.post_date).toLocaleDateString('pt-BR')) || [];
+            const engagement = posts?.map(p => parseFloat(p.engagement_rate) * 100) || [];
+
+            new Chart(document.getElementById('engagementChart'), {
+                type: 'line',
+                data: {
+                    labels: dates,
+                    datasets: [{
+                        label: 'Taxa de Engajamento (%)',
+                        data: engagement,
+                        borderColor: '#FF6384',
+                        backgroundColor: 'rgba(255, 99, 132, 0.1)',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        // Hashtag Chart
+        async function loadHashtagChart() {
+            const { data: posts } = await supabase
+                .from('instagram_posts')
+                .select('main_hashtag, engagement_rate');
+
+            const hashtagPerformance = {};
+            posts?.forEach(p => {
+                if (!hashtagPerformance[p.main_hashtag]) {
+                    hashtagPerformance[p.main_hashtag] = [];
+                }
+                hashtagPerformance[p.main_hashtag].push(parseFloat(p.engagement_rate));
+            });
+
+            const avgPerformance = Object.entries(hashtagPerformance)
+                .map(([hashtag, rates]) => ({
+                    hashtag,
+                    avgEngagement: rates.reduce((a, b) => a + b, 0) / rates.length
+                }))
+                .sort((a, b) => b.avgEngagement - a.avgEngagement)
+                .slice(0, 10);
+
+            new Chart(document.getElementById('hashtagChart'), {
+                type: 'bar',
+                data: {
+                    labels: avgPerformance.map(h => h.hashtag),
+                    datasets: [{
+                        label: 'Engajamento Médio',
+                        data: avgPerformance.map(h => h.avgEngagement * 100),
+                        backgroundColor: '#9966FF'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        // Scatter Chart
+        async function loadScatterChart() {
+            const { data: posts } = await supabase
+                .from('instagram_posts')
+                .select('reach, engagement_rate, likes');
+
+            new Chart(document.getElementById('scatterChart'), {
+                type: 'scatter',
+                data: {
+                    datasets: [{
+                        label: 'Posts',
+                        data: posts?.map(p => ({
+                            x: p.reach,
+                            y: parseFloat(p.engagement_rate) * 100
+                        })) || [],
+                        backgroundColor: '#FF9F40'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Alcance'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Engajamento (%)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Load Tables
+        async function loadTables() {
+            await loadStudentsTable();
+            await loadInstagramTable();
+        }
+
+        // Students Table
+        async function loadStudentsTable() {
+            const { data: students } = await supabase
+                .from('students')
+                .select('name, plan_type, neighborhood, monthly_value')
+                .order('monthly_value', { ascending: false })
+                .limit(10);
+
+            const tbody = document.getElementById('students-table');
+            tbody.innerHTML = students?.map(s => `
+                <tr>
+                    <td>${s.name}</td>
+                    <td>${s.plan_type}</td>
+                    <td>${s.neighborhood}</td>
+                    <td>R$ ${parseFloat(s.monthly_value).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
+                </tr>
+            `).join('') || '<tr><td colspan="4" class="text-center">Nenhum dado disponível</td></tr>';
+        }
+
+        // Instagram Table
+        async function loadInstagramTable() {
+            const { data: posts } = await supabase
+                .from('instagram_posts')
+                .select('post_date, main_hashtag, likes, engagement_rate')
+                .order('engagement_rate', { ascending: false })
+                .limit(10);
+
+            const tbody = document.getElementById('instagram-table');
+            tbody.innerHTML = posts?.map(p => `
+                <tr>
+                    <td>${new Date(p.post_date).toLocaleDateString('pt-BR')}</td>
+                    <td>${p.main_hashtag}</td>
+                    <td>${p.likes}</td>
+                    <td>${(parseFloat(p.engagement_rate) * 100).toFixed(2)}%</td>
+                </tr>
+            `).join('') || '<tr><td colspan="4" class="text-center">Nenhum dado disponível</td></tr>';
+        }
+
+        // Load Insights
+        async function loadInsights() {
+            const { data: analytics } = await supabase
+                .from('analytics')
+                .select('metric_value')
+                .eq('metric_name', 'comprehensive_analytics')
+                .order('created_at', { ascending: false })
+                .limit(1);
+
+            const insightsContainer = document.getElementById('insights-container');
+            
+            if (analytics && analytics[0]) {
+                try {
+                    const analyticsData = JSON.parse(analytics[0].metric_value);
+                    const insights = analyticsData.actionable_insights || [];
+                    
+                    insightsContainer.innerHTML = insights.slice(0, 5).map((insight, index) => `
+                        <div class="alert alert-light mb-2">
+                            <strong>Insight #${index + 1}:</strong> ${insight}
+                        </div>
+                    `).join('');
+                } catch (error) {
+                    insightsContainer.innerHTML = '<div class="alert alert-warning">Erro ao carregar insights</div>';
+                }
+            } else {
+                insightsContainer.innerHTML = '<div class="alert alert-info">Nenhum insight disponível</div>';
+            }
+        }
+
+        // Update last update time
+        function updateLastUpdate() {
+            const now = new Date();
+            document.getElementById('last-update').textContent = 
+                `Última atualização: ${now.toLocaleString('pt-BR')}`;
+        }
+
+        // Show error message
+        function showError(message) {
+            const container = document.querySelector('.container-fluid');
+            container.insertAdjacentHTML('afterbegin', `
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    ${message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            `);
+        }
+
+        // Auto-refresh every 5 minutes
+        setInterval(initDashboard, 5 * 60 * 1000);
+
+        // Initialize dashboard when page loads
+        document.addEventListener('DOMContentLoaded', initDashboard);
+    </script>
+</body>
+</html> 

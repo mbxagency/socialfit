@@ -6,15 +6,15 @@ O dashboard está configurado para deploy automático no GitHub Pages.
 
 ### **URL do Dashboard**
 ```
-https://murilobiss-dataeng.github.io/social_fit/dashboard/
+https://murilobiss-dataeng.github.io/social_fit/
 ```
 
 ### **Configuração Automática**
 
 1. **GitHub Actions** - Deploy automático configurado
 2. **Branch** - `main`
-3. **Pasta** - `dashboard/`
-4. **Arquivo principal** - `dashboard.html`
+3. **Pasta** - `/ (root)`
+4. **Arquivo principal** - `index.html`
 
 ### **Como Funciona**
 
@@ -37,20 +37,21 @@ https://murilobiss-dataeng.github.io/social_fit/dashboard/
 ### **2. Configurar Actions (Opcional)**
 
 O workflow `.github/workflows/deploy.yml` já está configurado para:
-- Deploy automático quando `dashboard/` é alterado
+- Deploy automático quando `index.html` ou `dashboard/` é alterado
 - Build otimizado
 - Cache de dependências
 
 ## 📱 Acesso
 
 ### **URLs Disponíveis**
-- **Principal**: `https://murilobiss-dataeng.github.io/social_fit/dashboard/`
+- **Principal**: `https://murilobiss-dataeng.github.io/social_fit/`
 - **Dashboard**: `https://murilobiss-dataeng.github.io/social_fit/dashboard/dashboard.html`
-- **Index**: `https://murilobiss-dataeng.github.io/social_fit/dashboard/index.html`
+- **Index**: `https://murilobiss-dataeng.github.io/social_fit/index.html`
 
-### **Redirecionamento**
-- `index.html` → redireciona automaticamente para `dashboard.html`
-- Acesso direto ao `dashboard.html` também funciona
+### **Estrutura**
+- `index.html` (raiz) → Dashboard principal
+- `dashboard/dashboard.html` → Dashboard alternativo
+- `dashboard/index.html` → Redirecionamento
 
 ## 🔐 Segurança
 
@@ -91,7 +92,7 @@ O workflow `.github/workflows/deploy.yml` já está configurado para:
 ### **Atualizações**
 ```bash
 # 1. Faça alterações no dashboard
-git add dashboard/dashboard.html
+git add index.html dashboard/dashboard.html
 
 # 2. Commit e push
 git commit -m "Update dashboard"
@@ -120,7 +121,7 @@ git push origin main
 4. Teste no console do navegador
 
 ### **Erro 404**
-1. Verifique se o arquivo existe em `dashboard/`
+1. Verifique se o arquivo `index.html` existe na raiz
 2. Confirme o nome do arquivo
 3. Aguarde o deploy completar
 4. Force refresh (Ctrl+F5)
@@ -135,4 +136,4 @@ git push origin main
 
 ---
 
-**🎉 Dashboard público e acessível em: https://murilobiss-dataeng.github.io/social_fit/dashboard/** 
+**🎉 Dashboard público e acessível em: https://murilobiss-dataeng.github.io/social_fit/** 
