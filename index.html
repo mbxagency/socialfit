@@ -504,9 +504,13 @@
                 console.log(`💰 Receita mensal: R$ ${monthlyRevenue}`);
                 document.getElementById('monthly-revenue').textContent = `R$ ${monthlyRevenue.toLocaleString('pt-BR')}`;
                 
-                // Engajamento médio real
+                // Engajamento médio real da tabela analytics
                 console.log('🔍 Buscando dados de analytics...');
-                const { data: analytics, error: analyticsError } = await supabase.from('analytics').select('engagement_rate').order('created_at', { ascending: false }).limit(1);
+                const { data: analytics, error: analyticsError } = await supabase
+                    .from('analytics')
+                    .select('metric_value')
+                    .order('created_at', { ascending: false })
+                    .limit(1);
                 
                 console.log('📊 Resultado da consulta analytics:', { data: analytics, error: analyticsError });
                 
@@ -517,9 +521,23 @@
                     console.log('⚠️ Nenhum analytics encontrado');
                     document.getElementById('avg-engagement').textContent = '0%';
                 } else {
-                    const engagement = analytics[0].engagement_rate;
-                    console.log(`📈 Engajamento médio: ${engagement}%`);
-                    document.getElementById('avg-engagement').textContent = `${engagement?.toFixed(1) || '0'}%`;
+                    try {
+                        const metricValue = analytics[0].metric_value;
+                        console.log('📋 Metric value:', metricValue);
+                        
+                        if (metricValue && metricValue.instagram_analytics) {
+                            const engagementRate = metricValue.instagram_analytics.average_engagement_rate;
+                            const engagementPercent = (engagementRate * 100).toFixed(1);
+                            console.log(`📈 Engajamento médio: ${engagementPercent}%`);
+                            document.getElementById('avg-engagement').textContent = `${engagementPercent}%`;
+                        } else {
+                            console.log('⚠️ Estrutura de analytics não encontrada');
+                            document.getElementById('avg-engagement').textContent = '0%';
+                        }
+                    } catch (parseError) {
+                        console.error('❌ Erro ao processar analytics:', parseError);
+                        document.getElementById('avg-engagement').textContent = 'Erro';
+                    }
                 }
                 
             } catch (error) {
