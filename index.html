@@ -510,12 +510,12 @@
                 const totalStudentsEl = document.getElementById('total-students');
                 if (totalStudentsEl) totalStudentsEl.textContent = students.length;
                 
-                const activePlans = students.filter(s => s.status === 'Ativo').length;
+                const activePlans = students.filter(s => s.active_plan === true).length;
                 console.log(`📈 Alunos ativos: ${activePlans}`);
                 const activePlansEl = document.getElementById('active-plans');
                 if (activePlansEl) activePlansEl.textContent = activePlans;
                 
-                const monthlyRevenue = students.filter(s => s.status === 'Ativo').reduce((sum, s) => sum + (s.monthly_fee || 0), 0);
+                const monthlyRevenue = students.filter(s => s.active_plan === true).reduce((sum, s) => sum + (s.monthly_value || 0), 0);
                 console.log(`💰 Receita mensal: R$ ${monthlyRevenue}`);
                 const monthlyRevenueEl = document.getElementById('monthly-revenue');
                 if (monthlyRevenueEl) monthlyRevenueEl.textContent = `R$ ${monthlyRevenue.toLocaleString('pt-BR')}`;
@@ -543,7 +543,20 @@
                         const metricValue = analytics[0].metric_value;
                         console.log('📋 Metric value:', metricValue);
                         
-                        if (metricValue && metricValue.instagram_analytics) {
+                        if (typeof metricValue === 'string') {
+                            const parsedValue = JSON.parse(metricValue);
+                            if (parsedValue.instagram_analytics && parsedValue.instagram_analytics.average_engagement_rate) {
+                                const engagementRate = parsedValue.instagram_analytics.average_engagement_rate;
+                                const engagementPercent = (engagementRate * 100).toFixed(1);
+                                console.log(`📈 Engajamento médio: ${engagementPercent}%`);
+                                const avgEngagementEl = document.getElementById('avg-engagement');
+                                if (avgEngagementEl) avgEngagementEl.textContent = `${engagementPercent}%`;
+                            } else {
+                                console.log('⚠️ Estrutura de analytics não encontrada');
+                                const avgEngagementEl = document.getElementById('avg-engagement');
+                                if (avgEngagementEl) avgEngagementEl.textContent = '0%';
+                            }
+                        } else if (metricValue && metricValue.instagram_analytics) {
                             const engagementRate = metricValue.instagram_analytics.average_engagement_rate;
                             const engagementPercent = (engagementRate * 100).toFixed(1);
                             console.log(`📈 Engajamento médio: ${engagementPercent}%`);
@@ -609,7 +622,7 @@
         function createPlanChart(students) {
             const planCounts = {};
             students.forEach(student => {
-                const plan = student.plan || 'Sem Plano';
+                const plan = student.plan_type || 'Sem Plano';
                 planCounts[plan] = (planCounts[plan] || 0) + 1;
             });
 
@@ -953,7 +966,7 @@
                 const topStudentsHtml = students.map(student => `
                     <tr>
                         <td>${student.name || 'N/A'}</td>
-                        <td><span class="badge">${student.plan || 'N/A'}</span></td>
+                        <td><span class="badge">${student.plan_type || 'N/A'}</span></td>
                         <td>${Math.floor(Math.random() * 20) + 80}%</td>
                     </tr>
                 `).join('');
