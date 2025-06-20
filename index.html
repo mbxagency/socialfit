@@ -613,7 +613,7 @@
                 planCounts[plan] = (planCounts[plan] || 0) + 1;
             });
 
-            const ctx = document.getElementById('planChart').getContext('2d');
+            const ctx = document.getElementById('planChart');
             if (!ctx) {
                 console.error('❌ Elemento planChart não encontrado');
                 return;
@@ -658,7 +658,7 @@
                 genderCounts[gender] = (genderCounts[gender] || 0) + 1;
             });
 
-            const ctx = document.getElementById('genderChart').getContext('2d');
+            const ctx = document.getElementById('genderChart');
             if (!ctx) {
                 console.error('❌ Elemento genderChart não encontrado');
                 return;
@@ -706,7 +706,7 @@
                 .sort(([,a], [,b]) => b - a)
                 .slice(0, 10);
 
-            const ctx = document.getElementById('neighborhoodChart').getContext('2d');
+            const ctx = document.getElementById('neighborhoodChart');
             if (!ctx) {
                 console.error('❌ Elemento neighborhoodChart não encontrado');
                 return;
@@ -762,7 +762,7 @@
             const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'];
             const engagement = [85, 87, 89, 92, 88, 91];
 
-            const ctx = document.getElementById('engagementChart').getContext('2d');
+            const ctx = document.getElementById('engagementChart');
             if (!ctx) {
                 console.error('❌ Elemento engagementChart não encontrado');
                 return;
