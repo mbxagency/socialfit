@@ -3,6 +3,7 @@
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen.svg)]()
+[![Deploy](https://img.shields.io/badge/Deploy-GitHub%20Pages-blue.svg)](https://murilobiss-dataeng.github.io/social_fit/dashboard/)
 
 > **Plataforma de Inteligência de Dados** que integra dados de ERP de academia com analytics de redes sociais para gerar insights de negócio acionáveis.
 
@@ -16,12 +17,30 @@ O **Social FIT** é uma plataforma completa de ETL e Business Intelligence que:
 - 📈 **Gera insights** acionáveis para o negócio
 - 🌐 **Dashboard interativo** acessível publicamente
 
+## 🌐 Dashboard Público
+
+### **🎯 Acesso Principal**
+**URL**: https://murilobiss-dataeng.github.io/social_fit/dashboard/
+
+### **📊 Funcionalidades**
+- ✅ **Acesso gratuito** - Sem login necessário
+- ✅ **Tempo real** - Dados do Supabase
+- ✅ **Responsivo** - Mobile, tablet, desktop
+- ✅ **Interativo** - Gráficos e tabelas dinâmicas
+- ✅ **Profissional** - Design moderno
+
+### **📈 KPIs em Tempo Real**
+- Total de alunos
+- Planos ativos
+- Receita mensal
+- Engajamento médio
+
 ## 🚀 Quick Start
 
 ### 1. Setup do Projeto
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/social_fit.git
+git clone https://github.com/murilobiss-dataeng/social_fit.git
 cd social_fit
 
 # Instale dependências
@@ -46,8 +65,11 @@ python -m src.etl.etl_pipeline
 # Configure o dashboard
 python dashboard/setup_dashboard.py
 
-# Abra o dashboard
+# Abra o dashboard localmente
 open dashboard/dashboard.html
+
+# Ou acesse online
+open https://murilobiss-dataeng.github.io/social_fit/dashboard/
 ```
 
 ## 📁 Estrutura do Projeto
@@ -56,8 +78,10 @@ open dashboard/dashboard.html
 social_fit/
 ├── 📊 dashboard/                 # Dashboard HTML interativo
 │   ├── dashboard.html           # Dashboard principal
-│   ├── setup_dashboard.py       # Script de configuração
-│   └── README_DASHBOARD.md      # Documentação do dashboard
+│   ├── index.html              # Redirecionamento
+│   ├── config.py               # Configuração centralizada
+│   ├── setup_dashboard.py      # Script de setup
+│   └── README_DASHBOARD.md     # Documentação do dashboard
 ├── 🗄️ metabase/                  # Metabase (alternativa)
 │   ├── metabase.jar            # Executável do Metabase
 │   ├── docker-compose.yml      # Configuração Docker
@@ -75,20 +99,31 @@ social_fit/
 └── 📋 data/                    # Dados de exemplo
 ```
 
-## 🌐 Dashboard Público
+## 🚀 Deploy
 
-### **Acesso Principal**
-- **URL**: `https://seu-usuario.github.io/social_fit/dashboard/dashboard.html`
-- **Tipo**: HTML interativo com Chart.js
-- **Acesso**: Público, sem login necessário
-- **Atualização**: Tempo real via Supabase
+### **Deploy Automático (Recomendado)**
+```bash
+# Script de deploy automatizado
+./scripts/deploy_dashboard.sh
 
-### **Funcionalidades**
-- 📊 **KPIs em tempo real** (alunos, receita, engajamento)
-- 📈 **Gráficos interativos** (pizza, barras, linha, scatter)
-- 📋 **Tabelas dinâmicas** (top alunos, posts)
-- 🎯 **Insights acionáveis** (gerados pelo pipeline)
-- 📱 **Responsivo** (desktop, tablet, mobile)
+# Ou manualmente
+git add dashboard/
+git commit -m "Update dashboard"
+git push origin main
+```
+
+### **Configuração GitHub Pages**
+1. Vá para **Settings** do repositório
+2. Role até **Pages**
+3. Em **Source**, selecione **Deploy from a branch**
+4. Escolha **main** como branch
+5. Escolha **/ (root)** como pasta
+6. Clique **Save**
+
+### **URLs Disponíveis**
+- **Principal**: https://murilobiss-dataeng.github.io/social_fit/dashboard/
+- **Dashboard**: https://murilobiss-dataeng.github.io/social_fit/dashboard/dashboard.html
+- **Index**: https://murilobiss-dataeng.github.io/social_fit/dashboard/index.html
 
 ## 🔧 Tecnologias
 
@@ -130,31 +165,6 @@ social_fit/
 - Métricas de performance
 - Tendências temporais
 
-## 🚀 Deploy
-
-### **Dashboard HTML (Recomendado)**
-```bash
-# 1. Configure credenciais
-python dashboard/setup_dashboard.py
-
-# 2. Commit e push
-git add dashboard/dashboard.html
-git commit -m "Update dashboard"
-git push origin main
-
-# 3. Configure GitHub Pages
-# Settings > Pages > Deploy from branch > main
-```
-
-### **Metabase (Alternativa)**
-```bash
-# Execute setup do Metabase
-cd metabase
-./setup_metabase_jar.sh
-
-# Acesse: http://localhost:3000
-```
-
 ## 🧪 Testes
 
 ```bash
@@ -176,6 +186,7 @@ pytest tests/ -k "test_etl"
 - **[API Documentation](docs/API.md)** - Endpoints e integrações
 - **[Development Guide](docs/DEVELOPMENT.md)** - Guia de desenvolvimento
 - **[Dashboard Guide](dashboard/README_DASHBOARD.md)** - Configuração do dashboard
+- **[Deploy Guide](dashboard/DEPLOY.md)** - Guia de deploy
 - **[Metabase Guide](metabase/README_METABASE.md)** - Setup do Metabase
 
 ## 🔐 Segurança
@@ -199,10 +210,12 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 
 ## 📞 Suporte
 
-- **Issues**: [GitHub Issues](https://github.com/seu-usuario/social_fit/issues)
+- **Issues**: [GitHub Issues](https://github.com/murilobiss-dataeng/social_fit/issues)
 - **Documentação**: [docs/](docs/)
 - **Dashboard**: [dashboard/](dashboard/)
 
 ---
 
 **🎉 Social FIT - Transformando dados em insights acionáveis para academias!**
+
+**🌐 Dashboard Público**: https://murilobiss-dataeng.github.io/social_fit/dashboard/
