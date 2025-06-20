@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Social FIT Data Intelligence Dashboard</title>
     
     <!-- Bootstrap CSS -->
@@ -22,12 +22,14 @@
             min-height: 100vh;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #fff;
+            overflow-x: hidden;
         }
         
         .dashboard-header {
             background: rgba(26, 26, 26, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 3px solid #ffd700;
+            padding: 10px 0;
         }
         
         .card {
@@ -38,6 +40,7 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
             color: #fff;
+            margin-bottom: 20px;
         }
         
         .card:hover {
@@ -99,25 +102,174 @@
             border-left: 4px solid #ffd700;
             padding-left: 15px;
         }
+        
         .table {
             color: #fff;
         }
+        
         .table thead th {
             background: #ffd700;
             color: #1a1a1a;
             border-color: #ffb700;
             font-weight: bold;
         }
+        
         .table tbody tr {
             background: rgba(26, 26, 26, 0.7);
         }
+        
         .table tbody tr:hover {
             background: rgba(255, 215, 0, 0.1);
         }
+        
         .badge {
             background: #ffd700 !important;
             color: #1a1a1a !important;
             font-weight: bold;
+        }
+        
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .container-fluid {
+                padding: 10px;
+            }
+            
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+            
+            .kpi-value {
+                font-size: 2rem;
+            }
+            
+            .card-title {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.2rem;
+                margin-bottom: 15px;
+                padding-left: 10px;
+            }
+            
+            .chart-container {
+                height: 300px;
+                margin: 15px 0;
+            }
+            
+            .card {
+                margin-bottom: 15px;
+                border-radius: 10px;
+            }
+            
+            .card-body {
+                padding: 15px;
+            }
+            
+            .table-container {
+                max-height: 300px;
+            }
+            
+            .table {
+                font-size: 0.9rem;
+            }
+            
+            .table thead th {
+                font-size: 0.85rem;
+                padding: 8px 4px;
+            }
+            
+            .table tbody td {
+                padding: 8px 4px;
+            }
+            
+            .insight-card ul {
+                font-size: 1rem !important;
+                padding-left: 20px;
+            }
+            
+            .insight-card li {
+                margin-bottom: 10px;
+            }
+            
+            #curitiba-map {
+                height: 300px !important;
+            }
+            
+            .row {
+                margin-left: -5px;
+                margin-right: -5px;
+            }
+            
+            .col-md-3, .col-md-6, .col-12 {
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .kpi-value {
+                font-size: 1.8rem;
+            }
+            
+            .card-title {
+                font-size: 0.9rem;
+            }
+            
+            .section-title {
+                font-size: 1.1rem;
+            }
+            
+            .chart-container {
+                height: 250px;
+            }
+            
+            .table {
+                font-size: 0.8rem;
+            }
+            
+            .table thead th {
+                font-size: 0.8rem;
+                padding: 6px 2px;
+            }
+            
+            .table tbody td {
+                padding: 6px 2px;
+            }
+            
+            .insight-card ul {
+                font-size: 0.9rem !important;
+            }
+            
+            #curitiba-map {
+                height: 250px !important;
+            }
+            
+            .navbar-brand {
+                font-size: 1rem;
+            }
+        }
+        
+        /* Touch-friendly improvements */
+        @media (hover: none) and (pointer: coarse) {
+            .card:hover {
+                transform: none;
+            }
+            
+            .table tbody tr:hover {
+                background: rgba(26, 26, 26, 0.7);
+            }
+        }
+        
+        /* Landscape orientation adjustments */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .chart-container {
+                height: 200px;
+            }
+            
+            #curitiba-map {
+                height: 200px !important;
+            }
         }
     </style>
 </head>
@@ -135,7 +287,7 @@
     <div class="container-fluid mt-4">
         <!-- KPI Cards -->
         <div class="row mb-4">
-            <div class="col-md-3">
+            <div class="col-md-3 col-sm-6 mb-3">
                 <div class="card kpi-card text-center">
                     <div class="card-body">
                         <h5 class="card-title">Total de Alunos</h5>
@@ -143,7 +295,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-sm-6 mb-3">
                 <div class="card kpi-card text-center">
                     <div class="card-body">
                         <h5 class="card-title">Planos Ativos</h5>
@@ -151,7 +303,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-sm-6 mb-3">
                 <div class="card kpi-card text-center">
                     <div class="card-body">
                         <h5 class="card-title">Receita Mensal</h5>
@@ -159,7 +311,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-sm-6 mb-3">
                 <div class="card kpi-card text-center">
                     <div class="card-body">
                         <h5 class="card-title">Engajamento Médio</h5>
@@ -171,7 +323,7 @@
 
         <!-- Charts Row 1 -->
         <div class="row mb-4">
-            <div class="col-md-6">
+            <div class="col-lg-6 col-md-12 mb-3">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="section-title">Distribuição por Plano</h5>
@@ -181,7 +333,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-lg-6 col-md-12 mb-3">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="section-title">Distribuição por Gênero</h5>
@@ -195,7 +347,7 @@
 
         <!-- Charts Row 2 -->
         <div class="row mb-4">
-            <div class="col-md-6">
+            <div class="col-lg-6 col-md-12 mb-3">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="section-title">Top 10 Bairros</h5>
@@ -205,7 +357,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-lg-6 col-md-12 mb-3">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="section-title">Evolução do Engajamento</h5>
@@ -219,7 +371,7 @@
 
         <!-- Charts Row 3 -->
         <div class="row mb-4">
-            <div class="col-md-6">
+            <div class="col-lg-6 col-md-12 mb-3">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="section-title">Top Hashtags</h5>
@@ -229,7 +381,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-lg-6 col-md-12 mb-3">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="section-title">Engajamento vs Alcance</h5>
@@ -243,7 +395,7 @@
 
         <!-- Tables Row -->
         <div class="row mb-4">
-            <div class="col-md-6">
+            <div class="col-lg-6 col-md-12 mb-3">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="section-title">Top Alunos (Receita)</h5>
@@ -265,7 +417,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-lg-6 col-md-12 mb-3">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="section-title">Top Posts Instagram</h5>
