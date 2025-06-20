@@ -14,8 +14,8 @@ DEBUG=True
 LOG_LEVEL=INFO
 
 # Data Source Configuration
-STUDENTS_CSV_PATH=data/social_fit_students.csv
-INSTAGRAM_CSV_PATH=data/social_fit_instagram_en.csv
+STUDENTS_CSV_PATH=data/social_fit_alunos.csv
+INSTAGRAM_CSV_PATH=data/social_fit_instagram.csv
 
 # Analytics Configuration
 ANALYTICS_CACHE_TTL=3600

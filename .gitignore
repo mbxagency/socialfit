@@ -364,4 +364,49 @@ docker-compose.override.yml
 
 # Local development
 .local/
-local/ 
+local/
+
+# Project specific
+logs/
+*.log
+data/*.csv
+data/*.xlsx
+data/*.json
+reports/
+output/
+temp/
+tmp/
+
+# Supabase
+.supabase/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Credentials
+credentials.json
+service-account.json
+*.key
+*.pem
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Documentation builds
+docs/build/
+docs/_build/
+
+# Coverage reports
+htmlcov/
+.coverage
+coverage.xml
+
+# Test artifacts
+.pytest_cache/
+.tox/
+.nox/
+
+# Development tools
+.pre-commit-config.yaml 

@@ -5,8 +5,8 @@ from loguru import logger
 from typing import List, Dict, Any
 import json
 
-from config import settings, credential_manager
-from models import Student, InstagramPost
+from ..config import settings, credential_manager
+from ..models import Student, InstagramPost
 
 class DatabaseManager:
     """Manages database connections and operations for Social FIT ETL."""
@@ -21,10 +21,15 @@ class DatabaseManager:
         supabase_config = credential_manager.get_supabase_config()
         self.supabase: Client = create_client(supabase_config['url'], supabase_config['key'])
         
-        # Initialize SQLAlchemy engine if direct database access is needed
+        # Initialize SQLAlchemy engine only if DATABASE_URL is provided and valid
         self.engine = None
-        if settings.DATABASE_URL:
-            self.engine = create_engine(settings.DATABASE_URL)
+        if settings.DATABASE_URL and settings.DATABASE_URL.strip():
+            try:
+                self.engine = create_engine(settings.DATABASE_URL)
+                logger.info("SQLAlchemy engine initialized for direct database access")
+            except Exception as e:
+                logger.warning(f"Could not initialize SQLAlchemy engine: {e}")
+                self.engine = None
         
         logger.info("Database manager initialized successfully")
         
@@ -32,7 +37,8 @@ class DatabaseManager:
         """Test database connection."""
         try:
             # Test Supabase connection
-            result = self.supabase.table('students').select('count', count='exact').limit(1).execute()
+            schema_name = settings.DATABASE_SCHEMA
+            result = self.supabase.table(f"{schema_name}.students").select('*').limit(1).execute()
             logger.info("✅ Supabase connection successful")
             return True
         except Exception as e:
@@ -40,80 +46,85 @@ class DatabaseManager:
             return False
         
     def create_tables(self):
-        """Create necessary tables in Supabase."""
+        """Create necessary tables em Supabase schema 'social_fit' (apenas via SQLAlchemy se DATABASE_URL válido)."""
         try:
-            # Create students table
-            students_table_sql = """
-            CREATE TABLE IF NOT EXISTS students (
-                id SERIAL PRIMARY KEY,
-                name VARCHAR(255) NOT NULL,
-                gender VARCHAR(1) NOT NULL,
-                birth_date DATE NOT NULL,
-                address TEXT NOT NULL,
-                neighborhood VARCHAR(100) NOT NULL,
-                plan_type VARCHAR(20) NOT NULL,
-                gympass BOOLEAN DEFAULT FALSE,
-                monthly_value DECIMAL(10,2) NOT NULL,
-                total_value DECIMAL(10,2) NOT NULL,
-                plan_start_date DATE NOT NULL,
-                active_plan BOOLEAN DEFAULT TRUE,
-                created_at TIMESTAMP DEFAULT NOW(),
-                updated_at TIMESTAMP DEFAULT NOW()
-            );
-            """
-            
-            # Create Instagram posts table
-            instagram_table_sql = """
-            CREATE TABLE IF NOT EXISTS instagram_posts (
-                id SERIAL PRIMARY KEY,
-                post_date DATE NOT NULL,
-                likes INTEGER NOT NULL,
-                comments INTEGER NOT NULL,
-                saves INTEGER NOT NULL,
-                reach INTEGER NOT NULL,
-                profile_visits INTEGER NOT NULL,
-                new_followers INTEGER NOT NULL,
-                main_hashtag VARCHAR(100) NOT NULL,
-                engagement_rate DECIMAL(5,4),
-                created_at TIMESTAMP DEFAULT NOW()
-            );
-            """
-            
-            # Create analytics table
-            analytics_table_sql = """
-            CREATE TABLE IF NOT EXISTS analytics (
-                id SERIAL PRIMARY KEY,
-                date DATE NOT NULL,
-                metric_name VARCHAR(100) NOT NULL,
-                metric_value JSONB NOT NULL,
-                created_at TIMESTAMP DEFAULT NOW()
-            );
-            """
-            
-            # Execute table creation using Supabase
-            # Note: In Supabase, tables are typically created through the dashboard
-            # This is a fallback for programmatic creation
-            logger.info("Tables will be created through Supabase dashboard or migrations")
-            
+            schema_name = settings.DATABASE_SCHEMA
+            # Só tenta criar via engine se DATABASE_URL estiver preenchido
+            if settings.DATABASE_URL and self.engine:
+                # Create schema if it doesn't exist
+                create_schema_sql = f"""
+                CREATE SCHEMA IF NOT EXISTS {schema_name};
+                """
+                # Create students table in social_fit schema
+                students_table_sql = f"""
+                CREATE TABLE IF NOT EXISTS {schema_name}.students (
+                    id SERIAL PRIMARY KEY,
+                    name VARCHAR(255) NOT NULL,
+                    gender VARCHAR(1) NOT NULL,
+                    birth_date DATE NOT NULL,
+                    address TEXT NOT NULL,
+                    neighborhood VARCHAR(100) NOT NULL,
+                    plan_type VARCHAR(20) NOT NULL,
+                    gympass BOOLEAN DEFAULT FALSE,
+                    monthly_value DECIMAL(10,2) NOT NULL,
+                    total_value DECIMAL(10,2) NOT NULL,
+                    plan_start_date DATE NOT NULL,
+                    active_plan BOOLEAN DEFAULT TRUE,
+                    created_at TIMESTAMP DEFAULT NOW(),
+                    updated_at TIMESTAMP DEFAULT NOW()
+                );
+                """
+                # Create Instagram posts table in social_fit schema
+                instagram_table_sql = f"""
+                CREATE TABLE IF NOT EXISTS {schema_name}.instagram_posts (
+                    id SERIAL PRIMARY KEY,
+                    post_date DATE NOT NULL,
+                    likes INTEGER NOT NULL,
+                    comments INTEGER NOT NULL,
+                    saves INTEGER NOT NULL,
+                    reach INTEGER NOT NULL,
+                    profile_visits INTEGER NOT NULL,
+                    new_followers INTEGER NOT NULL,
+                    main_hashtag VARCHAR(100) NOT NULL,
+                    engagement_rate DECIMAL(5,4),
+                    created_at TIMESTAMP DEFAULT NOW()
+                );
+                """
+                # Create analytics table in social_fit schema
+                analytics_table_sql = f"""
+                CREATE TABLE IF NOT EXISTS {schema_name}.analytics (
+                    id SERIAL PRIMARY KEY,
+                    date DATE NOT NULL,
+                    metric_name VARCHAR(100) NOT NULL,
+                    metric_value JSONB NOT NULL,
+                    created_at TIMESTAMP DEFAULT NOW()
+                );
+                """
+                with self.engine.connect() as conn:
+                    conn.execute(text(create_schema_sql))
+                    conn.execute(text(students_table_sql))
+                    conn.execute(text(instagram_table_sql))
+                    conn.execute(text(analytics_table_sql))
+                    conn.commit()
+                logger.info(f"✅ Tables created in schema '{schema_name}'")
+            else:
+                logger.info(f"⚠️  Skipping direct database table creation (no valid DATABASE_URL)")
             # Test if tables exist
             self._ensure_tables_exist()
-            
         except Exception as e:
             logger.error(f"Error creating tables: {e}")
             raise
     
     def _ensure_tables_exist(self):
-        """Ensure required tables exist in the database."""
+        """Ensure required tables exist in the Supabase database (API: sem schema)."""
         required_tables = ['students', 'instagram_posts', 'analytics']
-        
         for table in required_tables:
             try:
-                # Try to select from table to check if it exists
                 self.supabase.table(table).select('*').limit(1).execute()
                 logger.info(f"✅ Table '{table}' exists")
             except Exception as e:
                 logger.warning(f"⚠️  Table '{table}' may not exist: {e}")
-                logger.info(f"Please create table '{table}' in your Supabase dashboard")
+                logger.info(f"Please create table '{table}' in your Supabase dashboard (schema: social_fit)")
     
     def insert_students(self, students: List[Student]) -> bool:
         """Insert students data into database."""
@@ -121,21 +132,21 @@ class DatabaseManager:
             students_data = []
             for student in students:
                 students_data.append({
-                    'name': student.name,
-                    'gender': student.gender.value,
-                    'birth_date': student.birth_date.date(),
-                    'address': student.address,
-                    'neighborhood': student.neighborhood,
-                    'plan_type': student.plan_type.value,
-                    'gympass': student.gympass,
+                    'name': str(student.name),
+                    'gender': str(student.gender.value),
+                    'birth_date': student.birth_date.date().isoformat(),
+                    'address': str(student.address),
+                    'neighborhood': str(student.neighborhood),
+                    'plan_type': str(student.plan_type.value),
+                    'gympass': bool(student.gympass),
                     'monthly_value': float(student.monthly_value),
                     'total_value': float(student.total_value),
-                    'plan_start_date': student.plan_start_date.date(),
-                    'active_plan': student.active_plan
+                    'plan_start_date': student.plan_start_date.date().isoformat(),
+                    'active_plan': bool(student.active_plan)
                 })
             
-            # Insert using Supabase with batch processing
             batch_size = settings.BATCH_SIZE
+            
             for i in range(0, len(students_data), batch_size):
                 batch = students_data[i:i + batch_size]
                 result = self.supabase.table('students').insert(batch).execute()
@@ -155,19 +166,19 @@ class DatabaseManager:
             for post in posts:
                 engagement_rate = (post.likes + post.comments + post.saves) / post.reach if post.reach > 0 else 0
                 posts_data.append({
-                    'post_date': post.date.date(),
-                    'likes': post.likes,
-                    'comments': post.comments,
-                    'saves': post.saves,
-                    'reach': post.reach,
-                    'profile_visits': post.profile_visits,
-                    'new_followers': post.new_followers,
-                    'main_hashtag': post.main_hashtag,
-                    'engagement_rate': round(engagement_rate, 4)
+                    'post_date': post.date.date().isoformat(),
+                    'likes': int(post.likes),
+                    'comments': int(post.comments),
+                    'saves': int(post.saves),
+                    'reach': int(post.reach),
+                    'profile_visits': int(post.profile_visits),
+                    'new_followers': int(post.new_followers),
+                    'main_hashtag': str(post.main_hashtag),
+                    'engagement_rate': float(engagement_rate)
                 })
             
-            # Insert using Supabase with batch processing
             batch_size = settings.BATCH_SIZE
+            
             for i in range(0, len(posts_data), batch_size):
                 batch = posts_data[i:i + batch_size]
                 result = self.supabase.table('instagram_posts').insert(batch).execute()
@@ -189,7 +200,6 @@ class DatabaseManager:
                 'metric_value': json.dumps(analytics_data.get('metric_value'))
             }
             
-            # Insert using Supabase
             result = self.supabase.table('analytics').insert(analytics_record).execute()
             logger.info(f"✅ Inserted analytics data: {analytics_data.get('metric_name')}")
             return True
@@ -238,7 +248,6 @@ class DatabaseManager:
         """Clear data from specified tables (use with caution)."""
         if table_names is None:
             table_names = ['students', 'instagram_posts', 'analytics']
-        
         for table in table_names:
             try:
                 self.supabase.table(table).delete().neq('id', 0).execute()

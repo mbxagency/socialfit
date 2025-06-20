@@ -5,10 +5,10 @@ from typing import List, Dict, Any
 from loguru import logger
 import os
 
-from config import settings
-from models import Student, InstagramPost
-from database import DatabaseManager
-from analytics import AnalyticsEngine
+from ..config import settings
+from ..models import Student, InstagramPost
+from ..database import DatabaseManager
+from ..analytics import AnalyticsEngine
 
 class SocialFITETL:
     """Main ETL pipeline for Social FIT data integration."""
@@ -50,8 +50,8 @@ class SocialFITETL:
             students_df['Data Início Plano'] = pd.to_datetime(students_df['Data Início Plano'])
             
             # Convert boolean columns
-            students_df['Gympass'] = students_df['Gympass'].map({'True': True, 'False': False})
-            students_df['Plano Ativo'] = students_df['Plano Ativo'].map({'True': True, 'False': False})
+            students_df['Gympass'] = students_df['Gympass'].apply(lambda x: str(x).strip().lower() == 'true')
+            students_df['Plano Ativo'] = students_df['Plano Ativo'].apply(lambda x: str(x).strip().lower() == 'true')
             
             # Convert to Pydantic models
             for _, row in students_df.iterrows():
@@ -80,7 +80,8 @@ class SocialFITETL:
             # Convert numeric columns
             numeric_columns = ['Likes', 'Comentários', 'Salvamentos', 'Alcance', 'Visitas ao Perfil', 'Novos Seguidores']
             for col in numeric_columns:
-                instagram_df[col] = pd.to_numeric(instagram_df[col], errors='coerce').fillna(0).astype(int)
+                instagram_df[col] = pd.to_numeric(instagram_df[col], errors='coerce')
+                instagram_df[col] = instagram_df[col].fillna(0).astype(int)
             
             # Convert to Pydantic models
             for _, row in instagram_df.iterrows():

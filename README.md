@@ -1,303 +1,324 @@
-# Social FIT Data Intelligence POC
+# Social FIT Data Intelligence Platform
 
-A comprehensive data intelligence Proof of Concept (POC) for Social FIT Condicionamento Físico LTDA, integrating gym ERP data with social media analytics to generate actionable business insights.
+[![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen.svg)]()
 
-## 🎯 Business Objectives
+A comprehensive ETL pipeline and analytics platform that integrates gym ERP data with social media analytics (Instagram) to generate actionable business insights for Social FIT.
 
-- **Convert social media engagement into gym enrollments**
-- **Identify target audiences** based on social media behavior
-- **Optimize content strategy** using data-driven insights
-- **Measure business impact** of social media campaigns
-- **Generate actionable insights** for business growth
+## 🎯 Overview
 
-## 🏗️ Architecture Overview
+Social FIT Data Intelligence Platform is a sophisticated data integration solution that combines:
+- **Student Management Data** (enrollments, plans, demographics)
+- **Instagram Analytics** (engagement, reach, follower growth)
+- **Cross-Platform Insights** (correlation analysis, revenue impact)
+
+The platform provides real-time analytics and actionable insights to optimize marketing strategies and business performance.
+
+## 🏗️ Architecture
 
 ```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Data Sources  │    │   ETL Pipeline  │    │   Analytics     │
-│                 │    │                 │    │                 │
-│ • Students CSV  │───▶│ • Data Loading  │───▶│ • Business      │
-│ • Instagram CSV │    │ • Transformation│    │   Intelligence  │
-│ • ERP Systems   │    │ • Loading       │    │ • Dashboards    │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-                                │
-                                ▼
-                       ┌─────────────────┐
-                       │   Supabase      │
-                       │   Database      │
-                       │                 │
-                       │ • PostgreSQL    │
-                       │ • Real-time     │
-                       │ • Secure        │
-                       └─────────────────┘
+social_fit/
+├── src/                    # Main source code
+│   ├── etl/               # ETL pipeline components
+│   ├── analytics/         # Analytics and insights engine
+│   ├── database/          # Database management
+│   ├── models/            # Data models and schemas
+│   ├── config/            # Configuration management
+│   ├── dashboard.py       # Web dashboard
+│   └── main.py           # Main application entry point
+├── tests/                 # Test suite
+│   ├── unit/             # Unit tests
+│   └── integration/      # Integration tests
+├── scripts/              # Utility scripts
+├── docs/                 # Documentation
+├── data/                 # Data files
+├── logs/                 # Application logs
+├── main.py              # CLI entry point
+└── requirements.txt     # Python dependencies
 ```
 
-## 🚀 Quick Start
+## 🚀 Features
 
-### Prerequisites
+### Core Functionality
+- **Automated ETL Pipeline** - Extract, transform, and load data from multiple sources
+- **Real-time Analytics** - Generate insights on student engagement and social media performance
+- **Cross-Platform Correlation** - Analyze relationships between gym data and social media metrics
+- **Actionable Insights** - Provide recommendations for business optimization
 
-- Python 3.8+
-- Supabase account
-- Git
+### Data Processing
+- **Automatic Column Mapping** - Intelligent detection and mapping of CSV columns
+- **Data Validation** - Robust validation using Pydantic models
+- **Batch Processing** - Efficient handling of large datasets
+- **Error Handling** - Comprehensive error management and logging
 
-### Installation
+### Analytics Capabilities
+- **Student Analytics** - Demographics, plan distribution, revenue analysis
+- **Instagram Analytics** - Engagement rates, content performance, follower growth
+- **Cross-Platform Insights** - Correlation analysis, optimal posting times, revenue impact
+
+## 📋 Prerequisites
+
+- Python 3.9 or higher
+- Supabase account and project
+- Access to Social FIT data sources
+
+## 🛠️ Installation
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/your-username/social_fit.git
    cd social_fit
    ```
 
-2. **Install dependencies**
+2. **Create virtual environment**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. **Install dependencies**
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Configure environment**
+4. **Configure environment**
    ```bash
    cp env_example.txt .env
    # Edit .env with your Supabase credentials
    ```
 
-4. **Initialize Supabase**
-   ```bash
-   python supabase_setup.py
-   ```
-
-5. **Run ETL Pipeline**
-   ```bash
-   python main.py
-   ```
-
-6. **Launch Dashboard**
-   ```bash
-   python dashboard.py
-   ```
-
-## 📁 Project Structure
-
-```
-social_fit/
-├── data/                          # Data files
-│   ├── social_fit_students.csv    # Student data
-│   └── social_fit_instagram_en.csv # Instagram analytics
-├── config.py                      # Configuration management
-├── models.py                      # Data models (Pydantic)
-├── database.py                    # Database operations
-├── etl_pipeline.py               # ETL orchestration
-├── analytics.py                  # Business intelligence
-├── dashboard.py                  # Interactive dashboard
-├── main.py                       # Main application
-├── supabase_setup.py            # Database initialization
-├── test_etl.py                  # Test suite
-├── requirements.txt              # Python dependencies
-├── setup.py                      # Project setup
-├── .env                          # Environment variables
-├── .gitignore                    # Git ignore rules
-└── README.md                     # This file
-```
-
-## 🔧 Configuration
+## ⚙️ Configuration
 
 ### Environment Variables
 
-Create a `.env` file based on `env_example.txt`:
+Create a `.env` file with the following variables:
 
-```bash
+```env
 # Supabase Configuration
-SUPABASE_URL=your_supabase_project_url
-SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
-SUPABASE_ANON_KEY=your_anon_key
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_ANON_KEY=your-anon-key
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 
-# Data Sources
-STUDENTS_CSV_PATH=data/social_fit_students.csv
-INSTAGRAM_CSV_PATH=data/social_fit_instagram_en.csv
+# Database Configuration (optional)
+DATABASE_URL=
 
-# Application Settings
+# Application Configuration
 DEBUG=True
 LOG_LEVEL=INFO
+BATCH_SIZE=100
+
+# Dashboard Configuration
+DASHBOARD_HOST=localhost
+DASHBOARD_PORT=8050
 ```
 
 ### Supabase Setup
 
-1. Create a Supabase project
-2. Get your project URL and API keys
-3. Update your `.env` file
-4. Run `python supabase_setup.py` to initialize tables
+1. Create a new Supabase project
+2. Execute the SQL script in `scripts/create_tables_public_final.sql`
+3. Configure Row Level Security (RLS) policies as needed
+
+## 🚀 Usage
+
+### Running the ETL Pipeline
+
+```bash
+# Run the complete ETL pipeline
+python main.py
+
+# Run with specific options
+python main.py run          # Full pipeline
+python main.py incremental  # Incremental update
+python main.py test         # Test mode
+```
+
+### Running Tests
+
+```bash
+# Run all tests
+python -m pytest tests/
+
+# Run specific test categories
+python -m pytest tests/unit/
+python -m pytest tests/integration/
+```
+
+### Running the Dashboard
+
+```bash
+python src/dashboard.py
+```
+
+Access the dashboard at `http://localhost:8050`
 
 ## 📊 Data Models
 
-### Student Data
-- **ID**: Unique identifier
-- **Name**: Student name
-- **Gender**: M/F
-- **Birth_Date**: Date of birth
-- **Address**: Full address
-- **Neighborhood**: Neighborhood
-- **Plan_Type**: Monthly/Quarterly/Annual
-- **Gympass**: Boolean flag
-- **Monthly_Value_USD**: Monthly plan value
-- **Total_Value_USD**: Total plan value
-- **Plan_Start_Date**: Plan start date
-- **Active_Plan**: Boolean flag
+### Student Model
+```python
+class Student(BaseModel):
+    id: int
+    name: str
+    gender: Gender
+    birth_date: datetime
+    address: str
+    neighborhood: str
+    plan_type: PlanType
+    gympass: bool
+    monthly_value: float
+    total_value: float
+    plan_start_date: datetime
+    active_plan: bool
+```
 
-### Instagram Data
-- **Date**: Post date
-- **Likes**: Number of likes
-- **Comments**: Number of comments
-- **Saves**: Number of saves
-- **Reach**: Post reach
-- **Profile_Visits**: Profile visits from post
-- **New_Followers**: New followers gained
-- **Main_Hashtag**: Primary hashtag used
+### Instagram Post Model
+```python
+class InstagramPost(BaseModel):
+    date: datetime
+    likes: int
+    comments: int
+    saves: int
+    reach: int
+    profile_visits: int
+    new_followers: int
+    main_hashtag: str
+```
 
-## 🔄 ETL Pipeline
+## 🔧 Development
 
-The ETL pipeline processes data through three main stages:
+### Project Structure
 
-### 1. Extract
-- Load CSV files from data sources
-- Validate data structure and types
-- Handle missing values and errors
+- **`src/etl/`** - ETL pipeline implementation
+- **`src/analytics/`** - Analytics engine and insights generation
+- **`src/database/`** - Database operations and management
+- **`src/models/`** - Data models and validation schemas
+- **`src/config/`** - Configuration management
+- **`tests/`** - Test suite with unit and integration tests
+- **`scripts/`** - Utility scripts for setup and maintenance
 
-### 2. Transform
-- Clean and standardize data
-- Calculate derived metrics
-- Apply business rules and transformations
+### Adding New Features
 
-### 3. Load
-- Insert data into Supabase tables
-- Handle duplicates and conflicts
-- Maintain data integrity
+1. Create feature branch: `git checkout -b feature/new-feature`
+2. Implement changes in appropriate module
+3. Add tests in `tests/` directory
+4. Update documentation
+5. Submit pull request
 
-## 📈 Analytics & Insights
+### Code Style
 
-### Key Metrics
-- **Engagement Rate**: (Likes + Comments) / Reach
-- **Conversion Rate**: New Followers / Profile Visits
-- **Revenue per Student**: Total Value / Number of Students
-- **Plan Distribution**: Monthly vs Quarterly vs Annual
-
-### Business Intelligence
-- **Audience Analysis**: Demographics and behavior patterns
-- **Content Performance**: Best performing hashtags and content types
-- **Revenue Optimization**: Plan type analysis and pricing insights
-- **Growth Forecasting**: Trend analysis and predictions
-
-## 🎛️ Dashboard Features
-
-### Interactive Visualizations
-- **Real-time Metrics**: Live updates of key performance indicators
-- **Engagement Analytics**: Social media performance tracking
-- **Revenue Dashboard**: Financial insights and trends
-- **Audience Insights**: Demographics and behavior analysis
-
-### Filtering & Drill-down
-- **Date Range Selection**: Custom time periods
-- **Plan Type Filtering**: Filter by subscription type
-- **Geographic Analysis**: Neighborhood-based insights
-- **Performance Comparison**: Before/after analysis
+- Follow PEP 8 guidelines
+- Use type hints
+- Add docstrings to all functions and classes
+- Write comprehensive tests
 
 ## 🧪 Testing
 
-Run the test suite to ensure data integrity:
+### Test Structure
 
-```bash
-python test_etl.py
+```
+tests/
+├── unit/                 # Unit tests
+│   ├── test_etl.py      # ETL pipeline tests
+│   ├── test_analytics.py # Analytics tests
+│   └── test_models.py   # Model validation tests
+└── integration/         # Integration tests
+    ├── test_database.py # Database integration tests
+    └── test_pipeline.py # End-to-end pipeline tests
 ```
 
-Tests cover:
-- Data validation
-- ETL pipeline functionality
-- Database operations
-- Analytics calculations
+### Running Tests
+
+```bash
+# Run all tests
+pytest
+
+# Run with coverage
+pytest --cov=src
+
+# Run specific test file
+pytest tests/unit/test_etl.py
+
+# Run with verbose output
+pytest -v
+```
+
+## 📈 Analytics & Insights
+
+The platform generates comprehensive analytics including:
+
+### Student Analytics
+- Total and active student counts
+- Plan distribution analysis
+- Revenue metrics
+- Demographic insights
+
+### Instagram Analytics
+- Engagement rate calculations
+- Content performance metrics
+- Follower growth analysis
+- Hashtag effectiveness
+
+### Cross-Platform Insights
+- Correlation between social media and enrollments
+- Optimal posting times
+- Revenue impact analysis
+- Geographic insights
 
 ## 🔒 Security
 
-### Credential Management
-- Environment variables for sensitive data
-- Secure credential loading
-- No hardcoded secrets
+- Environment variable management for sensitive data
+- Supabase Row Level Security (RLS)
+- Input validation and sanitization
+- Secure credential handling
 
-### Data Protection
-- Encrypted database connections
-- Secure API key handling
-- Access control and permissions
+## 📝 Logging
 
-## 📝 API Documentation
+The application uses structured logging with Loguru:
 
-### Database Operations
-```python
-from database import DatabaseManager
-
-# Initialize database
-db = DatabaseManager()
-
-# Insert student data
-db.insert_students(students_data)
-
-# Query analytics
-results = db.query_analytics()
-```
-
-### Analytics Functions
-```python
-from analytics import AnalyticsEngine
-
-# Initialize analytics
-analytics = AnalyticsEngine()
-
-# Get engagement metrics
-engagement = analytics.get_engagement_metrics()
-
-# Generate insights
-insights = analytics.generate_insights()
-```
-
-## 🚀 Deployment
-
-### Local Development
-```bash
-# Install dependencies
-pip install -r requirements.txt
-
-# Run development server
-python dashboard.py
-```
-
-### Production Deployment
-1. Set up production Supabase instance
-2. Configure production environment variables
-3. Set up monitoring and logging
-4. Deploy to cloud platform (Heroku, AWS, etc.)
+- **Console Output** - Colored, formatted logs
+- **File Logging** - Rotated log files in `logs/` directory
+- **Error Tracking** - Comprehensive error logging and monitoring
 
 ## 🤝 Contributing
 
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
-4. Add tests
-5. Submit a pull request
+4. Add tests for new functionality
+5. Ensure all tests pass
+6. Submit a pull request
+
+### Development Guidelines
+
+- Follow the existing code style
+- Add comprehensive tests
+- Update documentation
+- Use meaningful commit messages
 
 ## 📄 License
 
-This project is proprietary software for Social FIT Condicionamento Físico LTDA.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 📞 Support
+## 🆘 Support
 
-For technical support or questions:
-- Create an issue in the repository
+For support and questions:
+
+- Create an issue in the GitHub repository
 - Contact the development team
-- Check the documentation
+- Check the documentation in `docs/`
 
 ## 🔄 Version History
 
-- **v1.0.0**: Initial POC release
-  - Basic ETL pipeline
-  - Supabase integration
-  - Analytics dashboard
-  - Data models and validation
+- **v1.0.0** - Initial release with ETL pipeline and analytics
+- **v1.1.0** - Added dashboard and enhanced analytics
+- **v1.2.0** - Improved error handling and performance
+
+## 🙏 Acknowledgments
+
+- Social FIT team for business requirements
+- Supabase for the backend infrastructure
+- Open source community for libraries and tools
 
 ---
 
-**Social FIT Data Intelligence POC** - Transforming gym data into actionable business insights.
+**Built with ❤️ for Social FIT**

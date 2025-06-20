@@ -1,0 +1,57 @@
+-- Create schema if it doesn't exist
+CREATE SCHEMA IF NOT EXISTS social_fit;
+
+-- Create students table in social_fit schema
+CREATE TABLE IF NOT EXISTS social_fit.students (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    gender VARCHAR(1) NOT NULL,
+    birth_date DATE NOT NULL,
+    address TEXT NOT NULL,
+    neighborhood VARCHAR(100) NOT NULL,
+    plan_type VARCHAR(20) NOT NULL,
+    gympass BOOLEAN DEFAULT FALSE,
+    monthly_value DECIMAL(10,2) NOT NULL,
+    total_value DECIMAL(10,2) NOT NULL,
+    plan_start_date DATE NOT NULL,
+    active_plan BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP DEFAULT NOW(),
+    updated_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Create Instagram posts table in social_fit schema
+CREATE TABLE IF NOT EXISTS social_fit.instagram_posts (
+    id SERIAL PRIMARY KEY,
+    post_date DATE NOT NULL,
+    likes INTEGER NOT NULL,
+    comments INTEGER NOT NULL,
+    saves INTEGER NOT NULL,
+    reach INTEGER NOT NULL,
+    profile_visits INTEGER NOT NULL,
+    new_followers INTEGER NOT NULL,
+    main_hashtag VARCHAR(100) NOT NULL,
+    engagement_rate DECIMAL(5,4),
+    created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Create analytics table in social_fit schema
+CREATE TABLE IF NOT EXISTS social_fit.analytics (
+    id SERIAL PRIMARY KEY,
+    date DATE NOT NULL,
+    metric_name VARCHAR(100) NOT NULL,
+    metric_value JSONB NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Grant permissions to anon and service_role users
+GRANT USAGE ON SCHEMA social_fit TO anon, service_role;
+GRANT ALL ON ALL TABLES IN SCHEMA social_fit TO anon, service_role;
+GRANT ALL ON ALL SEQUENCES IN SCHEMA social_fit TO anon, service_role;
+
+-- Set default permissions for future tables
+ALTER DEFAULT PRIVILEGES IN SCHEMA social_fit GRANT ALL ON TABLES TO anon, service_role;
+ALTER DEFAULT PRIVILEGES IN SCHEMA social_fit GRANT ALL ON SEQUENCES TO anon, service_role;
+
+-- Set search_path for the anon and service_role users to include social_fit
+ALTER ROLE anon SET search_path TO social_fit, public;
+ALTER ROLE service_role SET search_path TO social_fit, public; 

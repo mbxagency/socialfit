@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
-from pydantic import BaseSettings, validator
+from pydantic_settings import BaseSettings
+from pydantic import validator
 from typing import Optional
 import base64
 import json
@@ -18,15 +19,17 @@ class Settings(BaseSettings):
     
     # Database Configuration
     DATABASE_URL: Optional[str] = None
+    DATABASE_SCHEMA: str = "social_fit"  # Schema for all tables
     
     # Data Paths
     DATA_DIR: str = "data"
-    STUDENTS_FILE: str = "social_fit_students.csv"
-    INSTAGRAM_FILE: str = "social_fit_instagram_en.csv"
+    STUDENTS_FILE: str = "social_fit_alunos.csv"
+    INSTAGRAM_FILE: str = "social_fit_instagram.csv"
     
     # Application Configuration
     DEBUG: bool = True
     LOG_LEVEL: str = "INFO"
+    BATCH_SIZE: int = 100
     
     # Analytics Configuration
     ANALYTICS_CACHE_TTL: int = 3600

@@ -1,10 +1,10 @@
 import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
-from typing import Dict, List, Any
+from typing import Dict, Any, List
 from loguru import logger
 
-from models import StudentAnalytics, InstagramAnalytics, CrossPlatformAnalytics
+from ..models import StudentAnalytics, InstagramAnalytics, CrossPlatformAnalytics
 
 class AnalyticsEngine:
     """Analytics engine for Social FIT data analysis."""
