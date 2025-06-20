@@ -477,32 +477,45 @@
                 
                 if (studentsError) {
                     console.error('❌ Erro ao buscar alunos:', studentsError);
-                    document.getElementById('total-students').textContent = 'Erro';
-                    document.getElementById('active-plans').textContent = 'Erro';
-                    document.getElementById('monthly-revenue').textContent = 'Erro';
-                    document.getElementById('avg-engagement').textContent = 'Erro';
+                    const totalStudentsEl = document.getElementById('total-students');
+                    const activePlansEl = document.getElementById('active-plans');
+                    const monthlyRevenueEl = document.getElementById('monthly-revenue');
+                    const avgEngagementEl = document.getElementById('avg-engagement');
+                    
+                    if (totalStudentsEl) totalStudentsEl.textContent = 'Erro';
+                    if (activePlansEl) activePlansEl.textContent = 'Erro';
+                    if (monthlyRevenueEl) monthlyRevenueEl.textContent = 'Erro';
+                    if (avgEngagementEl) avgEngagementEl.textContent = 'Erro';
                     return;
                 }
                 
                 if (!students || students.length === 0) {
                     console.log('⚠️ Nenhum aluno encontrado na tabela');
-                    document.getElementById('total-students').textContent = '0';
-                    document.getElementById('active-plans').textContent = '0';
-                    document.getElementById('monthly-revenue').textContent = 'R$ 0';
-                    document.getElementById('avg-engagement').textContent = '0%';
+                    const totalStudentsEl = document.getElementById('total-students');
+                    const activePlansEl = document.getElementById('active-plans');
+                    const monthlyRevenueEl = document.getElementById('monthly-revenue');
+                    const avgEngagementEl = document.getElementById('avg-engagement');
+                    
+                    if (totalStudentsEl) totalStudentsEl.textContent = '0';
+                    if (activePlansEl) activePlansEl.textContent = '0';
+                    if (monthlyRevenueEl) monthlyRevenueEl.textContent = 'R$ 0';
+                    if (avgEngagementEl) avgEngagementEl.textContent = '0%';
                     return;
                 }
                 
                 console.log(`✅ Encontrados ${students.length} alunos`);
-                document.getElementById('total-students').textContent = students.length;
+                const totalStudentsEl = document.getElementById('total-students');
+                if (totalStudentsEl) totalStudentsEl.textContent = students.length;
                 
                 const activePlans = students.filter(s => s.status === 'Ativo').length;
                 console.log(`📈 Alunos ativos: ${activePlans}`);
-                document.getElementById('active-plans').textContent = activePlans;
+                const activePlansEl = document.getElementById('active-plans');
+                if (activePlansEl) activePlansEl.textContent = activePlans;
                 
                 const monthlyRevenue = students.filter(s => s.status === 'Ativo').reduce((sum, s) => sum + (s.monthly_fee || 0), 0);
                 console.log(`💰 Receita mensal: R$ ${monthlyRevenue}`);
-                document.getElementById('monthly-revenue').textContent = `R$ ${monthlyRevenue.toLocaleString('pt-BR')}`;
+                const monthlyRevenueEl = document.getElementById('monthly-revenue');
+                if (monthlyRevenueEl) monthlyRevenueEl.textContent = `R$ ${monthlyRevenue.toLocaleString('pt-BR')}`;
                 
                 // Engajamento médio real da tabela analytics
                 console.log('🔍 Buscando dados de analytics...');
@@ -516,10 +529,12 @@
                 
                 if (analyticsError) {
                     console.error('❌ Erro ao buscar analytics:', analyticsError);
-                    document.getElementById('avg-engagement').textContent = 'Erro';
+                    const avgEngagementEl = document.getElementById('avg-engagement');
+                    if (avgEngagementEl) avgEngagementEl.textContent = 'Erro';
                 } else if (!analytics || analytics.length === 0) {
                     console.log('⚠️ Nenhum analytics encontrado');
-                    document.getElementById('avg-engagement').textContent = '0%';
+                    const avgEngagementEl = document.getElementById('avg-engagement');
+                    if (avgEngagementEl) avgEngagementEl.textContent = '0%';
                 } else {
                     try {
                         const metricValue = analytics[0].metric_value;
@@ -529,23 +544,31 @@
                             const engagementRate = metricValue.instagram_analytics.average_engagement_rate;
                             const engagementPercent = (engagementRate * 100).toFixed(1);
                             console.log(`📈 Engajamento médio: ${engagementPercent}%`);
-                            document.getElementById('avg-engagement').textContent = `${engagementPercent}%`;
+                            const avgEngagementEl = document.getElementById('avg-engagement');
+                            if (avgEngagementEl) avgEngagementEl.textContent = `${engagementPercent}%`;
                         } else {
                             console.log('⚠️ Estrutura de analytics não encontrada');
-                            document.getElementById('avg-engagement').textContent = '0%';
+                            const avgEngagementEl = document.getElementById('avg-engagement');
+                            if (avgEngagementEl) avgEngagementEl.textContent = '0%';
                         }
                     } catch (parseError) {
                         console.error('❌ Erro ao processar analytics:', parseError);
-                        document.getElementById('avg-engagement').textContent = 'Erro';
+                        const avgEngagementEl = document.getElementById('avg-engagement');
+                        if (avgEngagementEl) avgEngagementEl.textContent = 'Erro';
                     }
                 }
                 
             } catch (error) {
                 console.error('❌ Erro geral ao carregar KPIs:', error);
-                document.getElementById('total-students').textContent = 'Erro';
-                document.getElementById('active-plans').textContent = 'Erro';
-                document.getElementById('monthly-revenue').textContent = 'Erro';
-                document.getElementById('avg-engagement').textContent = 'Erro';
+                const totalStudentsEl = document.getElementById('total-students');
+                const activePlansEl = document.getElementById('active-plans');
+                const monthlyRevenueEl = document.getElementById('monthly-revenue');
+                const avgEngagementEl = document.getElementById('avg-engagement');
+                
+                if (totalStudentsEl) totalStudentsEl.textContent = 'Erro';
+                if (activePlansEl) activePlansEl.textContent = 'Erro';
+                if (monthlyRevenueEl) monthlyRevenueEl.textContent = 'Erro';
+                if (avgEngagementEl) avgEngagementEl.textContent = 'Erro';
             }
         }
 
@@ -588,6 +611,11 @@
             });
 
             const ctx = document.getElementById('planChart').getContext('2d');
+            if (!ctx) {
+                console.error('❌ Elemento planChart não encontrado');
+                return;
+            }
+
             new Chart(ctx, {
                 type: 'doughnut',
                 data: {
@@ -612,9 +640,7 @@
                             position: 'bottom',
                             labels: {
                                 color: socialfitColors.primary,
-                                font: {
-                                    size: 12
-                                }
+                                padding: 20
                             }
                         }
                     }
@@ -630,6 +656,11 @@
             });
 
             const ctx = document.getElementById('genderChart').getContext('2d');
+            if (!ctx) {
+                console.error('❌ Elemento genderChart não encontrado');
+                return;
+            }
+
             new Chart(ctx, {
                 type: 'pie',
                 data: {
@@ -653,9 +684,7 @@
                             position: 'bottom',
                             labels: {
                                 color: socialfitColors.primary,
-                                font: {
-                                    size: 12
-                                }
+                                padding: 20
                             }
                         }
                     }
@@ -675,6 +704,11 @@
                 .slice(0, 10);
 
             const ctx = document.getElementById('neighborhoodChart').getContext('2d');
+            if (!ctx) {
+                console.error('❌ Elemento neighborhoodChart não encontrado');
+                return;
+            }
+
             new Chart(ctx, {
                 type: 'bar',
                 data: {
@@ -726,6 +760,11 @@
             const engagement = [85, 87, 89, 92, 88, 91];
 
             const ctx = document.getElementById('engagementChart').getContext('2d');
+            if (!ctx) {
+                console.error('❌ Elemento engagementChart não encontrado');
+                return;
+            }
+
             new Chart(ctx, {
                 type: 'line',
                 data: {
@@ -778,9 +817,14 @@
             const hashtags = ['#socialfit', '#academia', '#fitness', '#saude', '#treino'];
             const performance = [95, 87, 92, 78, 85];
 
-            const ctx = document.getElementById('hashtagChart').getContext('2d');
+            const ctx = document.getElementById('hashtagChart');
+            if (!ctx) {
+                console.error('❌ Elemento hashtagChart não encontrado');
+                return;
+            }
+
             new Chart(ctx, {
-                type: 'horizontalBar',
+                type: 'bar',
                 data: {
                     labels: hashtags,
                     datasets: [{
@@ -830,7 +874,12 @@
             const engagement = [85, 87, 89, 92, 88, 91, 94, 90, 93, 89];
             const enrollments = [12, 15, 18, 22, 19, 25, 28, 24, 27, 23];
 
-            const ctx = document.getElementById('correlationChart').getContext('2d');
+            const ctx = document.getElementById('correlationChart');
+            if (!ctx) {
+                console.error('❌ Elemento correlationChart não encontrado');
+                return;
+            }
+
             new Chart(ctx, {
                 type: 'scatter',
                 data: {
