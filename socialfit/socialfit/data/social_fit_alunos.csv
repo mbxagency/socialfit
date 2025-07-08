@@ -1,0 +1,501 @@
+ID,Nome,Gênero,Data de Nascimento,Endereço,Bairro,Tipo_Plano,Gympass,Valor_Plano_Mensal (R$),Valor_Plano_Total (R$),Data Início Plano,Plano Ativo
+1,Thiago Nunes,M,1966-06-30,"Avenida Sete de Setembro, 456, Batel, Curitiba - PR",Jardim Social,Anual,False,109.9,1318.8,2023-12-26,False
+2,Nicole Cardoso,F,1996-09-01,"Rua XV de Novembro, 123, Centro, Curitiba - PR",Juvevê,Anual,False,109.9,1318.8,2024-03-15,True
+3,Lara Fogaça,F,2006-07-22,"Rua João Gualberto, 525, Juvevê, Curitiba - PR",Jardim Social,Trimestral,False,119.9,359.7,2025-03-20,False
+4,Carolina Viana,F,1965-09-19,"Rua Chile, 234, Rebouças, Curitiba - PR",Juvevê,Trimestral,False,119.9,359.7,2024-05-29,True
+5,Lucas Gabriel Sales,M,1992-06-21,"Avenida Iguaçu, 1020, Água Verde, Curitiba - PR",Jardim Social,Trimestral,False,119.9,359.7,2025-01-03,True
+6,Natália Almeida,F,1977-08-15,"Rua Dr. Faivre, 210, Centro, Curitiba - PR",Juvevê,Trimestral,False,119.9,359.7,2024-02-24,True
+7,Luna Jesus,F,2006-05-12,"Rua Bento Viana, 710, Batel, Curitiba - PR",Cabral,Mensal,False,129.9,129.9,2025-06-14,True
+8,Catarina das Neves,F,1997-11-27,"Rua Camões, 718, Hugo Lange, Curitiba - PR",Juvevê,Mensal,True,129.9,129.9,2024-02-24,True
+9,Emanuelly Teixeira,F,1966-11-13,"Rua Professor Brandão, 321, Alto da Glória, Curitiba - PR",Alto da Glória,Anual,False,109.9,1318.8,2024-06-13,True
+10,Ana Vitória Silveira,F,1969-05-16,"Rua Francisco Rocha, 55, Batel, Curitiba - PR",Jardim Social,Trimestral,True,119.9,359.7,2024-11-11,True
+11,Maria Cecília Sales,F,1973-01-03,"Rua Desembargador Westphalen, 654, Centro, Curitiba - PR",Juvevê,Trimestral,True,119.9,359.7,2025-01-23,True
+12,Alana Carvalho,F,1979-05-13,"Rua João Gualberto, 525, Juvevê, Curitiba - PR",Cabral,Anual,False,109.9,1318.8,2024-07-31,True
+13,Maria Fernanda Fernandes,F,1989-07-21,"Rua João Gualberto, 525, Juvevê, Curitiba - PR",Alto da Glória,Anual,False,109.9,1318.8,2024-12-25,True
+14,Dr. Leandro Correia,M,1994-01-06,"Rua João Gualberto, 525, Juvevê, Curitiba - PR",Hugo Lange,Anual,False,109.9,1318.8,2024-07-20,True
+15,Sr. Calebe Porto,M,1979-10-20,"Rua João Gualberto, 525, Juvevê, Curitiba - PR",Jardim Social,Mensal,False,129.9,129.9,2024-03-19,True
+16,Helena Ribeiro,F,1964-09-01,"Rua Chile, 234, Rebouças, Curitiba - PR",Juvevê,Trimestral,False,119.9,359.7,2024-11-27,True
+17,Luiz Fernando Martins,M,1972-12-06,"Rua Monsenhor Celso, 120, Centro, Curitiba - PR",Juvevê,Mensal,False,129.9,129.9,2024-06-20,True
+18,Lívia Melo,F,1965-12-07,"Rua Bento Viana, 710, Batel, Curitiba - PR",Hugo Lange,Mensal,False,129.9,129.9,2024-12-04,False
+19,Sr. Davi Souza,M,1997-11-30,"Rua São Francisco, 12, São Francisco, Curitiba - PR",Cabral,Anual,False,109.9,1318.8,2024-08-15,True
+20,Samuel Moura,M,1992-11-13,"Rua Itupava, 85, Alto da XV, Curitiba - PR",Hugo Lange,Trimestral,False,119.9,359.7,2024-04-16,True
+21,Isabel Barbosa,F,1967-09-11,"Avenida Silva Jardim, 450, Rebouças, Curitiba - PR",Alto da Glória,Anual,False,109.9,1318.8,2023-07-16,True
+22,Sr. Pietro Gomes,M,1973-02-03,"Rua São Vicente, 305, Jardim Social, Curitiba - PR",Cabral,Anual,False,109.9,1318.8,2024-08-21,True
+23,Cauã da Conceição,M,1966-06-19,"Rua Chile, 234, Rebouças, Curitiba - PR",Alto da Glória,Trimestral,False,119.9,359.7,2024-10-12,True
+24,Gustavo Henrique Azevedo,M,2000-03-10,"Rua Professor Brandão, 321, Alto da Glória, Curitiba - PR",Jardim Social,Anual,True,109.9,1318.8,2025-01-05,True
+25,Clara Aragão,F,1985-09-23,"Rua XV de Novembro, 123, Centro, Curitiba - PR",Hugo Lange,Anual,False,109.9,1318.8,2025-04-12,False
+26,Luiz Henrique Ramos,M,1988-08-19,"Rua Marechal Deodoro, 789, Alto da XV, Curitiba - PR",Cabral,Mensal,False,129.9,129.9,2023-12-28,False
+27,Evelyn Sales,F,1973-05-04,"Rua São Francisco, 12, São Francisco, Curitiba - PR",Cabral,Mensal,False,129.9,129.9,2024-11-02,True
+28,Dra. Sophie Porto,F,1996-11-24,"Rua São Vicente, 305, Jardim Social, Curitiba - PR",Juvevê,Mensal,False,129.9,129.9,2024-12-14,True
+29,Maria Sophia Pinto,F,1992-04-12,"Avenida Iguaçu, 1020, Água Verde, Curitiba - PR",Alto da Glória,Anual,False,109.9,1318.8,2025-05-02,False
+30,Ana Carolina Alves,F,2003-11-27,"Rua Francisco Rocha, 55, Batel, Curitiba - PR",Jardim Social,Anual,False,109.9,1318.8,2025-03-18,True
+31,Dra. Rafaela Mendes,F,1988-11-29,"Rua Coronel Dulcídio, 1000, Batel, Curitiba - PR",Jardim Social,Anual,False,109.9,1318.8,2024-12-17,True
+32,Ian Nascimento,M,1978-09-12,"Avenida Sete de Setembro, 456, Batel, Curitiba - PR",Hugo Lange,Trimestral,False,119.9,359.7,2024-04-24,True
+33,Enzo Fernandes,M,2001-10-23,"Rua Coronel Dulcídio, 1000, Batel, Curitiba - PR",Juvevê,Mensal,False,129.9,129.9,2025-06-19,True
+34,Emanuel das Neves,M,1972-06-29,"Rua Desembargador Westphalen, 654, Centro, Curitiba - PR",Alto da Glória,Trimestral,True,119.9,359.7,2025-05-05,True
+35,João Pedro Caldeira,M,1995-12-27,"Rua Coronel Dulcídio, 1000, Batel, Curitiba - PR",Jardim Social,Anual,False,109.9,1318.8,2023-09-20,True
+36,Alexia Silveira,F,1970-09-29,"Rua Chile, 234, Rebouças, Curitiba - PR",Hugo Lange,Mensal,False,129.9,129.9,2025-05-29,False
+37,João Lucas Cardoso,M,1991-01-19,"Rua João Gualberto, 525, Juvevê, Curitiba - PR",Juvevê,Trimestral,False,119.9,359.7,2024-09-21,True
+38,Caroline Caldeira,F,1983-01-21,"Rua Itupava, 85, Alto da XV, Curitiba - PR",Cabral,Trimestral,True,119.9,359.7,2024-05-24,True
+39,Ana Carolina Moreira,F,1973-10-16,"Rua São Francisco, 12, São Francisco, Curitiba - PR",Cabral,Anual,False,109.9,1318.8,2025-01-18,True
+40,Alice Pires,F,1987-02-02,"Rua São Francisco, 12, São Francisco, Curitiba - PR",Alto da Glória,Anual,False,109.9,1318.8,2023-12-16,False
+41,Emanuel Costela,M,2001-08-14,"Rua XV de Novembro, 123, Centro, Curitiba - PR",Hugo Lange,Trimestral,False,119.9,359.7,2024-08-25,True
+42,Levi Costa,M,1996-03-11,"Rua Chile, 234, Rebouças, Curitiba - PR",Alto da Glória,Anual,False,109.9,1318.8,2023-11-23,True
+43,Pietra Mendes,F,1985-09-24,"Rua Itupava, 85, Alto da XV, Curitiba - PR",Jardim Social,Anual,False,109.9,1318.8,2025-05-16,False
+44,Eduarda Pereira,F,1991-11-21,"Rua Camões, 718, Hugo Lange, Curitiba - PR",Alto da Glória,Mensal,False,129.9,129.9,2025-02-22,True
+45,Rodrigo Araújo,M,1996-08-04,"Rua Chile, 234, Rebouças, Curitiba - PR",Alto da Glória,Mensal,False,129.9,129.9,2024-08-04,True
+46,Davi da Cruz,M,1983-06-08,"Avenida Sete de Setembro, 456, Batel, Curitiba - PR",Hugo Lange,Trimestral,False,119.9,359.7,2023-09-08,True
+47,Ana Julia Dias,F,1999-07-26,"Rua Francisco Rocha, 55, Batel, Curitiba - PR",Alto da Glória,Anual,False,109.9,1318.8,2024-12-09,True
+48,Joana Lima,F,1965-10-19,"Rua Coronel Dulcídio, 1000, Batel, Curitiba - PR",Alto da Glória,Anual,False,109.9,1318.8,2023-07-14,True
+49,Sofia Silva,F,1991-09-08,"Rua Dr. Faivre, 210, Centro, Curitiba - PR",Juvevê,Anual,False,109.9,1318.8,2025-03-28,False
+50,Noah Correia,M,1989-07-15,"Avenida Iguaçu, 1020, Água Verde, Curitiba - PR",Hugo Lange,Mensal,False,129.9,129.9,2024-01-12,True
+51,Lavínia Caldeira,F,2003-08-06,"Avenida Iguaçu, 1020, Água Verde, Curitiba - PR",Alto da Glória,Trimestral,True,119.9,359.7,2024-10-16,True
+52,Melissa Lima,F,1974-10-28,"Rua Francisco Rocha, 55, Batel, Curitiba - PR",Juvevê,Anual,False,109.9,1318.8,2025-05-28,True
+53,João Pedro Cardoso,M,1993-11-16,"Rua Desembargador Westphalen, 654, Centro, Curitiba - PR",Juvevê,Anual,False,109.9,1318.8,2024-10-13,True
+54,Lorena Teixeira,F,1972-11-22,"Rua Francisco Rocha, 55, Batel, Curitiba - PR",Alto da Glória,Trimestral,False,119.9,359.7,2023-12-19,True
+55,Juliana Fernandes,F,2005-08-26,"Rua Dr. Faivre, 210, Centro, Curitiba - PR",Jardim Social,Anual,False,109.9,1318.8,2025-04-29,True
+56,Agatha Pinto,F,2005-08-11,"Rua Marechal Deodoro, 789, Alto da XV, Curitiba - PR",Juvevê,Mensal,False,129.9,129.9,2025-05-15,False
+57,Noah da Cruz,M,1980-08-26,"Rua Augusto Stresser, 470, Juvevê, Curitiba - PR",Jardim Social,Mensal,False,129.9,129.9,2023-07-23,True
+58,Mariana Moraes,F,1968-12-09,"Rua Francisco Rocha, 55, Batel, Curitiba - PR",Jardim Social,Anual,False,109.9,1318.8,2024-03-20,True
+59,João Gabriel Teixeira,M,1975-01-10,"Rua Bento Viana, 710, Batel, Curitiba - PR",Alto da Glória,Trimestral,True,119.9,359.7,2024-11-27,True
+60,Daniela da Cruz,F,2000-06-12,"Avenida Silva Jardim, 450, Rebouças, Curitiba - PR",Cabral,Anual,False,109.9,1318.8,2023-08-22,True
+61,Emanuelly Cunha,F,1989-12-31,"Avenida Sete de Setembro, 456, Batel, Curitiba - PR",Alto da Glória,Anual,False,109.9,1318.8,2024-11-16,True
+62,Pietra Castro,F,1981-10-11,"Avenida Iguaçu, 1020, Água Verde, Curitiba - PR",Juvevê,Mensal,False,129.9,129.9,2024-04-19,True
+63,Heitor Duarte,M,1976-01-06,"Rua Professor Brandão, 321, Alto da Glória, Curitiba - PR",Juvevê,Mensal,False,129.9,129.9,2024-04-10,True
+64,Nina Castro,F,1964-07-06,"Rua Monsenhor Celso, 120, Centro, Curitiba - PR",Hugo Lange,Anual,True,109.9,1318.8,2024-02-13,True
+65,Gustavo Silveira,M,1968-03-30,"Rua Monsenhor Celso, 120, Centro, Curitiba - PR",Juvevê,Anual,False,109.9,1318.8,2023-12-05,True
+66,Lucca Nogueira,M,1982-01-24,"Rua Chile, 234, Rebouças, Curitiba - PR",Juvevê,Anual,False,109.9,1318.8,2025-03-01,False
+67,Bryan Carvalho,M,1985-08-03,"Rua Desembargador Westphalen, 654, Centro, Curitiba - PR",Jardim Social,Mensal,False,129.9,129.9,2024-09-26,True
+68,Giovanna Jesus,F,1980-09-28,"Rua Coronel Dulcídio, 1000, Batel, Curitiba - PR",Jardim Social,Anual,False,109.9,1318.8,2023-09-24,True
+69,Maria Clara Azevedo,F,1977-12-05,"Rua Augusto Stresser, 470, Juvevê, Curitiba - PR",Hugo Lange,Anual,False,109.9,1318.8,2024-03-08,True
+70,Diogo da Mata,M,1999-08-12,"Rua Augusto Stresser, 470, Juvevê, Curitiba - PR",Juvevê,Mensal,False,129.9,129.9,2023-11-08,True
+71,Luigi Cunha,M,1979-12-27,"Rua Padre Anchieta, 300, Bigorrilho, Curitiba - PR",Jardim Social,Anual,False,109.9,1318.8,2025-03-29,True
+72,Vitória da Rocha,F,1983-07-06,"Rua Padre Anchieta, 300, Bigorrilho, Curitiba - PR",Alto da Glória,Mensal,False,129.9,129.9,2024-06-18,True
+73,Dr. João Novaes,M,1989-05-05,"Rua São Francisco, 12, São Francisco, Curitiba - PR",Alto da Glória,Mensal,False,129.9,129.9,2024-03-14,True
+74,Vitor Melo,M,1982-01-03,"Rua Bento Viana, 710, Batel, Curitiba - PR",Hugo Lange,Anual,False,109.9,1318.8,2025-03-08,True
+75,Sr. Luiz Miguel Teixeira,M,1965-02-16,"Rua Marechal Deodoro, 789, Alto da XV, Curitiba - PR",Jardim Social,Trimestral,False,119.9,359.7,2023-10-29,True
+76,Luiz Felipe Carvalho,M,2001-08-15,"Avenida Iguaçu, 1020, Água Verde, Curitiba - PR",Jardim Social,Anual,False,109.9,1318.8,2025-05-06,False
+77,Emanuella Souza,F,1970-04-07,"Rua XV de Novembro, 123, Centro, Curitiba - PR",Juvevê,Anual,False,109.9,1318.8,2023-11-10,True
+78,Sophia Azevedo,F,1972-11-12,"Rua São Francisco, 12, São Francisco, Curitiba - PR",Hugo Lange,Anual,False,109.9,1318.8,2024-02-12,False
+79,Maria Cecília Vieira,F,1990-02-18,"Rua Coronel Dulcídio, 1000, Batel, Curitiba - PR",Hugo Lange,Mensal,False,129.9,129.9,2023-09-02,True
+80,Heitor Pires,M,1994-10-06,"Rua Francisco Rocha, 55, Batel, Curitiba - PR",Cabral,Anual,False,109.9,1318.8,2024-09-24,True
+81,Sr. Rafael Teixeira,M,2006-07-24,"Rua Dr. Faivre, 210, Centro, Curitiba - PR",Hugo Lange,Anual,False,109.9,1318.8,2025-06-06,False
+82,Sophia Farias,F,1998-06-11,"Rua São Francisco, 12, São Francisco, Curitiba - PR",Cabral,Mensal,False,129.9,129.9,2025-03-04,True
+83,Igor Martins,M,1968-04-08,"Rua Itupava, 85, Alto da XV, Curitiba - PR",Jardim Social,Anual,False,109.9,1318.8,2024-03-18,True
+84,Dr. Rodrigo Correia,M,2000-02-24,"Avenida Silva Jardim, 450, Rebouças, Curitiba - PR",Jardim Social,Anual,False,109.9,1318.8,2024-08-20,True
+85,Heitor Gonçalves,M,2000-03-25,"Rua Monsenhor Celso, 120, Centro, Curitiba - PR",Juvevê,Anual,False,109.9,1318.8,2024-07-16,False
+86,Vitor Nunes,M,2000-06-11,"Rua Itupava, 85, Alto da XV, Curitiba - PR",Cabral,Mensal,True,129.9,129.9,2023-12-29,True
+87,Sra. Júlia Pinto,F,1978-01-19,"Rua Coronel Dulcídio, 1000, Batel, Curitiba - PR",Cabral,Anual,False,109.9,1318.8,2024-09-18,True
+88,Dr. Thales das Neves,M,1990-09-04,"Avenida Sete de Setembro, 456, Batel, Curitiba - PR",Alto da Glória,Anual,True,109.9,1318.8,2025-02-22,True
+89,Davi Lucca da Cruz,M,2002-07-25,"Rua Padre Anchieta, 300, Bigorrilho, Curitiba - PR",Hugo Lange,Anual,True,109.9,1318.8,2023-08-12,True
+90,Augusto Nunes,M,1989-08-02,"Avenida Silva Jardim, 450, Rebouças, Curitiba - PR",Alto da Glória,Mensal,False,129.9,129.9,2024-09-06,True
+91,Sr. Luiz Felipe Rodrigues,M,1999-09-16,"Avenida Silva Jardim, 450, Rebouças, Curitiba - PR",Juvevê,Anual,False,109.9,1318.8,2025-01-27,True
+92,Isabella Monteiro,F,1966-01-16,"Rua Francisco Rocha, 55, Batel, Curitiba - PR",Hugo Lange,Anual,False,109.9,1318.8,2024-12-22,True
+93,Laís Novaes,F,1976-06-22,"Rua Coronel Dulcídio, 1000, Batel, Curitiba - PR",Hugo Lange,Anual,False,109.9,1318.8,2025-01-17,False
+94,Srta. Sophia Peixoto,F,1989-11-21,"Rua Coronel Dulcídio, 1000, Batel, Curitiba - PR",Juvevê,Mensal,False,129.9,129.9,2025-02-27,True
+95,Diego Almeida,M,1989-06-17,"Avenida Silva Jardim, 450, Rebouças, Curitiba - PR",Hugo Lange,Mensal,False,129.9,129.9,2023-07-18,True
+96,Isaac Rezende,M,2000-07-28,"Rua Itupava, 85, Alto da XV, Curitiba - PR",Cabral,Mensal,False,129.9,129.9,2025-04-06,True
+97,Luigi Nogueira,M,1990-06-16,"Rua São Vicente, 305, Jardim Social, Curitiba - PR",Juvevê,Trimestral,True,119.9,359.7,2023-12-14,True
+98,Helena Rocha,F,1998-06-04,"Rua Monsenhor Celso, 120, Centro, Curitiba - PR",Alto da Glória,Mensal,False,129.9,129.9,2024-03-08,True
+99,Emanuella Rezende,F,1971-07-20,"Rua São Vicente, 305, Jardim Social, Curitiba - PR",Cabral,Trimestral,True,119.9,359.7,2024-06-13,True
+100,Isaac Porto,M,1972-04-09,"Rua Professor Brandão, 321, Alto da Glória, Curitiba - PR",Cabral,Anual,False,109.9,1318.8,2024-11-26,True
+101,Renan Almeida,M,1964-08-23,"Rua Desembargador Westphalen, 654, Centro, Curitiba - PR",Hugo Lange,Trimestral,False,119.9,359.7,2023-12-04,True
+102,Matheus Moreira,M,1991-04-18,"Rua Padre Anchieta, 300, Bigorrilho, Curitiba - PR",Cabral,Trimestral,False,119.9,359.7,2023-10-18,True
+103,Sra. Caroline Fernandes,F,1975-07-27,"Rua Marechal Deodoro, 789, Alto da XV, Curitiba - PR",Hugo Lange,Anual,False,109.9,1318.8,2024-06-24,True
+104,Mirella das Neves,F,1982-06-29,"Rua Chile, 234, Rebouças, Curitiba - PR",Hugo Lange,Trimestral,False,119.9,359.7,2024-11-11,False
+105,Sra. Luna Campos,F,2000-04-20,"Rua Padre Anchieta, 300, Bigorrilho, Curitiba - PR",Juvevê,Anual,False,109.9,1318.8,2024-07-21,False
+106,Lucca Campos,M,1992-03-18,"Rua Dr. Faivre, 210, Centro, Curitiba - PR",Hugo Lange,Anual,False,109.9,1318.8,2024-03-23,True
+107,Nicole Nunes,F,1977-01-02,"Rua Bento Viana, 710, Batel, Curitiba - PR",Alto da Glória,Anual,False,109.9,1318.8,2024-07-06,True
+108,Dra. Isabelly da Paz,F,1999-06-12,"Rua Coronel Dulcídio, 1000, Batel, Curitiba - PR",Hugo Lange,Trimestral,False,119.9,359.7,2025-01-12,True
+109,Yasmin da Cunha,F,2005-09-07,"Rua Coronel Dulcídio, 1000, Batel, Curitiba - PR",Alto da Glória,Anual,False,109.9,1318.8,2025-03-16,True
+110,Ana Beatriz Nunes,F,1976-03-15,"Rua São Francisco, 12, São Francisco, Curitiba - PR",Alto da Glória,Anual,False,109.9,1318.8,2024-12-23,True
+111,Pedro Miguel da Luz,M,1990-01-28,"Rua João Gualberto, 525, Juvevê, Curitiba - PR",Alto da Glória,Anual,False,109.9,1318.8,2024-03-21,True
+112,Benício Rocha,M,2001-10-10,"Rua Padre Anchieta, 300, Bigorrilho, Curitiba - PR",Juvevê,Mensal,False,129.9,129.9,2024-12-01,True
+113,Rebeca Correia,F,1977-02-26,"Rua Camões, 718, Hugo Lange, Curitiba - PR",Hugo Lange,Anual,False,109.9,1318.8,2024-07-21,True
+114,Vitor Aragão,M,1972-04-17,"Rua Francisco Rocha, 55, Batel, Curitiba - PR",Cabral,Anual,False,109.9,1318.8,2024-11-02,True
+115,Theo das Neves,M,1992-01-11,"Rua Dr. Faivre, 210, Centro, Curitiba - PR",Juvevê,Anual,False,109.9,1318.8,2024-01-17,True
+116,Juan da Mata,M,1979-02-04,"Rua Desembargador Westphalen, 654, Centro, Curitiba - PR",Alto da Glória,Trimestral,False,119.9,359.7,2024-04-21,True
+117,Dra. Isabel Campos,F,1996-01-23,"Avenida Sete de Setembro, 456, Batel, Curitiba - PR",Alto da Glória,Trimestral,False,119.9,359.7,2023-06-27,True
+118,Ana Beatriz Farias,F,1972-08-12,"Rua Desembargador Westphalen, 654, Centro, Curitiba - PR",Cabral,Mensal,False,129.9,129.9,2024-08-26,True
+119,Dr. Levi Dias,M,1983-07-03,"Rua Monsenhor Celso, 120, Centro, Curitiba - PR",Hugo Lange,Anual,False,109.9,1318.8,2024-12-03,True
+120,Isaac Sales,M,1965-01-05,"Rua Marechal Deodoro, 789, Alto da XV, Curitiba - PR",Cabral,Trimestral,False,119.9,359.7,2023-07-06,True
+121,Mirella Martins,F,2007-05-08,"Rua Camões, 718, Hugo Lange, Curitiba - PR",Alto da Glória,Anual,False,109.9,1318.8,2024-04-23,True
+122,Sra. Yasmin Dias,F,1982-03-04,"Avenida Sete de Setembro, 456, Batel, Curitiba - PR",Jardim Social,Trimestral,False,119.9,359.7,2024-03-13,True
+123,Benjamin Araújo,M,1988-06-17,"Rua XV de Novembro, 123, Centro, Curitiba - PR",Hugo Lange,Anual,False,109.9,1318.8,2024-05-11,True
+124,Maysa Fernandes,F,2005-12-31,"Rua XV de Novembro, 123, Centro, Curitiba - PR",Hugo Lange,Anual,False,109.9,1318.8,2024-10-13,False
+125,Luiz Fernando Cardoso,M,1991-01-27,"Rua Chile, 234, Rebouças, Curitiba - PR",Juvevê,Trimestral,True,119.9,359.7,2023-07-18,True
+126,Pedro Lucas Sales,M,2004-07-15,"Rua Marechal Deodoro, 789, Alto da XV, Curitiba - PR",Alto da Glória,Trimestral,False,119.9,359.7,2024-02-05,False
+127,Marina Ferreira,F,2002-02-09,"Rua Bento Viana, 710, Batel, Curitiba - PR",Juvevê,Mensal,False,129.9,129.9,2024-10-07,True
+128,Isadora Carvalho,F,1994-04-18,"Rua São Vicente, 305, Jardim Social, Curitiba - PR",Cabral,Mensal,False,129.9,129.9,2023-11-09,True
+129,Fernanda Peixoto,F,1982-05-13,"Rua Coronel Dulcídio, 1000, Batel, Curitiba - PR",Cabral,Mensal,False,129.9,129.9,2024-01-09,True
+130,Ana Vitória Novaes,F,1989-09-10,"Rua Augusto Stresser, 470, Juvevê, Curitiba - PR",Jardim Social,Trimestral,True,119.9,359.7,2025-03-25,True
+131,Gabriel Moura,M,2002-03-31,"Rua Monsenhor Celso, 120, Centro, Curitiba - PR",Cabral,Anual,True,109.9,1318.8,2025-03-03,False
+132,Lucca Costela,M,1975-03-21,"Rua Itupava, 85, Alto da XV, Curitiba - PR",Hugo Lange,Anual,False,109.9,1318.8,2025-05-22,True
+133,João Guilherme Monteiro,M,1990-12-07,"Rua Bento Viana, 710, Batel, Curitiba - PR",Alto da Glória,Mensal,True,129.9,129.9,2023-12-23,True
+134,Pietro Rocha,M,1981-06-23,"Rua Camões, 718, Hugo Lange, Curitiba - PR",Juvevê,Trimestral,False,119.9,359.7,2024-06-25,True
+135,Srta. Alice Santos,F,1975-03-19,"Rua Chile, 234, Rebouças, Curitiba - PR",Cabral,Anual,False,109.9,1318.8,2024-12-29,True
+136,Agatha Alves,F,1997-08-15,"Avenida Iguaçu, 1020, Água Verde, Curitiba - PR",Jardim Social,Mensal,False,129.9,129.9,2024-02-09,True
+137,Bryan Novaes,M,1979-07-07,"Rua São Vicente, 305, Jardim Social, Curitiba - PR",Alto da Glória,Anual,False,109.9,1318.8,2023-10-28,True
+138,Gabrielly Pires,F,1983-12-19,"Rua João Gualberto, 525, Juvevê, Curitiba - PR",Juvevê,Trimestral,False,119.9,359.7,2025-04-14,True
+139,Ana Sophia Cardoso,F,1974-05-17,"Rua Augusto Stresser, 470, Juvevê, Curitiba - PR",Juvevê,Trimestral,False,119.9,359.7,2024-03-06,True
+140,Srta. Maria Julia Araújo,F,2003-07-02,"Rua Itupava, 85, Alto da XV, Curitiba - PR",Juvevê,Anual,False,109.9,1318.8,2023-08-23,False
+141,Sophie Vieira,F,1972-02-17,"Rua São Vicente, 305, Jardim Social, Curitiba - PR",Cabral,Trimestral,False,119.9,359.7,2025-06-16,True
+142,Dra. Fernanda Castro,F,2002-11-17,"Rua São Vicente, 305, Jardim Social, Curitiba - PR",Hugo Lange,Anual,False,109.9,1318.8,2025-01-06,True
+143,Lorena Souza,F,1967-07-26,"Avenida Sete de Setembro, 456, Batel, Curitiba - PR",Alto da Glória,Trimestral,False,119.9,359.7,2024-09-05,True
+144,Olivia Viana,F,2006-03-14,"Rua Monsenhor Celso, 120, Centro, Curitiba - PR",Juvevê,Mensal,False,129.9,129.9,2025-02-03,True
+145,Matheus Novaes,M,1965-08-14,"Rua Chile, 234, Rebouças, Curitiba - PR",Jardim Social,Anual,False,109.9,1318.8,2025-03-01,True
+146,Dra. Ana Julia Ferreira,F,1980-08-14,"Rua João Gualberto, 525, Juvevê, Curitiba - PR",Cabral,Mensal,False,129.9,129.9,2023-06-23,True
+147,Rebeca Alves,F,2002-04-13,"Rua Padre Anchieta, 300, Bigorrilho, Curitiba - PR",Juvevê,Trimestral,False,119.9,359.7,2024-08-05,True
+148,Heloísa Moura,F,1971-06-02,"Rua Augusto Stresser, 470, Juvevê, Curitiba - PR",Cabral,Trimestral,False,119.9,359.7,2023-09-16,True
+149,Marcos Vinicius Santos,M,1979-05-25,"Avenida Sete de Setembro, 456, Batel, Curitiba - PR",Juvevê,Trimestral,False,119.9,359.7,2024-07-02,True
+150,Anthony Porto,M,1979-01-03,"Rua Francisco Rocha, 55, Batel, Curitiba - PR",Cabral,Mensal,False,129.9,129.9,2024-07-25,True
+151,Clara Gomes,F,1984-09-06,"Rua São Francisco, 12, São Francisco, Curitiba - PR",Mercês,Anual,False,109.9,1318.8,2025-04-03,False
+152,Juliana Farias,F,1993-05-30,"Rua Coronel Dulcídio, 1000, Batel, Curitiba - PR",Cristo Rei,Anual,False,109.9,1318.8,2024-12-05,True
+153,Dr. Leandro Novaes,M,1975-03-29,"Avenida Sete de Setembro, 456, Batel, Curitiba - PR",Cristo Rei,Mensal,False,129.9,129.9,2024-11-09,True
+154,Erick da Mota,M,2002-07-04,"Rua Camões, 718, Hugo Lange, Curitiba - PR",Mercês,Anual,True,109.9,1318.8,2024-05-28,True
+155,Ana Carolina Rodrigues,F,1996-09-12,"Rua Marechal Deodoro, 789, Alto da XV, Curitiba - PR",Água Verde,Anual,False,109.9,1318.8,2024-10-30,True
+156,Srta. Ana Julia Cardoso,F,2002-10-04,"Avenida Sete de Setembro, 456, Batel, Curitiba - PR",Centro,Anual,False,109.9,1318.8,2024-08-11,True
+157,Yago Ramos,M,1971-09-27,"Rua XV de Novembro, 123, Centro, Curitiba - PR",Batel,Mensal,False,129.9,129.9,2024-05-11,True
+158,Dra. Bruna da Luz,F,1997-02-25,"Rua São Francisco, 12, São Francisco, Curitiba - PR",Batel,Trimestral,True,119.9,359.7,2025-02-12,True
+159,Vicente Rezende,M,1992-12-17,"Rua Professor Brandão, 321, Alto da Glória, Curitiba - PR",Água Verde,Trimestral,False,119.9,359.7,2025-01-21,True
+160,Gabriela Pires,F,2001-04-03,"Rua São Francisco, 12, São Francisco, Curitiba - PR",Água Verde,Mensal,False,129.9,129.9,2024-07-29,True
+161,Srta. Mariana Ramos,F,2001-09-01,"Rua Padre Anchieta, 300, Bigorrilho, Curitiba - PR",Centro,Anual,False,109.9,1318.8,2023-11-19,True
+162,Maria Vitória Silveira,F,1991-07-06,"Rua Chile, 234, Rebouças, Curitiba - PR",Mercês,Anual,True,109.9,1318.8,2024-08-18,False
+163,Cauê Pires,M,1995-06-11,"Rua Coronel Dulcídio, 1000, Batel, Curitiba - PR",Santa Felicidade,Trimestral,False,119.9,359.7,2024-11-22,True
+164,Julia da Rosa,F,1995-07-13,"Rua São Vicente, 305, Jardim Social, Curitiba - PR",Água Verde,Trimestral,False,119.9,359.7,2024-10-21,True
+165,Henrique Sales,M,1969-05-08,"Rua Marechal Deodoro, 789, Alto da XV, Curitiba - PR",Santa Felicidade,Anual,False,109.9,1318.8,2025-05-01,True
+166,Brenda Freitas,F,1968-10-04,"Rua Francisco Rocha, 55, Batel, Curitiba - PR",Água Verde,Anual,False,109.9,1318.8,2025-02-09,True
+167,Brenda Viana,F,1975-07-28,"Avenida Iguaçu, 1020, Água Verde, Curitiba - PR",Mercês,Anual,False,109.9,1318.8,2024-11-30,True
+168,Ana Lívia Moura,F,2001-04-06,"Rua Francisco Rocha, 55, Batel, Curitiba - PR",Batel,Trimestral,False,119.9,359.7,2024-01-07,True
+169,João Gabriel Fogaça,M,1987-10-23,"Rua Padre Anchieta, 300, Bigorrilho, Curitiba - PR",Batel,Anual,False,109.9,1318.8,2024-02-24,True
+170,Luigi Aragão,M,1995-03-14,"Rua Marechal Deodoro, 789, Alto da XV, Curitiba - PR",Centro,Trimestral,False,119.9,359.7,2025-04-29,True
+171,João Vitor Costela,M,1978-06-15,"Avenida Silva Jardim, 450, Rebouças, Curitiba - PR",Cristo Rei,Anual,False,109.9,1318.8,2023-08-08,True
+172,Maria Sophia da Rosa,F,2004-02-26,"Rua Dr. Faivre, 210, Centro, Curitiba - PR",Santa Felicidade,Anual,False,109.9,1318.8,2024-02-10,True
+173,João Gabriel Mendes,M,2006-10-20,"Rua Professor Brandão, 321, Alto da Glória, Curitiba - PR",Água Verde,Trimestral,False,119.9,359.7,2024-06-07,True
+174,Luiz Henrique Cardoso,M,1984-09-13,"Rua João Gualberto, 525, Juvevê, Curitiba - PR",Santa Felicidade,Mensal,False,129.9,129.9,2024-07-01,True
+175,Davi Luiz das Neves,M,2002-12-22,"Rua Chile, 234, Rebouças, Curitiba - PR",Centro,Anual,False,109.9,1318.8,2023-07-18,True
+176,João Vitor Aragão,M,1991-03-28,"Rua XV de Novembro, 123, Centro, Curitiba - PR",Santa Felicidade,Mensal,False,129.9,129.9,2024-10-13,True
+177,Melissa Nogueira,F,2002-09-11,"Rua Francisco Rocha, 55, Batel, Curitiba - PR",Cristo Rei,Anual,False,109.9,1318.8,2024-09-23,True
+178,Murilo Rocha,M,1987-01-13,"Rua Chile, 234, Rebouças, Curitiba - PR",Água Verde,Anual,False,109.9,1318.8,2025-04-12,True
+179,Enrico Nunes,M,2005-06-22,"Avenida Sete de Setembro, 456, Batel, Curitiba - PR",Água Verde,Mensal,True,129.9,129.9,2023-10-19,True
+180,Augusto Jesus,M,1986-10-28,"Rua Professor Brandão, 321, Alto da Glória, Curitiba - PR",Cristo Rei,Mensal,True,129.9,129.9,2025-06-10,True
+181,Sophia Caldeira,F,1972-05-22,"Rua Augusto Stresser, 470, Juvevê, Curitiba - PR",Batel,Anual,False,109.9,1318.8,2023-07-18,True
+182,Vitor Hugo Melo,M,1974-03-13,"Rua Augusto Stresser, 470, Juvevê, Curitiba - PR",Batel,Trimestral,False,119.9,359.7,2024-12-22,True
+183,Raul Almeida,M,2005-10-12,"Rua Francisco Rocha, 55, Batel, Curitiba - PR",Batel,Anual,False,109.9,1318.8,2024-12-05,True
+184,Vitor Gabriel Cardoso,M,1969-08-01,"Rua Bento Viana, 710, Batel, Curitiba - PR",Centro,Mensal,True,129.9,129.9,2025-04-24,True
+185,Dr. Leandro Souza,M,2005-05-05,"Rua Desembargador Westphalen, 654, Centro, Curitiba - PR",Batel,Mensal,False,129.9,129.9,2024-12-24,True
+186,Pedro Miguel Moreira,M,1978-11-25,"Rua Professor Brandão, 321, Alto da Glória, Curitiba - PR",Santa Felicidade,Anual,False,109.9,1318.8,2023-07-18,True
+187,João Lucas da Mata,M,1987-11-28,"Avenida Sete de Setembro, 456, Batel, Curitiba - PR",Cristo Rei,Anual,False,109.9,1318.8,2024-01-04,True
+188,Sophia Barros,F,2006-10-11,"Rua Chile, 234, Rebouças, Curitiba - PR",Santa Felicidade,Mensal,False,129.9,129.9,2023-07-11,True
+189,Thales Costa,M,1970-09-27,"Rua Coronel Dulcídio, 1000, Batel, Curitiba - PR",Água Verde,Anual,False,109.9,1318.8,2024-05-19,True
+190,Sra. Gabriela Campos,F,1978-09-28,"Rua Dr. Faivre, 210, Centro, Curitiba - PR",Mercês,Trimestral,True,119.9,359.7,2024-05-11,False
+191,Catarina Ribeiro,F,2006-09-14,"Rua João Gualberto, 525, Juvevê, Curitiba - PR",Batel,Anual,False,109.9,1318.8,2025-01-17,True
+192,Ana Júlia da Cunha,F,1966-01-08,"Rua Itupava, 85, Alto da XV, Curitiba - PR",Centro,Anual,False,109.9,1318.8,2025-03-18,True
+193,Laís Dias,F,1996-07-18,"Rua Itupava, 85, Alto da XV, Curitiba - PR",Água Verde,Trimestral,False,119.9,359.7,2025-04-23,True
+194,Murilo Duarte,M,1970-11-29,"Rua Desembargador Westphalen, 654, Centro, Curitiba - PR",Batel,Mensal,True,129.9,129.9,2024-04-08,True
+195,Srta. Bianca Novaes,F,2006-04-27,"Rua São Francisco, 12, São Francisco, Curitiba - PR",Santa Felicidade,Trimestral,False,119.9,359.7,2024-02-15,True
+196,Esther Monteiro,F,1985-11-21,"Rua Bento Viana, 710, Batel, Curitiba - PR",Cristo Rei,Mensal,False,129.9,129.9,2023-11-04,True
+197,Davi Luiz Cardoso,M,1995-11-15,"Rua Marechal Deodoro, 789, Alto da XV, Curitiba - PR",Cristo Rei,Mensal,False,129.9,129.9,2024-04-09,True
+198,Yasmin Gonçalves,F,1990-09-03,"Rua Marechal Deodoro, 789, Alto da XV, Curitiba - PR",Água Verde,Anual,False,109.9,1318.8,2023-10-21,True
+199,Luana Campos,F,1976-02-18,"Avenida Iguaçu, 1020, Água Verde, Curitiba - PR",Cristo Rei,Anual,False,109.9,1318.8,2024-12-18,True
+200,Fernando Barros,M,2002-03-03,"Rua Francisco Rocha, 55, Batel, Curitiba - PR",Centro,Trimestral,False,119.9,359.7,2025-01-09,True
+201,Sra. Juliana Rezende,F,1977-02-27,"Rua São Vicente, 305, Jardim Social, Curitiba - PR",Centro,Anual,False,109.9,1318.8,2023-06-27,True
+202,Luiz Fernando Vieira,M,2006-01-18,"Avenida Sete de Setembro, 456, Batel, Curitiba - PR",Cristo Rei,Trimestral,False,119.9,359.7,2023-08-05,True
+203,Mirella Sales,F,1969-09-06,"Rua Dr. Faivre, 210, Centro, Curitiba - PR",Santa Felicidade,Trimestral,False,119.9,359.7,2024-04-17,True
+204,Sr. Eduardo da Mota,M,1991-05-24,"Rua Marechal Deodoro, 789, Alto da XV, Curitiba - PR",Batel,Trimestral,False,119.9,359.7,2024-05-11,False
+205,Sra. Emilly Araújo,F,1972-05-01,"Rua Coronel Dulcídio, 1000, Batel, Curitiba - PR",Mercês,Anual,False,109.9,1318.8,2023-12-26,False
+206,Bryan Cunha,M,2001-11-27,"Rua Camões, 718, Hugo Lange, Curitiba - PR",Centro,Trimestral,False,119.9,359.7,2025-05-22,True
+207,Marina Gomes,F,2007-04-11,"Rua Francisco Rocha, 55, Batel, Curitiba - PR",Água Verde,Mensal,False,129.9,129.9,2024-03-12,True
+208,Pedro Miguel Almeida,M,1998-06-06,"Rua Camões, 718, Hugo Lange, Curitiba - PR",Água Verde,Mensal,False,129.9,129.9,2023-11-02,True
+209,Theo Monteiro,M,1995-03-04,"Rua Dr. Faivre, 210, Centro, Curitiba - PR",Mercês,Trimestral,False,119.9,359.7,2024-08-15,True
+210,Sr. Marcos Vinicius Rezende,M,1971-10-07,"Rua Bento Viana, 710, Batel, Curitiba - PR",Santa Felicidade,Anual,False,109.9,1318.8,2025-05-04,True
+211,Bernardo Araújo,M,1966-01-13,"Avenida Iguaçu, 1020, Água Verde, Curitiba - PR",Mercês,Mensal,False,129.9,129.9,2025-03-02,True
+212,Laís Dias,F,1986-10-14,"Rua Marechal Deodoro, 789, Alto da XV, Curitiba - PR",Santa Felicidade,Mensal,False,129.9,129.9,2024-12-24,True
+213,Stephany Carvalho,F,1973-11-06,"Avenida Sete de Setembro, 456, Batel, Curitiba - PR",Batel,Trimestral,False,119.9,359.7,2024-11-09,True
+214,Dr. Emanuel Aragão,M,2003-12-09,"Rua XV de Novembro, 123, Centro, Curitiba - PR",Batel,Anual,True,109.9,1318.8,2023-09-05,True
+215,Maria Julia Farias,F,2004-11-13,"Rua Monsenhor Celso, 120, Centro, Curitiba - PR",Santa Felicidade,Trimestral,True,119.9,359.7,2024-01-15,True
+216,Matheus Araújo,M,1993-03-28,"Rua São Francisco, 12, São Francisco, Curitiba - PR",Mercês,Mensal,False,129.9,129.9,2024-02-26,True
+217,Gabrielly Jesus,F,2001-09-09,"Avenida Sete de Setembro, 456, Batel, Curitiba - PR",Batel,Mensal,False,129.9,129.9,2025-03-09,True
+218,Giovanna Rodrigues,F,1970-06-24,"Rua Desembargador Westphalen, 654, Centro, Curitiba - PR",Santa Felicidade,Anual,False,109.9,1318.8,2025-01-15,True
+219,Pietro Campos,M,2001-05-07,"Rua Camões, 718, Hugo Lange, Curitiba - PR",Batel,Mensal,False,129.9,129.9,2025-01-31,False
+220,Alana Azevedo,F,2005-01-23,"Rua Bento Viana, 710, Batel, Curitiba - PR",Batel,Anual,True,109.9,1318.8,2025-03-03,True
+221,Cecília Costela,F,1978-10-22,"Rua XV de Novembro, 123, Centro, Curitiba - PR",Batel,Trimestral,True,119.9,359.7,2025-01-17,False
+222,Erick Castro,M,2005-09-30,"Rua Camões, 718, Hugo Lange, Curitiba - PR",Água Verde,Mensal,False,129.9,129.9,2024-04-09,True
+223,Manuela da Cruz,F,1971-08-19,"Rua Dr. Faivre, 210, Centro, Curitiba - PR",Santa Felicidade,Mensal,False,129.9,129.9,2023-12-22,True
+224,João Lucas Moura,M,1968-05-25,"Rua Padre Anchieta, 300, Bigorrilho, Curitiba - PR",Cristo Rei,Anual,False,109.9,1318.8,2024-01-06,True
+225,Rodrigo Araújo,M,1985-02-01,"Rua João Gualberto, 525, Juvevê, Curitiba - PR",Batel,Trimestral,False,119.9,359.7,2024-09-12,True
+226,Dra. Luna Peixoto,F,2006-04-02,"Rua São Vicente, 305, Jardim Social, Curitiba - PR",Batel,Mensal,False,129.9,129.9,2023-11-10,False
+227,Kevin Viana,M,1991-10-30,"Rua Desembargador Westphalen, 654, Centro, Curitiba - PR",Batel,Mensal,True,129.9,129.9,2025-04-21,True
+228,Guilherme Barros,M,2001-04-25,"Rua Coronel Dulcídio, 1000, Batel, Curitiba - PR",Santa Felicidade,Anual,True,109.9,1318.8,2023-08-09,True
+229,Alice Santos,F,1977-03-27,"Rua Bento Viana, 710, Batel, Curitiba - PR",Mercês,Trimestral,False,119.9,359.7,2024-05-11,False
+230,Srta. Emilly Moreira,F,1987-03-06,"Rua Monsenhor Celso, 120, Centro, Curitiba - PR",Água Verde,Anual,False,109.9,1318.8,2024-08-06,True
+231,Emilly Ribeiro,F,1973-06-14,"Avenida Iguaçu, 1020, Água Verde, Curitiba - PR",Água Verde,Anual,False,109.9,1318.8,2024-10-30,True
+232,André Viana,M,1965-09-13,"Rua XV de Novembro, 123, Centro, Curitiba - PR",Santa Felicidade,Anual,False,109.9,1318.8,2024-09-26,True
+233,Isadora da Conceição,F,1981-07-07,"Rua Francisco Rocha, 55, Batel, Curitiba - PR",Água Verde,Anual,False,109.9,1318.8,2024-10-10,True
+234,Elisa Costela,F,1981-04-12,"Avenida Iguaçu, 1020, Água Verde, Curitiba - PR",Cristo Rei,Trimestral,False,119.9,359.7,2024-04-09,True
+235,Sr. Caio Rodrigues,M,1975-12-13,"Rua São Vicente, 305, Jardim Social, Curitiba - PR",Santa Felicidade,Anual,True,109.9,1318.8,2024-07-02,True
+236,Nicolas Rezende,M,1985-03-09,"Rua Desembargador Westphalen, 654, Centro, Curitiba - PR",Santa Felicidade,Anual,False,109.9,1318.8,2025-01-20,True
+237,Manuela Peixoto,F,1969-12-15,"Avenida Iguaçu, 1020, Água Verde, Curitiba - PR",Santa Felicidade,Trimestral,False,119.9,359.7,2024-02-17,True
+238,Alana Fernandes,F,1970-09-16,"Rua João Gualberto, 525, Juvevê, Curitiba - PR",Mercês,Anual,False,109.9,1318.8,2023-08-27,True
+239,Diego Viana,M,1976-11-19,"Rua São Francisco, 12, São Francisco, Curitiba - PR",Centro,Anual,False,109.9,1318.8,2023-12-20,True
+240,Sophie Duarte,F,1991-07-11,"Rua São Vicente, 305, Jardim Social, Curitiba - PR",Santa Felicidade,Anual,False,109.9,1318.8,2023-12-19,True
+241,Sr. Thomas Fernandes,M,1968-02-25,"Rua Francisco Rocha, 55, Batel, Curitiba - PR",Cristo Rei,Mensal,False,129.9,129.9,2025-05-30,True
+242,Luiz Fernando Moreira,M,1988-06-04,"Rua Francisco Rocha, 55, Batel, Curitiba - PR",Mercês,Trimestral,False,119.9,359.7,2023-11-23,True
+243,Henrique Azevedo,M,1988-07-23,"Rua Chile, 234, Rebouças, Curitiba - PR",Batel,Trimestral,False,119.9,359.7,2025-02-21,True
+244,Luana Gonçalves,F,1982-05-21,"Rua Dr. Faivre, 210, Centro, Curitiba - PR",Cristo Rei,Anual,True,109.9,1318.8,2025-05-08,True
+245,Sarah Ribeiro,F,1981-03-16,"Rua Itupava, 85, Alto da XV, Curitiba - PR",Mercês,Anual,False,109.9,1318.8,2025-03-27,True
+246,Luigi Gonçalves,M,1978-01-02,"Rua Camões, 718, Hugo Lange, Curitiba - PR",Batel,Mensal,True,129.9,129.9,2023-09-11,False
+247,Ana Moura,F,1966-05-14,"Rua Itupava, 85, Alto da XV, Curitiba - PR",Centro,Anual,False,109.9,1318.8,2024-05-09,True
+248,Julia Cunha,F,1995-12-23,"Rua Chile, 234, Rebouças, Curitiba - PR",Batel,Mensal,False,129.9,129.9,2023-08-14,True
+249,Sra. Letícia Cardoso,F,1972-08-10,"Rua São Francisco, 12, São Francisco, Curitiba - PR",Água Verde,Mensal,False,129.9,129.9,2023-06-30,True
+250,Ana Azevedo,F,1966-01-26,"Rua São Vicente, 305, Jardim Social, Curitiba - PR",Mercês,Mensal,False,129.9,129.9,2024-04-04,True
+251,Evelyn Monteiro,F,1992-03-11,"Rua Marechal Deodoro, 789, Alto da XV, Curitiba - PR",Centro,Mensal,False,129.9,129.9,2024-11-08,False
+252,Sarah da Cruz,F,2004-01-10,"Rua Camões, 718, Hugo Lange, Curitiba - PR",Santa Felicidade,Mensal,False,129.9,129.9,2025-01-17,True
+253,Maria Luiza da Mata,F,1970-05-06,"Rua Dr. Faivre, 210, Centro, Curitiba - PR",Mercês,Anual,False,109.9,1318.8,2023-12-29,True
+254,Olivia da Conceição,F,1986-04-28,"Rua Desembargador Westphalen, 654, Centro, Curitiba - PR",Água Verde,Anual,False,109.9,1318.8,2025-03-04,False
+255,Ana Sophia Vieira,F,1987-01-28,"Rua Bento Viana, 710, Batel, Curitiba - PR",Mercês,Trimestral,False,119.9,359.7,2024-03-08,True
+256,Giovanna da Mota,F,1992-01-21,"Rua Chile, 234, Rebouças, Curitiba - PR",Batel,Mensal,False,129.9,129.9,2024-11-17,True
+257,Ana Júlia Barbosa,F,1998-05-04,"Rua Monsenhor Celso, 120, Centro, Curitiba - PR",Santa Felicidade,Mensal,False,129.9,129.9,2023-12-10,False
+258,Gustavo Ribeiro,M,2003-09-22,"Rua Professor Brandão, 321, Alto da Glória, Curitiba - PR",Mercês,Anual,False,109.9,1318.8,2023-08-13,False
+259,Dra. Esther Viana,F,1978-10-20,"Rua Dr. Faivre, 210, Centro, Curitiba - PR",Santa Felicidade,Anual,True,109.9,1318.8,2023-08-08,False
+260,Maria Eduarda Nascimento,F,1998-02-06,"Avenida Sete de Setembro, 456, Batel, Curitiba - PR",Santa Felicidade,Mensal,True,129.9,129.9,2024-04-23,True
+261,Danilo Farias,M,1968-06-28,"Rua Padre Anchieta, 300, Bigorrilho, Curitiba - PR",Água Verde,Anual,False,109.9,1318.8,2024-01-11,True
+262,Clara Souza,F,1992-04-11,"Rua Marechal Deodoro, 789, Alto da XV, Curitiba - PR",Mercês,Mensal,False,129.9,129.9,2023-09-05,True
+263,Dr. João Guilherme Sales,M,1971-09-19,"Rua São Francisco, 12, São Francisco, Curitiba - PR",Centro,Anual,False,109.9,1318.8,2023-09-18,True
+264,Marcos Vinicius Viana,M,2005-06-29,"Rua Marechal Deodoro, 789, Alto da XV, Curitiba - PR",Centro,Anual,True,109.9,1318.8,2023-08-01,True
+265,Sarah Martins,F,1991-07-25,"Rua João Gualberto, 525, Juvevê, Curitiba - PR",Batel,Anual,False,109.9,1318.8,2023-07-10,True
+266,Erick Rocha,M,1983-12-31,"Rua Padre Anchieta, 300, Bigorrilho, Curitiba - PR",Centro,Anual,False,109.9,1318.8,2023-12-15,True
+267,Ana Carolina Castro,F,1996-01-24,"Rua Marechal Deodoro, 789, Alto da XV, Curitiba - PR",Cristo Rei,Anual,False,109.9,1318.8,2024-06-09,True
+268,Fernando Ferreira,M,1973-12-29,"Avenida Sete de Setembro, 456, Batel, Curitiba - PR",Batel,Trimestral,False,119.9,359.7,2024-06-30,True
+269,Luiz Henrique Nascimento,M,2004-10-05,"Rua São Vicente, 305, Jardim Social, Curitiba - PR",Santa Felicidade,Anual,False,109.9,1318.8,2025-04-27,True
+270,Vinicius da Conceição,M,1996-02-15,"Rua Desembargador Westphalen, 654, Centro, Curitiba - PR",Santa Felicidade,Anual,False,109.9,1318.8,2025-04-25,True
+271,Raul Pereira,M,1999-08-31,"Rua Desembargador Westphalen, 654, Centro, Curitiba - PR",Mercês,Trimestral,False,119.9,359.7,2024-03-11,True
+272,Sra. Stella Novaes,F,1989-03-05,"Rua Padre Anchieta, 300, Bigorrilho, Curitiba - PR",Batel,Trimestral,False,119.9,359.7,2024-02-14,True
+273,Juliana Aragão,F,1982-07-01,"Rua Augusto Stresser, 470, Juvevê, Curitiba - PR",Água Verde,Anual,False,109.9,1318.8,2024-11-06,False
+274,Marcelo Sales,M,1993-05-10,"Avenida Sete de Setembro, 456, Batel, Curitiba - PR",Cristo Rei,Anual,True,109.9,1318.8,2024-02-29,True
+275,Julia Ribeiro,F,2004-09-09,"Rua Augusto Stresser, 470, Juvevê, Curitiba - PR",Mercês,Trimestral,False,119.9,359.7,2024-03-13,True
+276,Diogo Fogaça,M,1984-11-26,"Rua Itupava, 85, Alto da XV, Curitiba - PR",Santa Felicidade,Anual,False,109.9,1318.8,2024-04-16,False
+277,Vitória Nunes,F,1982-06-16,"Rua Professor Brandão, 321, Alto da Glória, Curitiba - PR",Cristo Rei,Anual,False,109.9,1318.8,2024-07-19,True
+278,Dr. Daniel Duarte,M,1993-10-19,"Rua XV de Novembro, 123, Centro, Curitiba - PR",Mercês,Anual,False,109.9,1318.8,2024-02-14,True
+279,Maria Julia Dias,F,1965-10-03,"Rua Monsenhor Celso, 120, Centro, Curitiba - PR",Centro,Anual,False,109.9,1318.8,2024-01-30,True
+280,Felipe Almeida,M,1997-10-12,"Rua Padre Anchieta, 300, Bigorrilho, Curitiba - PR",Mercês,Anual,False,109.9,1318.8,2025-02-24,True
+281,Anthony Silva,M,1997-12-18,"Rua Coronel Dulcídio, 1000, Batel, Curitiba - PR",Santa Felicidade,Trimestral,False,119.9,359.7,2024-04-27,True
+282,Maitê Viana,F,2002-07-25,"Rua Marechal Deodoro, 789, Alto da XV, Curitiba - PR",Batel,Anual,False,109.9,1318.8,2023-09-02,True
+283,Bryan Silveira,M,2001-06-28,"Rua Chile, 234, Rebouças, Curitiba - PR",Centro,Anual,False,109.9,1318.8,2023-09-15,True
+284,Luiz Otávio Moura,M,1995-07-07,"Avenida Sete de Setembro, 456, Batel, Curitiba - PR",Santa Felicidade,Anual,False,109.9,1318.8,2025-03-18,True
+285,Dr. Gustavo Henrique da Cruz,M,2002-12-11,"Rua Monsenhor Celso, 120, Centro, Curitiba - PR",Mercês,Mensal,False,129.9,129.9,2023-12-25,False
+286,Bryan Caldeira,M,1997-10-12,"Rua Chile, 234, Rebouças, Curitiba - PR",Mercês,Trimestral,False,119.9,359.7,2023-11-11,True
+287,Sra. Ana Carolina Barbosa,F,2006-10-09,"Rua Camões, 718, Hugo Lange, Curitiba - PR",Cristo Rei,Mensal,False,129.9,129.9,2023-08-19,True
+288,Alexia da Cruz,F,2000-04-08,"Rua Itupava, 85, Alto da XV, Curitiba - PR",Batel,Trimestral,False,119.9,359.7,2023-09-15,True
+289,Maria Araújo,F,1968-11-26,"Rua Augusto Stresser, 470, Juvevê, Curitiba - PR",Água Verde,Anual,False,109.9,1318.8,2024-09-02,True
+290,Nicole Ferreira,F,1983-08-18,"Rua XV de Novembro, 123, Centro, Curitiba - PR",Mercês,Trimestral,False,119.9,359.7,2023-12-22,False
+291,Luiz Gustavo Lima,M,1975-09-21,"Rua Bento Viana, 710, Batel, Curitiba - PR",Cristo Rei,Anual,False,109.9,1318.8,2024-08-11,True
+292,Ana Sophia Cavalcanti,F,2000-06-24,"Rua Camões, 718, Hugo Lange, Curitiba - PR",Centro,Anual,False,109.9,1318.8,2024-04-22,True
+293,Bruna Sales,F,1970-09-28,"Rua Monsenhor Celso, 120, Centro, Curitiba - PR",Mercês,Mensal,True,129.9,129.9,2024-05-11,True
+294,Larissa Carvalho,F,1968-12-18,"Rua São Vicente, 305, Jardim Social, Curitiba - PR",Batel,Anual,False,109.9,1318.8,2024-02-21,True
+295,Srta. Ana Vitória Moreira,F,1977-06-02,"Rua Monsenhor Celso, 120, Centro, Curitiba - PR",Cristo Rei,Trimestral,False,119.9,359.7,2025-02-21,True
+296,Luna da Luz,F,1999-06-18,"Rua Augusto Stresser, 470, Juvevê, Curitiba - PR",Batel,Anual,False,109.9,1318.8,2025-04-29,True
+297,Maria Julia Moraes,F,1994-06-04,"Rua Coronel Dulcídio, 1000, Batel, Curitiba - PR",Centro,Anual,False,109.9,1318.8,2023-08-27,True
+298,Ana Carolina Campos,F,1972-08-10,"Rua Camões, 718, Hugo Lange, Curitiba - PR",Cristo Rei,Mensal,True,129.9,129.9,2024-01-10,True
+299,Alana Cardoso,F,1979-02-12,"Rua Itupava, 85, Alto da XV, Curitiba - PR",Batel,Anual,False,109.9,1318.8,2024-10-07,True
+300,Gabrielly Costela,F,1986-11-22,"Rua Monsenhor Celso, 120, Centro, Curitiba - PR",Mercês,Anual,False,109.9,1318.8,2024-10-29,True
+301,Luna Costa,F,1991-05-07,"Rua João Gualberto, 525, Juvevê, Curitiba - PR",Água Verde,Trimestral,False,119.9,359.7,2025-03-07,True
+302,Srta. Agatha Viana,F,1977-01-14,"Rua Francisco Rocha, 55, Batel, Curitiba - PR",Mercês,Trimestral,True,119.9,359.7,2024-03-30,True
+303,Heloísa Farias,F,2005-04-10,"Rua Itupava, 85, Alto da XV, Curitiba - PR",Mercês,Mensal,False,129.9,129.9,2025-01-04,True
+304,Carolina Teixeira,F,1990-05-29,"Rua Professor Brandão, 321, Alto da Glória, Curitiba - PR",Água Verde,Anual,False,109.9,1318.8,2023-06-26,False
+305,Catarina Costela,F,1972-09-18,"Rua Chile, 234, Rebouças, Curitiba - PR",Batel,Anual,False,109.9,1318.8,2024-10-06,True
+306,Emanuelly da Cunha,F,1976-01-12,"Rua São Francisco, 12, São Francisco, Curitiba - PR",Cristo Rei,Mensal,True,129.9,129.9,2025-02-18,True
+307,Bárbara Porto,F,1995-10-10,"Rua Itupava, 85, Alto da XV, Curitiba - PR",Mercês,Trimestral,False,119.9,359.7,2024-12-01,True
+308,Isaac Ramos,M,1976-03-26,"Rua Dr. Faivre, 210, Centro, Curitiba - PR",Mercês,Mensal,False,129.9,129.9,2024-07-15,False
+309,Pedro Henrique Rezende,M,1988-10-05,"Rua Francisco Rocha, 55, Batel, Curitiba - PR",Batel,Mensal,False,129.9,129.9,2024-02-10,True
+310,Stella Rocha,F,1971-07-11,"Avenida Silva Jardim, 450, Rebouças, Curitiba - PR",Santa Felicidade,Trimestral,False,119.9,359.7,2025-01-28,True
+311,Lívia Rocha,F,1997-07-21,"Rua Dr. Faivre, 210, Centro, Curitiba - PR",Batel,Anual,False,109.9,1318.8,2024-10-16,True
+312,Maria Luiza Santos,F,1982-07-16,"Rua Coronel Dulcídio, 1000, Batel, Curitiba - PR",Batel,Mensal,False,129.9,129.9,2025-01-26,True
+313,Enrico Araújo,M,1971-01-19,"Rua Monsenhor Celso, 120, Centro, Curitiba - PR",Batel,Anual,False,109.9,1318.8,2024-06-18,True
+314,Melissa Gomes,F,1972-03-05,"Rua Chile, 234, Rebouças, Curitiba - PR",Mercês,Anual,False,109.9,1318.8,2024-12-02,True
+315,Luiz Miguel Freitas,M,1981-09-30,"Rua Francisco Rocha, 55, Batel, Curitiba - PR",Santa Felicidade,Anual,False,109.9,1318.8,2024-11-30,True
+316,Mariane Gonçalves,F,1976-12-15,"Rua Francisco Rocha, 55, Batel, Curitiba - PR",Batel,Mensal,True,129.9,129.9,2024-12-29,True
+317,Stella Duarte,F,1970-02-28,"Rua Francisco Rocha, 55, Batel, Curitiba - PR",Santa Felicidade,Trimestral,True,119.9,359.7,2025-03-07,True
+318,Enzo Ferreira,M,1990-05-20,"Rua João Gualberto, 525, Juvevê, Curitiba - PR",Centro,Anual,False,109.9,1318.8,2024-06-04,True
+319,Ana Carolina Nascimento,F,2000-09-27,"Rua Monsenhor Celso, 120, Centro, Curitiba - PR",Cristo Rei,Anual,False,109.9,1318.8,2024-05-27,False
+320,Ana Vitória Moura,F,1966-12-25,"Rua Desembargador Westphalen, 654, Centro, Curitiba - PR",Batel,Anual,False,109.9,1318.8,2024-04-21,True
+321,Rodrigo Porto,M,1967-09-22,"Rua São Vicente, 305, Jardim Social, Curitiba - PR",Centro,Trimestral,True,119.9,359.7,2023-07-02,True
+322,Dra. Maria Luiza Jesus,F,1974-02-26,"Rua Augusto Stresser, 470, Juvevê, Curitiba - PR",Cristo Rei,Trimestral,False,119.9,359.7,2024-05-26,True
+323,Srta. Bruna Dias,F,2001-09-21,"Avenida Sete de Setembro, 456, Batel, Curitiba - PR",Santa Felicidade,Mensal,False,129.9,129.9,2023-06-28,True
+324,Gabriel Gonçalves,M,1978-05-31,"Rua Chile, 234, Rebouças, Curitiba - PR",Mercês,Anual,False,109.9,1318.8,2023-11-06,True
+325,Enzo Gabriel Vieira,M,1967-10-05,"Avenida Sete de Setembro, 456, Batel, Curitiba - PR",Batel,Mensal,False,129.9,129.9,2023-08-09,True
+326,João Vitor Gomes,M,1992-03-07,"Rua Bento Viana, 710, Batel, Curitiba - PR",Santa Felicidade,Mensal,False,129.9,129.9,2024-10-19,False
+327,Caio Lima,M,1984-08-18,"Rua Bento Viana, 710, Batel, Curitiba - PR",Água Verde,Mensal,False,129.9,129.9,2025-01-01,True
+328,Felipe Ferreira,M,1972-01-11,"Rua Padre Anchieta, 300, Bigorrilho, Curitiba - PR",Centro,Mensal,False,129.9,129.9,2024-11-24,True
+329,Dr. Leandro Silveira,M,1982-10-04,"Rua Itupava, 85, Alto da XV, Curitiba - PR",Centro,Anual,False,109.9,1318.8,2023-07-10,True
+330,Marcos Vinicius Mendes,M,1992-06-02,"Rua São Vicente, 305, Jardim Social, Curitiba - PR",Mercês,Trimestral,False,119.9,359.7,2024-07-15,True
+331,Luiz Henrique Caldeira,M,2007-01-28,"Rua João Gualberto, 525, Juvevê, Curitiba - PR",Água Verde,Anual,False,109.9,1318.8,2024-07-12,True
+332,Vitória Pereira,F,2001-11-11,"Rua XV de Novembro, 123, Centro, Curitiba - PR",Centro,Trimestral,False,119.9,359.7,2025-01-21,True
+333,Lucca Aragão,M,1993-01-27,"Rua João Gualberto, 525, Juvevê, Curitiba - PR",Centro,Anual,False,109.9,1318.8,2024-01-23,True
+334,Rafael Moura,M,1980-01-27,"Rua Marechal Deodoro, 789, Alto da XV, Curitiba - PR",Cristo Rei,Mensal,False,129.9,129.9,2024-01-31,True
+335,Srta. Sophie Moura,F,1974-04-21,"Rua Monsenhor Celso, 120, Centro, Curitiba - PR",Água Verde,Trimestral,False,119.9,359.7,2023-12-08,True
+336,Kevin Aragão,M,2004-07-19,"Rua Padre Anchieta, 300, Bigorrilho, Curitiba - PR",Centro,Trimestral,False,119.9,359.7,2024-01-17,True
+337,Agatha Nogueira,F,1991-09-20,"Rua João Gualberto, 525, Juvevê, Curitiba - PR",Cristo Rei,Trimestral,True,119.9,359.7,2024-10-29,True
+338,Luiz Henrique Cardoso,M,1990-05-21,"Rua XV de Novembro, 123, Centro, Curitiba - PR",Cristo Rei,Mensal,False,129.9,129.9,2025-05-30,True
+339,Ian Rezende,M,1997-01-22,"Rua Itupava, 85, Alto da XV, Curitiba - PR",Batel,Mensal,True,129.9,129.9,2024-07-15,True
+340,Ana Julia Alves,F,2003-11-14,"Rua Augusto Stresser, 470, Juvevê, Curitiba - PR",Santa Felicidade,Mensal,False,129.9,129.9,2024-04-29,True
+341,Dra. Camila Fogaça,F,1997-09-06,"Rua Dr. Faivre, 210, Centro, Curitiba - PR",Centro,Anual,False,109.9,1318.8,2024-07-27,True
+342,Anthony Ramos,M,2005-08-18,"Avenida Iguaçu, 1020, Água Verde, Curitiba - PR",Santa Felicidade,Mensal,False,129.9,129.9,2025-02-18,True
+343,Clara Freitas,F,1985-03-11,"Avenida Sete de Setembro, 456, Batel, Curitiba - PR",Santa Felicidade,Trimestral,False,119.9,359.7,2023-12-27,True
+344,Manuela Moreira,F,1985-10-04,"Rua Marechal Deodoro, 789, Alto da XV, Curitiba - PR",Mercês,Anual,False,109.9,1318.8,2024-08-03,True
+345,Carlos Eduardo Fogaça,M,1992-09-07,"Rua Marechal Deodoro, 789, Alto da XV, Curitiba - PR",Santa Felicidade,Anual,False,109.9,1318.8,2025-06-08,True
+346,Bernardo Correia,M,1973-11-20,"Rua XV de Novembro, 123, Centro, Curitiba - PR",Santa Felicidade,Anual,False,109.9,1318.8,2023-09-18,True
+347,Isabella Novaes,F,1979-06-21,"Rua Padre Anchieta, 300, Bigorrilho, Curitiba - PR",Centro,Anual,False,109.9,1318.8,2023-12-01,True
+348,Elisa Cardoso,F,1982-11-24,"Rua Monsenhor Celso, 120, Centro, Curitiba - PR",Santa Felicidade,Anual,False,109.9,1318.8,2024-08-29,True
+349,Emanuel Cavalcanti,M,2005-04-13,"Rua XV de Novembro, 123, Centro, Curitiba - PR",Santa Felicidade,Trimestral,False,119.9,359.7,2024-02-11,True
+350,Maria Vitória Costela,F,1989-11-17,"Avenida Sete de Setembro, 456, Batel, Curitiba - PR",Centro,Anual,False,109.9,1318.8,2025-05-05,True
+351,Camila Ferreira,F,1999-09-04,"Rua Professor Brandão, 321, Alto da Glória, Curitiba - PR",Batel,Anual,False,109.9,1318.8,2024-12-07,True
+352,Benjamin Cardoso,M,1980-02-21,"Rua João Gualberto, 525, Juvevê, Curitiba - PR",Santa Felicidade,Anual,False,109.9,1318.8,2023-07-24,True
+353,Maria Cecília Rocha,F,1987-07-11,"Rua Itupava, 85, Alto da XV, Curitiba - PR",Mercês,Anual,False,109.9,1318.8,2025-03-16,True
+354,Ana Clara Dias,F,1992-08-29,"Rua XV de Novembro, 123, Centro, Curitiba - PR",Batel,Mensal,False,129.9,129.9,2025-02-21,True
+355,Alícia Melo,F,2004-12-17,"Rua Padre Anchieta, 300, Bigorrilho, Curitiba - PR",Água Verde,Anual,False,109.9,1318.8,2024-10-05,True
+356,Nicole Araújo,F,2006-08-18,"Rua Marechal Deodoro, 789, Alto da XV, Curitiba - PR",Mercês,Trimestral,False,119.9,359.7,2025-04-27,True
+357,Luiz Miguel Moreira,M,1964-12-05,"Avenida Iguaçu, 1020, Água Verde, Curitiba - PR",Santa Felicidade,Mensal,False,129.9,129.9,2023-12-22,True
+358,Leandro Oliveira,M,1979-10-02,"Rua Francisco Rocha, 55, Batel, Curitiba - PR",Água Verde,Trimestral,True,119.9,359.7,2025-03-02,False
+359,Ana Carolina Barbosa,F,1988-07-24,"Rua Dr. Faivre, 210, Centro, Curitiba - PR",Centro,Mensal,False,129.9,129.9,2023-09-22,True
+360,Murilo Novaes,M,1978-03-14,"Rua Chile, 234, Rebouças, Curitiba - PR",Água Verde,Anual,False,109.9,1318.8,2024-05-01,True
+361,Dr. Luigi Pires,M,1972-12-17,"Rua Padre Anchieta, 300, Bigorrilho, Curitiba - PR",Centro,Anual,False,109.9,1318.8,2025-03-02,True
+362,Marcela da Paz,F,2006-11-22,"Rua Coronel Dulcídio, 1000, Batel, Curitiba - PR",Água Verde,Trimestral,False,119.9,359.7,2024-08-11,False
+363,Helena Santos,F,1982-10-14,"Rua Marechal Deodoro, 789, Alto da XV, Curitiba - PR",Água Verde,Trimestral,True,119.9,359.7,2024-10-21,True
+364,Pedro Miguel Oliveira,M,1964-09-25,"Rua Chile, 234, Rebouças, Curitiba - PR",Batel,Trimestral,False,119.9,359.7,2025-05-08,True
+365,Alícia da Conceição,F,1982-02-03,"Rua Dr. Faivre, 210, Centro, Curitiba - PR",Água Verde,Trimestral,False,119.9,359.7,2023-08-10,True
+366,Nicolas Nogueira,M,1973-11-20,"Rua Francisco Rocha, 55, Batel, Curitiba - PR",Centro,Trimestral,False,119.9,359.7,2024-08-21,True
+367,Sra. Lívia Pires,F,1981-05-02,"Rua Chile, 234, Rebouças, Curitiba - PR",Cristo Rei,Trimestral,False,119.9,359.7,2023-10-10,True
+368,Dra. Laís Cardoso,F,1987-04-13,"Rua Camões, 718, Hugo Lange, Curitiba - PR",Cristo Rei,Anual,False,109.9,1318.8,2025-05-22,True
+369,Dr. João Gomes,M,1982-11-27,"Rua Monsenhor Celso, 120, Centro, Curitiba - PR",Mercês,Trimestral,False,119.9,359.7,2023-12-13,True
+370,Enzo Lima,M,1969-04-26,"Rua João Gualberto, 525, Juvevê, Curitiba - PR",Centro,Anual,False,109.9,1318.8,2025-04-04,False
+371,Larissa Rodrigues,F,1981-01-29,"Rua Augusto Stresser, 470, Juvevê, Curitiba - PR",Cristo Rei,Anual,True,109.9,1318.8,2024-05-22,True
+372,Srta. Agatha Barbosa,F,1981-02-13,"Rua Monsenhor Celso, 120, Centro, Curitiba - PR",Cristo Rei,Mensal,False,129.9,129.9,2024-11-21,True
+373,Agatha Araújo,F,1991-06-14,"Rua Camões, 718, Hugo Lange, Curitiba - PR",Água Verde,Trimestral,False,119.9,359.7,2025-04-19,True
+374,Bryan Sales,M,1994-11-03,"Rua Chile, 234, Rebouças, Curitiba - PR",Batel,Trimestral,False,119.9,359.7,2025-02-13,True
+375,Srta. Clarice Teixeira,F,2006-08-22,"Avenida Iguaçu, 1020, Água Verde, Curitiba - PR",Batel,Anual,False,109.9,1318.8,2024-07-14,True
+376,Isabelly Cardoso,F,2003-04-21,"Rua Monsenhor Celso, 120, Centro, Curitiba - PR",Santa Felicidade,Mensal,False,129.9,129.9,2023-10-28,True
+377,Sophie da Conceição,F,2004-12-14,"Rua Padre Anchieta, 300, Bigorrilho, Curitiba - PR",Mercês,Trimestral,False,119.9,359.7,2023-09-10,True
+378,Dra. Maria Luiza Costa,F,1999-08-18,"Rua Chile, 234, Rebouças, Curitiba - PR",Água Verde,Mensal,False,129.9,129.9,2024-10-20,True
+379,João Carvalho,M,1990-01-01,"Rua João Gualberto, 525, Juvevê, Curitiba - PR",Água Verde,Anual,False,109.9,1318.8,2023-11-11,True
+380,Alana Moreira,F,1973-05-30,"Rua Bento Viana, 710, Batel, Curitiba - PR",Centro,Trimestral,False,119.9,359.7,2024-05-26,True
+381,Ian da Paz,M,1978-05-20,"Avenida Sete de Setembro, 456, Batel, Curitiba - PR",Mercês,Trimestral,False,119.9,359.7,2025-02-05,True
+382,Vitor Pinto,M,1979-08-14,"Rua Professor Brandão, 321, Alto da Glória, Curitiba - PR",Mercês,Trimestral,False,119.9,359.7,2024-12-01,True
+383,Lucca Teixeira,M,1971-05-01,"Rua Desembargador Westphalen, 654, Centro, Curitiba - PR",Batel,Anual,False,109.9,1318.8,2025-01-26,True
+384,Juliana Peixoto,F,1981-11-08,"Rua Monsenhor Celso, 120, Centro, Curitiba - PR",Batel,Trimestral,True,119.9,359.7,2024-04-25,True
+385,Sra. Emanuelly Ribeiro,F,2004-10-02,"Rua Monsenhor Celso, 120, Centro, Curitiba - PR",Centro,Mensal,False,129.9,129.9,2025-06-01,True
+386,Lara Silva,F,1994-07-11,"Rua Padre Anchieta, 300, Bigorrilho, Curitiba - PR",Batel,Anual,False,109.9,1318.8,2024-01-23,True
+387,Luiz Otávio Lopes,M,2006-01-28,"Rua Padre Anchieta, 300, Bigorrilho, Curitiba - PR",Santa Felicidade,Mensal,False,129.9,129.9,2024-10-19,True
+388,Luigi Aragão,M,1966-11-26,"Avenida Iguaçu, 1020, Água Verde, Curitiba - PR",Mercês,Anual,False,109.9,1318.8,2024-09-20,True
+389,Camila Freitas,F,1967-12-08,"Rua Augusto Stresser, 470, Juvevê, Curitiba - PR",Cristo Rei,Mensal,True,129.9,129.9,2023-12-04,True
+390,Lucas Gabriel da Paz,M,1982-06-08,"Rua Desembargador Westphalen, 654, Centro, Curitiba - PR",Cristo Rei,Anual,False,109.9,1318.8,2024-01-16,True
+391,Dr. Vitor Hugo da Luz,M,2005-02-17,"Rua Dr. Faivre, 210, Centro, Curitiba - PR",Água Verde,Anual,False,109.9,1318.8,2023-07-22,True
+392,Benício Rezende,M,1997-01-06,"Rua Coronel Dulcídio, 1000, Batel, Curitiba - PR",Santa Felicidade,Anual,False,109.9,1318.8,2023-11-11,True
+393,Valentina Silveira,F,2004-09-23,"Rua Professor Brandão, 321, Alto da Glória, Curitiba - PR",Água Verde,Anual,False,109.9,1318.8,2024-05-24,True
+394,Maria Eduarda Lima,F,1978-12-30,"Rua Itupava, 85, Alto da XV, Curitiba - PR",Batel,Trimestral,False,119.9,359.7,2024-05-08,True
+395,Pedro Henrique Freitas,M,1992-01-09,"Rua Monsenhor Celso, 120, Centro, Curitiba - PR",Santa Felicidade,Anual,False,109.9,1318.8,2025-05-16,True
+396,Maysa Lima,F,1991-05-28,"Rua Bento Viana, 710, Batel, Curitiba - PR",Água Verde,Trimestral,False,119.9,359.7,2023-09-16,True
+397,Letícia Barros,F,1983-09-02,"Rua São Vicente, 305, Jardim Social, Curitiba - PR",Santa Felicidade,Mensal,False,129.9,129.9,2025-05-12,True
+398,Luiz Otávio Pires,M,1968-12-20,"Rua Marechal Deodoro, 789, Alto da XV, Curitiba - PR",Centro,Trimestral,False,119.9,359.7,2024-05-21,True
+399,Ryan Sales,M,1990-05-07,"Rua Bento Viana, 710, Batel, Curitiba - PR",Santa Felicidade,Anual,True,109.9,1318.8,2025-01-18,True
+400,Thales Araújo,M,1981-09-03,"Rua São Vicente, 305, Jardim Social, Curitiba - PR",Santa Felicidade,Anual,False,109.9,1318.8,2024-02-10,True
+401,Ana Sophia Monteiro,F,1998-05-08,"Rua Monsenhor Celso, 120, Centro, Curitiba - PR",Santa Felicidade,Trimestral,False,119.9,359.7,2023-11-21,True
+402,Diego Barbosa,M,1996-11-11,"Rua XV de Novembro, 123, Centro, Curitiba - PR",Cristo Rei,Mensal,False,129.9,129.9,2024-11-01,False
+403,Ana Luiza Costa,F,1988-01-02,"Rua Padre Anchieta, 300, Bigorrilho, Curitiba - PR",Mercês,Anual,False,109.9,1318.8,2024-07-01,True
+404,Luiz Otávio Martins,M,1997-03-24,"Rua Coronel Dulcídio, 1000, Batel, Curitiba - PR",Batel,Trimestral,True,119.9,359.7,2025-03-24,True
+405,Alana Mendes,F,2003-07-04,"Rua Camões, 718, Hugo Lange, Curitiba - PR",Centro,Mensal,False,129.9,129.9,2024-12-22,False
+406,Thales Pereira,M,1983-09-01,"Avenida Silva Jardim, 450, Rebouças, Curitiba - PR",Cristo Rei,Trimestral,False,119.9,359.7,2024-07-23,True
+407,Nathan da Conceição,M,1981-11-03,"Rua Padre Anchieta, 300, Bigorrilho, Curitiba - PR",Mercês,Mensal,False,129.9,129.9,2024-08-26,False
+408,Luiz Fernando Barros,M,1998-04-03,"Rua Professor Brandão, 321, Alto da Glória, Curitiba - PR",Cristo Rei,Trimestral,True,119.9,359.7,2024-06-07,True
+409,Leandro Porto,M,2005-01-08,"Rua Camões, 718, Hugo Lange, Curitiba - PR",Batel,Anual,False,109.9,1318.8,2023-09-01,True
+410,Maria Vitória Caldeira,F,1973-05-05,"Rua XV de Novembro, 123, Centro, Curitiba - PR",Santa Felicidade,Trimestral,False,119.9,359.7,2024-03-14,True
+411,Pietro da Rocha,M,2005-06-29,"Rua Francisco Rocha, 55, Batel, Curitiba - PR",Batel,Anual,False,109.9,1318.8,2025-02-08,True
+412,Gabriela Rodrigues,F,1979-02-10,"Rua Desembargador Westphalen, 654, Centro, Curitiba - PR",Santa Felicidade,Mensal,False,129.9,129.9,2023-10-28,True
+413,Dr. Vicente Araújo,M,1984-09-15,"Rua Augusto Stresser, 470, Juvevê, Curitiba - PR",Batel,Anual,True,109.9,1318.8,2023-08-30,True
+414,Ana Beatriz Souza,F,1978-05-27,"Rua Marechal Deodoro, 789, Alto da XV, Curitiba - PR",Batel,Trimestral,False,119.9,359.7,2023-10-23,True
+415,Yago Nascimento,M,2003-11-12,"Rua Padre Anchieta, 300, Bigorrilho, Curitiba - PR",Centro,Mensal,False,129.9,129.9,2025-06-03,True
+416,Pedro Lucas Ribeiro,M,2007-04-12,"Rua Padre Anchieta, 300, Bigorrilho, Curitiba - PR",Mercês,Anual,False,109.9,1318.8,2024-09-22,True
+417,João Gabriel Cavalcanti,M,1970-12-12,"Rua Professor Brandão, 321, Alto da Glória, Curitiba - PR",Batel,Anual,False,109.9,1318.8,2023-12-08,False
+418,Emanuelly Rezende,F,1977-06-11,"Avenida Iguaçu, 1020, Água Verde, Curitiba - PR",Cristo Rei,Mensal,False,129.9,129.9,2025-02-20,False
+419,Dra. Isadora Caldeira,F,1972-12-17,"Rua São Vicente, 305, Jardim Social, Curitiba - PR",Mercês,Trimestral,False,119.9,359.7,2024-07-20,True
+420,Maria Eduarda Cardoso,F,1983-05-22,"Rua Camões, 718, Hugo Lange, Curitiba - PR",Batel,Trimestral,False,119.9,359.7,2023-10-08,True
+421,Ana Clara Gonçalves,F,1990-01-10,"Rua Padre Anchieta, 300, Bigorrilho, Curitiba - PR",Batel,Anual,False,109.9,1318.8,2024-08-14,False
+422,Vinicius Gomes,M,1975-07-15,"Rua São Francisco, 12, São Francisco, Curitiba - PR",Santa Felicidade,Mensal,False,129.9,129.9,2024-10-02,True
+423,João Costela,M,1979-10-06,"Rua Chile, 234, Rebouças, Curitiba - PR",Água Verde,Anual,False,109.9,1318.8,2023-11-05,True
+424,Mariana Caldeira,F,1985-11-19,"Avenida Silva Jardim, 450, Rebouças, Curitiba - PR",Batel,Anual,False,109.9,1318.8,2025-05-17,True
+425,Sra. Maysa Barbosa,F,2000-10-07,"Rua Bento Viana, 710, Batel, Curitiba - PR",Cristo Rei,Trimestral,False,119.9,359.7,2025-02-15,True
+426,Nicole Campos,F,2006-09-16,"Rua João Gualberto, 525, Juvevê, Curitiba - PR",Água Verde,Anual,False,109.9,1318.8,2025-04-24,False
+427,Joaquim Santos,M,1975-12-14,"Rua Professor Brandão, 321, Alto da Glória, Curitiba - PR",Centro,Anual,True,109.9,1318.8,2024-08-27,True
+428,Clara da Mata,F,1995-02-16,"Rua São Vicente, 305, Jardim Social, Curitiba - PR",Água Verde,Anual,False,109.9,1318.8,2025-02-23,True
+429,Luiz Gustavo Campos,M,2003-08-30,"Rua Desembargador Westphalen, 654, Centro, Curitiba - PR",Centro,Trimestral,False,119.9,359.7,2023-06-21,True
+430,Isis Teixeira,F,1999-12-06,"Rua Camões, 718, Hugo Lange, Curitiba - PR",Mercês,Trimestral,False,119.9,359.7,2024-01-06,True
+431,Matheus Fernandes,M,1983-01-01,"Rua Marechal Deodoro, 789, Alto da XV, Curitiba - PR",Centro,Trimestral,True,119.9,359.7,2025-05-10,True
+432,Juan das Neves,M,1980-01-22,"Rua Bento Viana, 710, Batel, Curitiba - PR",Cristo Rei,Trimestral,False,119.9,359.7,2024-04-05,True
+433,Benjamin Araújo,M,2005-08-04,"Rua Camões, 718, Hugo Lange, Curitiba - PR",Batel,Mensal,False,129.9,129.9,2024-05-30,True
+434,Renan Alves,M,1977-03-31,"Rua Desembargador Westphalen, 654, Centro, Curitiba - PR",Santa Felicidade,Anual,False,109.9,1318.8,2024-05-26,True
+435,Caroline da Luz,F,1996-03-19,"Rua Bento Viana, 710, Batel, Curitiba - PR",Centro,Anual,True,109.9,1318.8,2023-11-14,False
+436,Ana Laura Farias,F,1979-01-03,"Rua Camões, 718, Hugo Lange, Curitiba - PR",Cristo Rei,Trimestral,False,119.9,359.7,2024-10-22,True
+437,Yasmin Melo,F,1999-06-10,"Rua Camões, 718, Hugo Lange, Curitiba - PR",Mercês,Anual,False,109.9,1318.8,2023-10-12,True
+438,Thales Castro,M,1979-05-29,"Rua Professor Brandão, 321, Alto da Glória, Curitiba - PR",Água Verde,Anual,True,109.9,1318.8,2023-10-18,False
+439,João Gabriel Pires,M,1975-02-28,"Rua Francisco Rocha, 55, Batel, Curitiba - PR",Batel,Mensal,False,129.9,129.9,2024-02-11,True
+440,Dra. Juliana Ramos,F,1994-09-20,"Rua João Gualberto, 525, Juvevê, Curitiba - PR",Centro,Trimestral,True,119.9,359.7,2024-01-31,True
+441,Renan Ferreira,M,2003-11-25,"Rua Camões, 718, Hugo Lange, Curitiba - PR",Santa Felicidade,Mensal,False,129.9,129.9,2024-04-04,True
+442,Eduarda Silveira,F,1984-03-12,"Rua João Gualberto, 525, Juvevê, Curitiba - PR",Cristo Rei,Anual,False,109.9,1318.8,2024-04-29,True
+443,Maitê Martins,F,1977-05-01,"Rua Marechal Deodoro, 789, Alto da XV, Curitiba - PR",Centro,Trimestral,False,119.9,359.7,2024-07-30,True
+444,Vicente Rodrigues,M,1971-04-02,"Rua Dr. Faivre, 210, Centro, Curitiba - PR",Centro,Trimestral,False,119.9,359.7,2025-03-04,True
+445,Marcelo Souza,M,1991-12-02,"Rua Coronel Dulcídio, 1000, Batel, Curitiba - PR",Água Verde,Mensal,True,129.9,129.9,2023-08-03,False
+446,Ana Carolina Santos,F,1996-07-27,"Rua João Gualberto, 525, Juvevê, Curitiba - PR",Água Verde,Mensal,False,129.9,129.9,2023-07-16,True
+447,Joana da Rosa,F,1995-02-06,"Rua Augusto Stresser, 470, Juvevê, Curitiba - PR",Água Verde,Trimestral,False,119.9,359.7,2025-05-31,True
+448,Gabriel Caldeira,M,1974-08-06,"Rua Itupava, 85, Alto da XV, Curitiba - PR",Santa Felicidade,Anual,False,109.9,1318.8,2024-08-17,True
+449,Emanuella da Rocha,F,1998-12-27,"Rua Itupava, 85, Alto da XV, Curitiba - PR",Água Verde,Anual,False,109.9,1318.8,2025-04-01,True
+450,Eduardo Santos,M,1989-08-06,"Rua Francisco Rocha, 55, Batel, Curitiba - PR",Centro,Trimestral,False,119.9,359.7,2023-10-26,True
+451,Sr. Samuel das Neves,M,1964-08-09,"Rua Professor Brandão, 321, Alto da Glória, Curitiba - PR",Santa Felicidade,Mensal,False,129.9,129.9,2024-04-01,True
+452,Alice Campos,F,1979-07-14,"Rua Marechal Deodoro, 789, Alto da XV, Curitiba - PR",Santa Felicidade,Mensal,False,129.9,129.9,2025-05-02,True
+453,Vinicius Cardoso,M,1988-10-04,"Rua Marechal Deodoro, 789, Alto da XV, Curitiba - PR",Água Verde,Mensal,False,129.9,129.9,2024-07-27,True
+454,Alexia Ramos,F,1997-02-13,"Rua João Gualberto, 525, Juvevê, Curitiba - PR",Cristo Rei,Anual,False,109.9,1318.8,2024-04-14,True
+455,Ana Carolina Lopes,F,1987-11-24,"Rua São Francisco, 12, São Francisco, Curitiba - PR",Santa Felicidade,Anual,False,109.9,1318.8,2024-12-29,True
+456,Danilo Melo,M,2004-10-04,"Rua Bento Viana, 710, Batel, Curitiba - PR",Batel,Anual,False,109.9,1318.8,2024-12-18,True
+457,Nicolas Azevedo,M,2006-09-05,"Rua Dr. Faivre, 210, Centro, Curitiba - PR",Batel,Anual,False,109.9,1318.8,2024-09-26,False
+458,Marcela Alves,F,2004-10-02,"Rua XV de Novembro, 123, Centro, Curitiba - PR",Cristo Rei,Trimestral,False,119.9,359.7,2025-01-01,True
+459,Diogo Mendes,M,1984-10-29,"Rua João Gualberto, 525, Juvevê, Curitiba - PR",Mercês,Mensal,False,129.9,129.9,2024-06-23,True
+460,Sophie Caldeira,F,1990-09-06,"Rua João Gualberto, 525, Juvevê, Curitiba - PR",Centro,Mensal,False,129.9,129.9,2023-11-04,True
+461,Pedro Lucas Porto,M,1985-09-03,"Avenida Silva Jardim, 450, Rebouças, Curitiba - PR",Mercês,Mensal,False,129.9,129.9,2024-04-22,True
+462,Luiz Gustavo Castro,M,1999-11-11,"Rua Desembargador Westphalen, 654, Centro, Curitiba - PR",Santa Felicidade,Anual,True,109.9,1318.8,2023-12-14,True
+463,Sr. Rafael Costela,M,1999-07-18,"Rua João Gualberto, 525, Juvevê, Curitiba - PR",Água Verde,Trimestral,True,119.9,359.7,2023-11-29,True
+464,Luiz Henrique Barbosa,M,1988-11-29,"Rua Camões, 718, Hugo Lange, Curitiba - PR",Cristo Rei,Mensal,False,129.9,129.9,2025-01-19,True
+465,Cecília Monteiro,F,1986-12-09,"Avenida Iguaçu, 1020, Água Verde, Curitiba - PR",Água Verde,Trimestral,False,119.9,359.7,2025-04-03,True
+466,Leonardo Cardoso,M,1964-06-23,"Rua Camões, 718, Hugo Lange, Curitiba - PR",Mercês,Anual,False,109.9,1318.8,2024-04-06,True
+467,Vitor Alves,M,2000-11-26,"Rua Professor Brandão, 321, Alto da Glória, Curitiba - PR",Água Verde,Anual,False,109.9,1318.8,2023-08-05,True
+468,Samuel Monteiro,M,1985-11-27,"Rua Camões, 718, Hugo Lange, Curitiba - PR",Batel,Mensal,False,129.9,129.9,2025-05-19,True
+469,Lucca Rocha,M,1972-07-16,"Rua XV de Novembro, 123, Centro, Curitiba - PR",Centro,Anual,False,109.9,1318.8,2024-08-01,False
+470,Thomas Fogaça,M,1973-03-22,"Rua Camões, 718, Hugo Lange, Curitiba - PR",Mercês,Anual,False,109.9,1318.8,2024-11-21,True
+471,Lavínia Cardoso,F,2004-12-27,"Rua João Gualberto, 525, Juvevê, Curitiba - PR",Cristo Rei,Trimestral,False,119.9,359.7,2024-03-09,True
+472,Bianca Moreira,F,2003-11-28,"Rua Professor Brandão, 321, Alto da Glória, Curitiba - PR",Centro,Mensal,True,129.9,129.9,2024-12-23,True
+473,Dr. Heitor Farias,M,1993-02-25,"Rua Chile, 234, Rebouças, Curitiba - PR",Batel,Anual,False,109.9,1318.8,2024-06-09,False
+474,Enzo Gabriel Moreira,M,1988-10-04,"Rua São Vicente, 305, Jardim Social, Curitiba - PR",Água Verde,Anual,True,109.9,1318.8,2024-11-16,True
+475,Danilo Jesus,M,1992-06-18,"Rua São Francisco, 12, São Francisco, Curitiba - PR",Mercês,Anual,True,109.9,1318.8,2024-02-08,True
+476,Eduardo Novaes,M,1984-04-27,"Rua Francisco Rocha, 55, Batel, Curitiba - PR",Água Verde,Trimestral,True,119.9,359.7,2024-06-14,False
+477,Arthur Rocha,M,2007-05-01,"Rua Monsenhor Celso, 120, Centro, Curitiba - PR",Água Verde,Mensal,False,129.9,129.9,2023-08-23,True
+478,Sr. Henrique Ramos,M,2002-12-29,"Rua Coronel Dulcídio, 1000, Batel, Curitiba - PR",Mercês,Mensal,False,129.9,129.9,2025-03-22,True
+479,Leandro Moreira,M,1972-02-08,"Rua Augusto Stresser, 470, Juvevê, Curitiba - PR",Água Verde,Anual,True,109.9,1318.8,2023-12-15,True
+480,Raquel da Mota,F,1988-10-30,"Rua XV de Novembro, 123, Centro, Curitiba - PR",Santa Felicidade,Anual,True,109.9,1318.8,2025-01-05,True
+481,Manuela Pinto,F,1993-02-26,"Avenida Silva Jardim, 450, Rebouças, Curitiba - PR",Batel,Trimestral,False,119.9,359.7,2024-05-20,True
+482,Ana Júlia Melo,F,2000-05-19,"Rua Marechal Deodoro, 789, Alto da XV, Curitiba - PR",Mercês,Anual,False,109.9,1318.8,2024-01-31,True
+483,Marcos Vinicius Castro,M,1994-04-27,"Rua Dr. Faivre, 210, Centro, Curitiba - PR",Água Verde,Anual,False,109.9,1318.8,2024-12-24,False
+484,Brenda Castro,F,1988-06-19,"Rua Chile, 234, Rebouças, Curitiba - PR",Santa Felicidade,Trimestral,False,119.9,359.7,2024-02-09,True
+485,Lorenzo Cardoso,M,1965-04-22,"Rua João Gualberto, 525, Juvevê, Curitiba - PR",Batel,Anual,True,109.9,1318.8,2023-11-05,True
+486,Sr. Ian Martins,M,1991-09-19,"Avenida Sete de Setembro, 456, Batel, Curitiba - PR",Mercês,Anual,False,109.9,1318.8,2024-01-18,True
+487,Lorena Ferreira,F,2002-12-30,"Rua Dr. Faivre, 210, Centro, Curitiba - PR",Batel,Trimestral,True,119.9,359.7,2025-02-16,True
+488,Ana Lopes,F,1970-05-27,"Avenida Silva Jardim, 450, Rebouças, Curitiba - PR",Água Verde,Anual,False,109.9,1318.8,2023-10-20,False
+489,Sra. Maria Cecília Gomes,F,1999-07-14,"Avenida Silva Jardim, 450, Rebouças, Curitiba - PR",Centro,Mensal,False,129.9,129.9,2024-04-14,True
+490,Benício da Luz,M,1975-01-05,"Rua Dr. Faivre, 210, Centro, Curitiba - PR",Centro,Anual,False,109.9,1318.8,2025-02-26,False
+491,Mariana da Costa,F,1976-06-28,"Rua Desembargador Westphalen, 654, Centro, Curitiba - PR",Água Verde,Anual,False,109.9,1318.8,2023-12-04,True
+492,João Dias,M,1989-05-14,"Rua Dr. Faivre, 210, Centro, Curitiba - PR",Batel,Mensal,False,129.9,129.9,2025-03-15,True
+493,Kevin Duarte,M,1992-08-09,"Rua Francisco Rocha, 55, Batel, Curitiba - PR",Centro,Anual,False,109.9,1318.8,2024-04-21,True
+494,Giovanna Castro,F,2005-08-26,"Rua Augusto Stresser, 470, Juvevê, Curitiba - PR",Batel,Anual,False,109.9,1318.8,2023-12-29,True
+495,Vitor Gabriel Farias,M,1988-06-02,"Rua Dr. Faivre, 210, Centro, Curitiba - PR",Centro,Anual,False,109.9,1318.8,2024-02-29,True
+496,Ana Vitória Peixoto,F,1992-12-14,"Rua Padre Anchieta, 300, Bigorrilho, Curitiba - PR",Mercês,Anual,False,109.9,1318.8,2024-03-27,True
+497,Giovanna da Mota,F,1972-01-31,"Rua Desembargador Westphalen, 654, Centro, Curitiba - PR",Cristo Rei,Trimestral,False,119.9,359.7,2025-05-08,True
+498,Emilly Rezende,F,1998-10-12,"Rua Bento Viana, 710, Batel, Curitiba - PR",Água Verde,Anual,False,109.9,1318.8,2024-10-13,True
+499,Maria Alice Gonçalves,F,1974-02-16,"Rua XV de Novembro, 123, Centro, Curitiba - PR",Cristo Rei,Anual,False,109.9,1318.8,2024-09-27,True
+500,Joaquim Teixeira,M,1999-04-04,"Rua Augusto Stresser, 470, Juvevê, Curitiba - PR",Centro,Mensal,False,129.9,129.9,2025-03-25,True
